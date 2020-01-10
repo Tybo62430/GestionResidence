@@ -103,5 +103,11 @@ namespace GestionResidence
                 childForm.Close();
             }
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            //Connexion NewConnexion = new Connexion();
+            //NewConnexion.ShowDialog();
+        }
     }
 }
