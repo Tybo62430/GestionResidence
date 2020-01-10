@@ -12,6 +12,9 @@ namespace GestionResidence
 {
     public partial class Menu : Form
     {
+
+        public string sChaineConnect = "Data Source=.\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
+
         private int childFormNumber = 0;
 
         public Menu()
@@ -102,6 +105,12 @@ namespace GestionResidence
             {
                 childForm.Close();
             }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CreationResident NouveauResident = new CreationResident();
+            NouveauResident.Show();
         }
     }
 }
