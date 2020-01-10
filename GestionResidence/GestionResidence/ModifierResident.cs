@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GestionResidence
 {
-    public partial class Connexion : Form
+    public partial class ModifierResident : Form
     {
-        public Connexion()
+        public ModifierResident()
         {
             InitializeComponent();
+        }
+
+        private void buttonCréer_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(textBoxNom.ToString());
         }
     }
 }
