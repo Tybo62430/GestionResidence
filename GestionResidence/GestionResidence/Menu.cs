@@ -103,5 +103,19 @@ namespace GestionResidence
                 childForm.Close();
             }
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            Connexion NouvelleConnection = new Connexion();
+            NouvelleConnection.ShowDialog();
+        }
+
+        private void nouveauRésidentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreationResident NouveauResident = new CreationResident();
+            NouveauResident.Show();
+        }
+
+      
     }
 }

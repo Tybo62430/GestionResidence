@@ -70,6 +70,7 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.residentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -82,9 +83,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.residentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chambresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tâchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nouveauRésidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -100,9 +99,7 @@
             this.toolsMenu,
             this.windowsMenu,
             this.helpMenu,
-            this.residentsToolStripMenuItem,
-            this.chambresToolStripMenuItem,
-            this.tâchesToolStripMenuItem});
+            this.residentsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
@@ -435,6 +432,14 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
             this.aboutToolStripMenuItem.Text = "&À propos de ... ...";
             // 
+            // residentsToolStripMenuItem
+            // 
+            this.residentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nouveauRésidentToolStripMenuItem});
+            this.residentsToolStripMenuItem.Name = "residentsToolStripMenuItem";
+            this.residentsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.residentsToolStripMenuItem.Text = "Résidents";
+            // 
             // toolStrip
             // 
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -537,23 +542,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(35, 20);
             this.toolStripStatusLabel.Text = "État";
             // 
-            // residentsToolStripMenuItem
+            // nouveauRésidentToolStripMenuItem
             // 
-            this.residentsToolStripMenuItem.Name = "residentsToolStripMenuItem";
-            this.residentsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
-            this.residentsToolStripMenuItem.Text = "Résidents";
-            // 
-            // chambresToolStripMenuItem
-            // 
-            this.chambresToolStripMenuItem.Name = "chambresToolStripMenuItem";
-            this.chambresToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
-            this.chambresToolStripMenuItem.Text = "Chambres";
-            // 
-            // tâchesToolStripMenuItem
-            // 
-            this.tâchesToolStripMenuItem.Name = "tâchesToolStripMenuItem";
-            this.tâchesToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.tâchesToolStripMenuItem.Text = "Tâches";
+            this.nouveauRésidentToolStripMenuItem.Name = "nouveauRésidentToolStripMenuItem";
+            this.nouveauRésidentToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.nouveauRésidentToolStripMenuItem.Text = "Nouveau Résident";
+            this.nouveauRésidentToolStripMenuItem.Click += new System.EventHandler(this.nouveauRésidentToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -570,6 +564,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
@@ -636,8 +631,7 @@
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem residentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chambresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tâchesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nouveauRésidentToolStripMenuItem;
     }
 }
 
