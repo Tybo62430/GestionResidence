@@ -113,8 +113,8 @@ namespace GestionResidence
             myCommand.Parameters["@ResidentVille"].Value = textBoxVille.Text;
             myCommand.Parameters["@ResidentTypeDeVoie"].Value = textBoxTypeDeVoie.Text;
             myCommand.Parameters["@ResidentVoie"].Value = textBoxVoie.Text;
-            myCommand.Parameters["@ResidentNumero"].Value = textBoxTelephone.Text;
-            myCommand.Parameters["@ResidentTelephone"].Value = textBoxNumero.Text;
+            myCommand.Parameters["@ResidentNumero"].Value = textBoxNumero.Text;
+            myCommand.Parameters["@ResidentTelephone"].Value = textBoxTelephone.Text;
             myCommand.Parameters["@ResidentMail"].Value = textBoxEmail.Text;
             myCommand.Parameters["@ResidentIban"].Value = textBoxIban.Text;
             //myCommand.Parameters["@ResidentPhoto"].Value = pictureBoxPhoto.Image;
