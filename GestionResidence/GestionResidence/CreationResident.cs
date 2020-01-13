@@ -73,7 +73,6 @@ namespace GestionResidence
 
         private void buttonCreer_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(textBoxNom.ToString());
             InsertResident();
         }
 
@@ -105,7 +104,7 @@ namespace GestionResidence
             //myCommand.Parameters.Add("@Nationalite_NationaliteId", SqlDbType.Int);
 
             // Affectation des valeurs
-            myCommand.Parameters["@ResidentIdentifiant"].Value = "XD10";
+            myCommand.Parameters["@ResidentIdentifiant"].Value = "XD11";
             myCommand.Parameters["@ResidentNom"].Value = textBoxNom.Text;
             myCommand.Parameters["@ResidentPrenom"].Value = textBoxPrenom.Text;
             myCommand.Parameters["@ResidentDateDeNaissance"].Value = Convert.ToDateTime(dateTimePickerDateDeNaissance.Text);
@@ -130,16 +129,16 @@ namespace GestionResidence
 
                 if (NewElmt == 1)
                 {
-                    MessageBox.Show("Ligne mise à jours...");
+                    MessageBox.Show("Résident déjà existant");
                 }
                 else
                 {
-                    MessageBox.Show("Nouvelle Ligne ...");
+                    MessageBox.Show("Nouveau résident ajouté");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex + "Erreur de mise à jours !");
+                MessageBox.Show(ex + "Erreur d'ajout !");
                 return;
             }
             thisConnection.Close();
