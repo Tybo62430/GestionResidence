@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace GestionResidence
 {
@@ -19,7 +20,32 @@ namespace GestionResidence
             InitializeComponent();
         }
 
-        public string sChaineConnect = "Data Source=.\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
+        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+
+        public string ToMaj(string Aconvert)
+        {
+            return Aconvert.ToUpper(); //convertir en majuscule
+        }
+
+        static string FirsLetterToMaj(string mot)
+        {
+            string oldprenom = mot;
+            string newprenom = oldprenom[0].ToString().ToUpper() + oldprenom.Substring(1).ToLower(); // convertir Premier caractere en Maj
+            return newprenom;
+        }
+
+        public static bool ValidMail(string mail_address)
+        {
+            bool resultat = true;
+            if (mail_address != string.Empty)
+            {
+                Regex myRegex = new
+                Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
+                RegexOptions.IgnoreCase);
+                resultat = myRegex.IsMatch(mail_address);
+            }
+            return resultat;
+        }
 
         public void rechercher()
         {
@@ -147,6 +173,30 @@ namespace GestionResidence
         private void CreationResident_Load(object sender, EventArgs e)
         {
             rechercher();
+        }
+
+        private void textBoxNom_Leave(object sender, EventArgs e)
+        {
+            string nom = textBoxNom.Text;
+            textBoxNom.Text = ToMaj(nom);
+        }
+
+        private void textBoxPrenom_Leave(object sender, EventArgs e)
+        {
+            string prenom = textBoxPrenom.Text;
+            textBoxPrenom.Text = FirsLetterToMaj(prenom);
+        }
+
+        private void textBoxEmail_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidMail(textBoxEmail.Text))
+            {
+                textBoxEmail.BackColor = Color.Green;
+            }
+            else
+            {
+                textBoxEmail.BackColor = Color.Red;
+            }
         }
     }
 }

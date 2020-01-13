@@ -78,6 +78,7 @@
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(163, 22);
             this.textBoxNom.TabIndex = 1;
+            this.textBoxNom.Leave += new System.EventHandler(this.textBoxNom_Leave);
             // 
             // labelNom
             // 
@@ -103,6 +104,7 @@
             this.textBoxPrenom.Name = "textBoxPrenom";
             this.textBoxPrenom.Size = new System.Drawing.Size(163, 22);
             this.textBoxPrenom.TabIndex = 2;
+            this.textBoxPrenom.Leave += new System.EventHandler(this.textBoxPrenom_Leave);
             // 
             // labelCivilite
             // 
@@ -146,6 +148,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(163, 22);
             this.textBoxEmail.TabIndex = 6;
+            this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
             // 
             // labelCodePostal
             // 
