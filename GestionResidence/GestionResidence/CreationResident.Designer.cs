@@ -70,7 +70,8 @@
             this.labelTelephone = new System.Windows.Forms.Label();
             this.textBoxTelephone = new System.Windows.Forms.TextBox();
             this.buttonChargerPhoto = new System.Windows.Forms.Button();
-            
+            this.labelSecu = new System.Windows.Forms.Label();
+            this.textBoxSecu = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -416,23 +417,6 @@
             this.textBoxTelephone.Size = new System.Drawing.Size(163, 22);
             this.textBoxTelephone.TabIndex = 6;
             // 
-            // labelSecu
-            // 
-            this.labelSecu.AutoSize = true;
-            this.labelSecu.Location = new System.Drawing.Point(33, 337);
-            this.labelSecu.Name = "labelSecu";
-            this.labelSecu.Size = new System.Drawing.Size(188, 17);
-            this.labelSecu.TabIndex = 51;
-            this.labelSecu.Text = "Numéro de Sécurité Social : ";
-            // 
-            // textBoxSecu
-            // 
-            this.textBoxSecu.Location = new System.Drawing.Point(227, 334);
-            this.textBoxSecu.MaxLength = 13;
-            this.textBoxSecu.Name = "textBoxSecu";
-            this.textBoxSecu.Size = new System.Drawing.Size(196, 22);
-            this.textBoxSecu.TabIndex = 8;
-            // 
             // buttonChargerPhoto
             // 
             this.buttonChargerPhoto.Location = new System.Drawing.Point(633, 248);
@@ -443,13 +427,30 @@
             this.buttonChargerPhoto.UseVisualStyleBackColor = true;
             this.buttonChargerPhoto.Click += new System.EventHandler(this.buttonChargerPhoto_Click);
             // 
+            // labelSecu
+            // 
+            this.labelSecu.AutoSize = true;
+            this.labelSecu.Location = new System.Drawing.Point(33, 337);
+            this.labelSecu.Name = "labelSecu";
+            this.labelSecu.Size = new System.Drawing.Size(184, 17);
+            this.labelSecu.TabIndex = 51;
+            this.labelSecu.Text = "Numero de Securité Social :";
+            // 
+            // textBoxSecu
+            // 
+            this.textBoxSecu.Location = new System.Drawing.Point(249, 334);
+            this.textBoxSecu.Name = "textBoxSecu";
+            this.textBoxSecu.Size = new System.Drawing.Size(100, 22);
+            this.textBoxSecu.TabIndex = 52;
+            // 
             // CreationResident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 831);
-            this.Controls.Add(this.buttonChargerPhoto);
             this.ClientSize = new System.Drawing.Size(896, 924);
+            this.Controls.Add(this.textBoxSecu);
+            this.Controls.Add(this.labelSecu);
+            this.Controls.Add(this.buttonChargerPhoto);
             this.Controls.Add(this.labelTelephone);
             this.Controls.Add(this.textBoxTelephone);
             this.Controls.Add(this.labelVille);
@@ -545,7 +546,8 @@
         private System.Windows.Forms.Label labelTelephone;
         private System.Windows.Forms.TextBox textBoxTelephone;
         private System.Windows.Forms.Button buttonChargerPhoto;
-
+        private System.Windows.Forms.Label labelSecu;
+        private System.Windows.Forms.TextBox textBoxSecu;
     }
 }
 
