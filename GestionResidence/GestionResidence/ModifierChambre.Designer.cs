@@ -36,7 +36,8 @@
             this.textBoxIdentifiant = new System.Windows.Forms.TextBox();
             this.textBoxDebutSejour = new System.Windows.Forms.TextBox();
             this.textBoxFinSejour = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxIdentifiant = new System.Windows.Forms.ComboBox();
+            this.buttonAssigner = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelChambre
@@ -104,20 +105,31 @@
             this.textBoxFinSejour.Size = new System.Drawing.Size(177, 22);
             this.textBoxFinSejour.TabIndex = 7;
             // 
-            // comboBox1
+            // comboBoxIdentifiant
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(681, 166);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(198, 24);
-            this.comboBox1.TabIndex = 8;
+            this.comboBoxIdentifiant.FormattingEnabled = true;
+            this.comboBoxIdentifiant.Location = new System.Drawing.Point(681, 166);
+            this.comboBoxIdentifiant.Name = "comboBoxIdentifiant";
+            this.comboBoxIdentifiant.Size = new System.Drawing.Size(198, 24);
+            this.comboBoxIdentifiant.TabIndex = 8;
+            // 
+            // buttonAssigner
+            // 
+            this.buttonAssigner.Location = new System.Drawing.Point(340, 314);
+            this.buttonAssigner.Name = "buttonAssigner";
+            this.buttonAssigner.Size = new System.Drawing.Size(170, 49);
+            this.buttonAssigner.TabIndex = 9;
+            this.buttonAssigner.Text = "Assigner";
+            this.buttonAssigner.UseVisualStyleBackColor = true;
+            this.buttonAssigner.Click += new System.EventHandler(this.buttonAssigner_Click);
             // 
             // ModifierChambre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 427);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.buttonAssigner);
+            this.Controls.Add(this.comboBoxIdentifiant);
             this.Controls.Add(this.textBoxFinSejour);
             this.Controls.Add(this.textBoxDebutSejour);
             this.Controls.Add(this.textBoxIdentifiant);
@@ -144,6 +156,7 @@
         private System.Windows.Forms.TextBox textBoxIdentifiant;
         private System.Windows.Forms.TextBox textBoxDebutSejour;
         private System.Windows.Forms.TextBox textBoxFinSejour;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxIdentifiant;
+        private System.Windows.Forms.Button buttonAssigner;
     }
 }

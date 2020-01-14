@@ -20,6 +20,7 @@ namespace GestionResidence
 
         public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
 
+
         private void MenuChambre_Load(object sender, EventArgs e)
         {
             dataGridViewChambres.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -45,17 +46,9 @@ namespace GestionResidence
 
         private void buttonModifier_Click(object sender, EventArgs e)
         {
-            ModifierChambre Chambres = new ModifierChambre();
-            Chambres.Show();
-
+            string recupRow = dataGridViewChambres.CurrentRow.Cells[0].Value.ToString();
+            ModifierChambre Chambres = new ModifierChambre(recupRow);
+            Chambres.Show();         
         }
-
-        private void recupRow()
-        {
-            dataGridViewChambres.CurrentRow.Selected = true;
-            string[] infosChambre = new string[5] {Convert.ToString(dataGridViewChambres.CurrentRow.Cells[0]), "" , "", "", ""};
-            
-        }
-
     }
 }
