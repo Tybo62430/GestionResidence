@@ -13,7 +13,7 @@ namespace GestionResidence
 {
     public partial class Connexion : Form
     {
-        public string sChaineConnect = "Data Source=.;database=GestionResidence;integrated security=SSPI";
+        public string sChaineConnect = "Data Source=DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
         public Connexion()
         {
             InitializeComponent();

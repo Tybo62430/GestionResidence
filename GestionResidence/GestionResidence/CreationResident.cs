@@ -12,9 +12,11 @@ using System.Text.RegularExpressions;
 
 namespace GestionResidence
 {
+   
     public partial class CreationResident : Form
     {
-
+        public int Resultat;
+        public string chemin;
         public CreationResident()
         {
             InitializeComponent();
@@ -102,8 +104,55 @@ namespace GestionResidence
             InsertResident();
         }
 
+        public string IdGenerator(string champ1, string champ2, string champ3)
+        {
+            var random = new Random();
+            string Id = champ1.Substring(0, 3) + champ2.Substring(0, 3) + champ3.Substring(6) + random.Next(0, 1000);
+            return Id;
+        }
+
+        public void SearchIdNationalite()
+        {
+            Resultat = 0;
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT NationaliteId FROM Nationalite WHERE NationaliteNom = @nationaliteNom";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                // Add Parameters to Command Parameters collection
+                cmd.Parameters.Add("@nationaliteNom", SqlDbType.NVarChar, 100);
+                //On affecte les valeurs
+                cmd.Parameters["@nationaliteNom"].Value = comboBoxNationalite.Text;
+                
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();
+                int id;
+                while (DataRead.Read())
+                {
+                    id = Convert.ToInt32(DataRead["NationaliteId"]);
+                    Resultat = id;                                  
+                }
+                sqlconn.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+                Resultat = 0;
+            }
+            
+        }
+
         private void InsertResident()
         {
+
+
+            
+
             int NewElmt = 0;
             SqlConnection thisConnection = new SqlConnection(sChaineConnect);
             thisConnection.Open();
@@ -123,14 +172,14 @@ namespace GestionResidence
             myCommand.Parameters.Add("@ResidentTelephone", SqlDbType.VarChar, 14);
             myCommand.Parameters.Add("@ResidentMail", SqlDbType.VarChar, 50);
             myCommand.Parameters.Add("@ResidentIban", SqlDbType.VarChar, 50);
-            //myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.Image);
+            myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.VarChar, 100);
             //myCommand.Parameters.Add("@Formule_FormuleId", SqlDbType.Int);
             //myCommand.Parameters.Add("@Supplement_SupplementId", SqlDbType.Int);
             //myCommand.Parameters.Add("@Civilite_CiviliteId", SqlDbType.Int);
-            //myCommand.Parameters.Add("@Nationalite_NationaliteId", SqlDbType.Int);
+            myCommand.Parameters.Add("@Nationalite_NationaliteId", SqlDbType.Int);
 
             // Affectation des valeurs
-            myCommand.Parameters["@ResidentIdentifiant"].Value = "XD11";
+            myCommand.Parameters["@ResidentIdentifiant"].Value = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, dateTimePickerDateDeNaissance.Text);
             myCommand.Parameters["@ResidentNom"].Value = textBoxNom.Text;
             myCommand.Parameters["@ResidentPrenom"].Value = textBoxPrenom.Text;
             myCommand.Parameters["@ResidentDateDeNaissance"].Value = Convert.ToDateTime(dateTimePickerDateDeNaissance.Text);
@@ -142,13 +191,13 @@ namespace GestionResidence
             myCommand.Parameters["@ResidentTelephone"].Value = textBoxTelephone.Text;
             myCommand.Parameters["@ResidentMail"].Value = textBoxEmail.Text;
             myCommand.Parameters["@ResidentIban"].Value = textBoxIban.Text;
-            //myCommand.Parameters["@ResidentPhoto"].Value = pictureBoxPhoto.Image;
+            myCommand.Parameters["@ResidentPhoto"].Value = chemin;
             //myCommand.Parameters["@Formule_FormuleId"].Value = comboBoxFormule;
             //myCommand.Parameters["@Supplement_SupplementId"].Value = checkBoxPetitDejeune;
             //myCommand.Parameters["@Civilite_CiviliteId"].Value = comboBoxCivilite;
-            //myCommand.Parameters["@Nationalite_NationaliteId"].Value = comboBoxNationalite;
-            // Affectation des valeurs
-
+            SearchIdNationalite();
+            myCommand.Parameters["@Nationalite_NationaliteId"].Value = Resultat ;
+            // Affectation des valeurs            
             try
             {
                 NewElmt = (Int32)myCommand.ExecuteScalar();
@@ -196,6 +245,20 @@ namespace GestionResidence
             else
             {
                 textBoxEmail.BackColor = Color.Red;
+            }
+        }
+
+        private void buttonChargerPhoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = @"C:\Users\thibault\Pictures";
+            openFileDialog.Filter = "Image Files (*.PNG;*.BMP;*.JPG;*.GIF)|*.PNG;*.BMP;*.JPG;*.GIF|Tous les fichiers (*.*)|*.*";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxPhoto.Image = Image.FromFile(openFileDialog.FileName);
+                chemin = openFileDialog.FileName;
+                
             }
         }
     }

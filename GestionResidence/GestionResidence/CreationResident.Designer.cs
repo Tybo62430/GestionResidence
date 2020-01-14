@@ -69,6 +69,7 @@
             this.textBoxVille = new System.Windows.Forms.TextBox();
             this.labelTelephone = new System.Windows.Forms.Label();
             this.textBoxTelephone = new System.Windows.Forms.TextBox();
+            this.buttonChargerPhoto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -374,9 +375,11 @@
             // 
             // pictureBoxPhoto
             // 
+            this.pictureBoxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxPhoto.Location = new System.Drawing.Point(633, 40);
             this.pictureBoxPhoto.Name = "pictureBoxPhoto";
             this.pictureBoxPhoto.Size = new System.Drawing.Size(165, 190);
+            this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPhoto.TabIndex = 45;
             this.pictureBoxPhoto.TabStop = false;
             // 
@@ -412,11 +415,22 @@
             this.textBoxTelephone.Size = new System.Drawing.Size(163, 22);
             this.textBoxTelephone.TabIndex = 48;
             // 
+            // buttonChargerPhoto
+            // 
+            this.buttonChargerPhoto.Location = new System.Drawing.Point(633, 248);
+            this.buttonChargerPhoto.Name = "buttonChargerPhoto";
+            this.buttonChargerPhoto.Size = new System.Drawing.Size(165, 40);
+            this.buttonChargerPhoto.TabIndex = 50;
+            this.buttonChargerPhoto.Text = "Charger Photo";
+            this.buttonChargerPhoto.UseVisualStyleBackColor = true;
+            this.buttonChargerPhoto.Click += new System.EventHandler(this.buttonChargerPhoto_Click);
+            // 
             // CreationResident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 831);
+            this.Controls.Add(this.buttonChargerPhoto);
             this.Controls.Add(this.labelTelephone);
             this.Controls.Add(this.textBoxTelephone);
             this.Controls.Add(this.labelVille);
@@ -511,6 +525,7 @@
         private System.Windows.Forms.TextBox textBoxVille;
         private System.Windows.Forms.Label labelTelephone;
         private System.Windows.Forms.TextBox textBoxTelephone;
+        private System.Windows.Forms.Button buttonChargerPhoto;
     }
 }
 
