@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ChambresDataSet" targetNamespace="http://tempuri.org/ChambresDataSet.xsd" xmlns:mstns="http://tempuri.org/ChambresDataSet.xsd" xmlns="http://tempuri.org/ChambresDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionResidence.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ChambreTableAdapter" GeneratorDataComponentClassName="ChambreTableAdapter" Name="Chambre" UserDataComponentName="ChambreTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GestionResidence.dbo.Chambre" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ChambreIdentifiant, ChambreType, ChambreEtage, ChambrePrixMensuelHT FROM dbo.Chambre</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ChambreIdentifiant" DataSetColumn="ChambreIdentifiant" />
+              <Mapping SourceColumn="ChambreType" DataSetColumn="ChambreType" />
+              <Mapping SourceColumn="ChambreEtage" DataSetColumn="ChambreEtage" />
+              <Mapping SourceColumn="ChambrePrixMensuelHT" DataSetColumn="ChambrePrixMensuelHT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ChambresDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ChambresDataSet" msprop:Generator_UserDSName="ChambresDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Chambre" msprop:Generator_TableClassName="ChambreDataTable" msprop:Generator_TableVarName="tableChambre" msprop:Generator_TablePropName="Chambre" msprop:Generator_RowDeletingName="ChambreRowDeleting" msprop:Generator_RowChangingName="ChambreRowChanging" msprop:Generator_RowEvHandlerName="ChambreRowChangeEventHandler" msprop:Generator_RowDeletedName="ChambreRowDeleted" msprop:Generator_UserTableName="Chambre" msprop:Generator_RowChangedName="ChambreRowChanged" msprop:Generator_RowEvArgName="ChambreRowChangeEvent" msprop:Generator_RowClassName="ChambreRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ChambreIdentifiant" msprop:Generator_ColumnVarNameInTable="columnChambreIdentifiant" msprop:Generator_ColumnPropNameInRow="ChambreIdentifiant" msprop:Generator_ColumnPropNameInTable="ChambreIdentifiantColumn" msprop:Generator_UserColumnName="ChambreIdentifiant">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChambreType" msprop:Generator_ColumnVarNameInTable="columnChambreType" msprop:Generator_ColumnPropNameInRow="ChambreType" msprop:Generator_ColumnPropNameInTable="ChambreTypeColumn" msprop:Generator_UserColumnName="ChambreType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChambreEtage" msprop:Generator_ColumnVarNameInTable="columnChambreEtage" msprop:Generator_ColumnPropNameInRow="ChambreEtage" msprop:Generator_ColumnPropNameInTable="ChambreEtageColumn" msprop:Generator_UserColumnName="ChambreEtage" type="xs:int" />
+              <xs:element name="ChambrePrixMensuelHT" msprop:Generator_ColumnVarNameInTable="columnChambrePrixMensuelHT" msprop:Generator_ColumnPropNameInRow="ChambrePrixMensuelHT" msprop:Generator_ColumnPropNameInTable="ChambrePrixMensuelHTColumn" msprop:Generator_UserColumnName="ChambrePrixMensuelHT" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
