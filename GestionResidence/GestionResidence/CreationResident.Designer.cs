@@ -38,12 +38,8 @@
             this.labelMail = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.labelCodePostal = new System.Windows.Forms.Label();
-            this.textBoxCodePostal = new System.Windows.Forms.TextBox();
             this.labelTypeDeVoie = new System.Windows.Forms.Label();
-            this.textBoxTypeDeVoie = new System.Windows.Forms.TextBox();
             this.labelVoie = new System.Windows.Forms.Label();
-            this.textBoxVoie = new System.Windows.Forms.TextBox();
-            this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.labelNumero = new System.Windows.Forms.Label();
             this.labelFormule = new System.Windows.Forms.Label();
             this.checkBoxPetitDejeune = new System.Windows.Forms.CheckBox();
@@ -66,20 +62,26 @@
             this.textBoxIban = new System.Windows.Forms.TextBox();
             this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.labelVille = new System.Windows.Forms.Label();
-            this.textBoxVille = new System.Windows.Forms.TextBox();
             this.labelTelephone = new System.Windows.Forms.Label();
             this.textBoxTelephone = new System.Windows.Forms.TextBox();
             this.buttonChargerPhoto = new System.Windows.Forms.Button();
             this.labelSecu = new System.Windows.Forms.Label();
             this.textBoxSecu = new System.Windows.Forms.TextBox();
+            this.comboBoxCodePostal = new System.Windows.Forms.ComboBox();
+            this.comboBoxTypeDeVoie = new System.Windows.Forms.ComboBox();
+            this.comboBoxVoie = new System.Windows.Forms.ComboBox();
+            this.comboBoxNumero = new System.Windows.Forms.ComboBox();
+            this.comboBoxVille = new System.Windows.Forms.ComboBox();
+            this.btnRetour = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxNom
             // 
             this.textBoxNom.Location = new System.Drawing.Point(186, 40);
+            this.textBoxNom.MaxLength = 30;
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(163, 22);
+            this.textBoxNom.Size = new System.Drawing.Size(225, 22);
             this.textBoxNom.TabIndex = 1;
             this.textBoxNom.Leave += new System.EventHandler(this.textBoxNom_Leave);
             // 
@@ -104,8 +106,9 @@
             // textBoxPrenom
             // 
             this.textBoxPrenom.Location = new System.Drawing.Point(186, 78);
+            this.textBoxPrenom.MaxLength = 30;
             this.textBoxPrenom.Name = "textBoxPrenom";
-            this.textBoxPrenom.Size = new System.Drawing.Size(163, 22);
+            this.textBoxPrenom.Size = new System.Drawing.Size(225, 22);
             this.textBoxPrenom.TabIndex = 2;
             this.textBoxPrenom.Leave += new System.EventHandler(this.textBoxPrenom_Leave);
             // 
@@ -149,7 +152,7 @@
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(186, 292);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(163, 22);
+            this.textBoxEmail.Size = new System.Drawing.Size(225, 22);
             this.textBoxEmail.TabIndex = 7;
             this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
             // 
@@ -162,13 +165,6 @@
             this.labelCodePostal.TabIndex = 14;
             this.labelCodePostal.Text = "Code Postal :";
             // 
-            // textBoxCodePostal
-            // 
-            this.textBoxCodePostal.Location = new System.Drawing.Point(186, 376);
-            this.textBoxCodePostal.Name = "textBoxCodePostal";
-            this.textBoxCodePostal.Size = new System.Drawing.Size(163, 22);
-            this.textBoxCodePostal.TabIndex = 9;
-            // 
             // labelTypeDeVoie
             // 
             this.labelTypeDeVoie.AutoSize = true;
@@ -178,35 +174,14 @@
             this.labelTypeDeVoie.TabIndex = 16;
             this.labelTypeDeVoie.Text = "Type de Voie :";
             // 
-            // textBoxTypeDeVoie
-            // 
-            this.textBoxTypeDeVoie.Location = new System.Drawing.Point(186, 462);
-            this.textBoxTypeDeVoie.Name = "textBoxTypeDeVoie";
-            this.textBoxTypeDeVoie.Size = new System.Drawing.Size(127, 22);
-            this.textBoxTypeDeVoie.TabIndex = 11;
-            // 
             // labelVoie
             // 
             this.labelVoie.AutoSize = true;
-            this.labelVoie.Location = new System.Drawing.Point(346, 465);
+            this.labelVoie.Location = new System.Drawing.Point(367, 467);
             this.labelVoie.Name = "labelVoie";
             this.labelVoie.Size = new System.Drawing.Size(44, 17);
             this.labelVoie.TabIndex = 17;
             this.labelVoie.Text = "Voie :";
-            // 
-            // textBoxVoie
-            // 
-            this.textBoxVoie.Location = new System.Drawing.Point(423, 462);
-            this.textBoxVoie.Name = "textBoxVoie";
-            this.textBoxVoie.Size = new System.Drawing.Size(127, 22);
-            this.textBoxVoie.TabIndex = 12;
-            // 
-            // textBoxNumero
-            // 
-            this.textBoxNumero.Location = new System.Drawing.Point(671, 462);
-            this.textBoxNumero.Name = "textBoxNumero";
-            this.textBoxNumero.Size = new System.Drawing.Size(127, 22);
-            this.textBoxNumero.TabIndex = 13;
             // 
             // labelNumero
             // 
@@ -247,7 +222,7 @@
             // labelDetails
             // 
             this.labelDetails.AutoSize = true;
-            this.labelDetails.Location = new System.Drawing.Point(33, 716);
+            this.labelDetails.Location = new System.Drawing.Point(33, 585);
             this.labelDetails.Name = "labelDetails";
             this.labelDetails.Size = new System.Drawing.Size(127, 17);
             this.labelDetails.TabIndex = 24;
@@ -256,7 +231,7 @@
             // labelLoyer
             // 
             this.labelLoyer.AutoSize = true;
-            this.labelLoyer.Location = new System.Drawing.Point(33, 769);
+            this.labelLoyer.Location = new System.Drawing.Point(33, 638);
             this.labelLoyer.Name = "labelLoyer";
             this.labelLoyer.Size = new System.Drawing.Size(52, 17);
             this.labelLoyer.TabIndex = 26;
@@ -264,7 +239,7 @@
             // 
             // textBoxLoyer
             // 
-            this.textBoxLoyer.Location = new System.Drawing.Point(36, 789);
+            this.textBoxLoyer.Location = new System.Drawing.Point(36, 658);
             this.textBoxLoyer.Name = "textBoxLoyer";
             this.textBoxLoyer.Size = new System.Drawing.Size(133, 22);
             this.textBoxLoyer.TabIndex = 17;
@@ -272,7 +247,7 @@
             // labelPetitDejeuneRedevance
             // 
             this.labelPetitDejeuneRedevance.AutoSize = true;
-            this.labelPetitDejeuneRedevance.Location = new System.Drawing.Point(369, 769);
+            this.labelPetitDejeuneRedevance.Location = new System.Drawing.Point(369, 638);
             this.labelPetitDejeuneRedevance.Name = "labelPetitDejeuneRedevance";
             this.labelPetitDejeuneRedevance.Size = new System.Drawing.Size(101, 17);
             this.labelPetitDejeuneRedevance.TabIndex = 30;
@@ -281,7 +256,7 @@
             // labelFormuleRedevance
             // 
             this.labelFormuleRedevance.AutoSize = true;
-            this.labelFormuleRedevance.Location = new System.Drawing.Point(205, 769);
+            this.labelFormuleRedevance.Location = new System.Drawing.Point(205, 638);
             this.labelFormuleRedevance.Name = "labelFormuleRedevance";
             this.labelFormuleRedevance.Size = new System.Drawing.Size(67, 17);
             this.labelFormuleRedevance.TabIndex = 32;
@@ -290,7 +265,7 @@
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(543, 769);
+            this.labelTotal.Location = new System.Drawing.Point(543, 638);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(48, 17);
             this.labelTotal.TabIndex = 34;
@@ -298,28 +273,28 @@
             // 
             // textBoxTotal
             // 
-            this.textBoxTotal.Location = new System.Drawing.Point(546, 789);
+            this.textBoxTotal.Location = new System.Drawing.Point(546, 658);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.Size = new System.Drawing.Size(133, 22);
             this.textBoxTotal.TabIndex = 20;
             // 
             // textBoxPetitDejeuneRedevance
             // 
-            this.textBoxPetitDejeuneRedevance.Location = new System.Drawing.Point(372, 789);
+            this.textBoxPetitDejeuneRedevance.Location = new System.Drawing.Point(372, 658);
             this.textBoxPetitDejeuneRedevance.Name = "textBoxPetitDejeuneRedevance";
             this.textBoxPetitDejeuneRedevance.Size = new System.Drawing.Size(133, 22);
             this.textBoxPetitDejeuneRedevance.TabIndex = 19;
             // 
             // textBoxFormuleRedevance
             // 
-            this.textBoxFormuleRedevance.Location = new System.Drawing.Point(208, 789);
+            this.textBoxFormuleRedevance.Location = new System.Drawing.Point(208, 658);
             this.textBoxFormuleRedevance.Name = "textBoxFormuleRedevance";
             this.textBoxFormuleRedevance.Size = new System.Drawing.Size(133, 22);
             this.textBoxFormuleRedevance.TabIndex = 18;
             // 
             // buttonCreer
             // 
-            this.buttonCreer.Location = new System.Drawing.Point(36, 856);
+            this.buttonCreer.Location = new System.Drawing.Point(36, 725);
             this.buttonCreer.Name = "buttonCreer";
             this.buttonCreer.Size = new System.Drawing.Size(112, 39);
             this.buttonCreer.TabIndex = 21;
@@ -329,7 +304,7 @@
             // 
             // buttonViderChamps
             // 
-            this.buttonViderChamps.Location = new System.Drawing.Point(186, 856);
+            this.buttonViderChamps.Location = new System.Drawing.Point(186, 725);
             this.buttonViderChamps.Name = "buttonViderChamps";
             this.buttonViderChamps.Size = new System.Drawing.Size(112, 39);
             this.buttonViderChamps.TabIndex = 22;
@@ -338,13 +313,16 @@
             // 
             // dateTimePickerDateDeNaissance
             // 
+            this.dateTimePickerDateDeNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDateDeNaissance.Location = new System.Drawing.Point(186, 208);
             this.dateTimePickerDateDeNaissance.Name = "dateTimePickerDateDeNaissance";
-            this.dateTimePickerDateDeNaissance.Size = new System.Drawing.Size(237, 22);
+            this.dateTimePickerDateDeNaissance.Size = new System.Drawing.Size(96, 22);
             this.dateTimePickerDateDeNaissance.TabIndex = 5;
+            this.dateTimePickerDateDeNaissance.Value = new System.DateTime(2020, 1, 14, 0, 0, 0, 0);
             // 
             // comboBoxCivilite
             // 
+            this.comboBoxCivilite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCivilite.FormattingEnabled = true;
             this.comboBoxCivilite.Location = new System.Drawing.Point(186, 122);
             this.comboBoxCivilite.Name = "comboBoxCivilite";
@@ -353,6 +331,7 @@
             // 
             // comboBoxNationalite
             // 
+            this.comboBoxNationalite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNationalite.FormattingEnabled = true;
             this.comboBoxNationalite.Location = new System.Drawing.Point(186, 165);
             this.comboBoxNationalite.Name = "comboBoxNationalite";
@@ -371,8 +350,9 @@
             // textBoxIban
             // 
             this.textBoxIban.Location = new System.Drawing.Point(186, 501);
+            this.textBoxIban.MaxLength = 27;
             this.textBoxIban.Name = "textBoxIban";
-            this.textBoxIban.Size = new System.Drawing.Size(163, 22);
+            this.textBoxIban.Size = new System.Drawing.Size(196, 22);
             this.textBoxIban.TabIndex = 14;
             // 
             // pictureBoxPhoto
@@ -394,13 +374,6 @@
             this.labelVille.TabIndex = 47;
             this.labelVille.Text = "Ville :";
             // 
-            // textBoxVille
-            // 
-            this.textBoxVille.Location = new System.Drawing.Point(186, 418);
-            this.textBoxVille.Name = "textBoxVille";
-            this.textBoxVille.Size = new System.Drawing.Size(163, 22);
-            this.textBoxVille.TabIndex = 10;
-            // 
             // labelTelephone
             // 
             this.labelTelephone.AutoSize = true;
@@ -413,6 +386,7 @@
             // textBoxTelephone
             // 
             this.textBoxTelephone.Location = new System.Drawing.Point(186, 248);
+            this.textBoxTelephone.MaxLength = 12;
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(163, 22);
             this.textBoxTelephone.TabIndex = 6;
@@ -432,29 +406,95 @@
             this.labelSecu.AutoSize = true;
             this.labelSecu.Location = new System.Drawing.Point(33, 337);
             this.labelSecu.Name = "labelSecu";
-            this.labelSecu.Size = new System.Drawing.Size(184, 17);
+            this.labelSecu.Size = new System.Drawing.Size(128, 17);
             this.labelSecu.TabIndex = 51;
-            this.labelSecu.Text = "Numero de Securité Social :";
+            this.labelSecu.Text = "N. Securité Social :";
             // 
             // textBoxSecu
             // 
-            this.textBoxSecu.Location = new System.Drawing.Point(249, 334);
+            this.textBoxSecu.Location = new System.Drawing.Point(189, 334);
+            this.textBoxSecu.MaxLength = 13;
             this.textBoxSecu.Name = "textBoxSecu";
-            this.textBoxSecu.Size = new System.Drawing.Size(100, 22);
+            this.textBoxSecu.Size = new System.Drawing.Size(109, 22);
             this.textBoxSecu.TabIndex = 52;
+            // 
+            // comboBoxCodePostal
+            // 
+            this.comboBoxCodePostal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCodePostal.FormattingEnabled = true;
+            this.comboBoxCodePostal.Location = new System.Drawing.Point(186, 378);
+            this.comboBoxCodePostal.Name = "comboBoxCodePostal";
+            this.comboBoxCodePostal.Size = new System.Drawing.Size(60, 24);
+            this.comboBoxCodePostal.TabIndex = 53;
+            this.comboBoxCodePostal.SelectedIndexChanged += new System.EventHandler(this.comboBoxCodePostal_SelectedIndexChanged);
+            // 
+            // comboBoxTypeDeVoie
+            // 
+            this.comboBoxTypeDeVoie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTypeDeVoie.FormattingEnabled = true;
+            this.comboBoxTypeDeVoie.Location = new System.Drawing.Point(186, 464);
+            this.comboBoxTypeDeVoie.Name = "comboBoxTypeDeVoie";
+            this.comboBoxTypeDeVoie.Size = new System.Drawing.Size(163, 24);
+            this.comboBoxTypeDeVoie.TabIndex = 54;
+            this.comboBoxTypeDeVoie.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeDeVoie_SelectedIndexChanged);
+            // 
+            // comboBoxVoie
+            // 
+            this.comboBoxVoie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVoie.FormattingEnabled = true;
+            this.comboBoxVoie.Location = new System.Drawing.Point(417, 464);
+            this.comboBoxVoie.Name = "comboBoxVoie";
+            this.comboBoxVoie.Size = new System.Drawing.Size(163, 24);
+            this.comboBoxVoie.TabIndex = 55;
+            this.comboBoxVoie.SelectedIndexChanged += new System.EventHandler(this.comboBoxVoie_SelectedIndexChanged);
+            // 
+            // comboBoxNumero
+            // 
+            this.comboBoxNumero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNumero.FormattingEnabled = true;
+            this.comboBoxNumero.Location = new System.Drawing.Point(658, 464);
+            this.comboBoxNumero.Name = "comboBoxNumero";
+            this.comboBoxNumero.Size = new System.Drawing.Size(163, 24);
+            this.comboBoxNumero.TabIndex = 56;
+            // 
+            // comboBoxVille
+            // 
+            this.comboBoxVille.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVille.FormattingEnabled = true;
+            this.comboBoxVille.Location = new System.Drawing.Point(186, 420);
+            this.comboBoxVille.Name = "comboBoxVille";
+            this.comboBoxVille.Size = new System.Drawing.Size(163, 24);
+            this.comboBoxVille.TabIndex = 57;
+            this.comboBoxVille.SelectedIndexChanged += new System.EventHandler(this.comboBoxVille_SelectedIndexChanged);
+            // 
+            // btnRetour
+            // 
+            this.btnRetour.Location = new System.Drawing.Point(316, 725);
+            this.btnRetour.Name = "btnRetour";
+            this.btnRetour.Size = new System.Drawing.Size(112, 39);
+            this.btnRetour.TabIndex = 58;
+            this.btnRetour.Text = "Retour";
+            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // CreationResident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 924);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnRetour);
+            this.Controls.Add(this.comboBoxVille);
+            this.Controls.Add(this.comboBoxNumero);
+            this.Controls.Add(this.comboBoxVoie);
+            this.Controls.Add(this.comboBoxTypeDeVoie);
+            this.Controls.Add(this.comboBoxCodePostal);
             this.Controls.Add(this.textBoxSecu);
             this.Controls.Add(this.labelSecu);
             this.Controls.Add(this.buttonChargerPhoto);
             this.Controls.Add(this.labelTelephone);
             this.Controls.Add(this.textBoxTelephone);
             this.Controls.Add(this.labelVille);
-            this.Controls.Add(this.textBoxVille);
             this.Controls.Add(this.pictureBoxPhoto);
             this.Controls.Add(this.labelIban);
             this.Controls.Add(this.textBoxIban);
@@ -475,14 +515,10 @@
             this.Controls.Add(this.comboBoxFormule);
             this.Controls.Add(this.checkBoxPetitDejeune);
             this.Controls.Add(this.labelFormule);
-            this.Controls.Add(this.textBoxNumero);
             this.Controls.Add(this.labelNumero);
-            this.Controls.Add(this.textBoxVoie);
             this.Controls.Add(this.labelVoie);
             this.Controls.Add(this.labelTypeDeVoie);
-            this.Controls.Add(this.textBoxTypeDeVoie);
             this.Controls.Add(this.labelCodePostal);
-            this.Controls.Add(this.textBoxCodePostal);
             this.Controls.Add(this.labelMail);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.labelDateDeNaissance);
@@ -514,12 +550,8 @@
         private System.Windows.Forms.Label labelMail;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelCodePostal;
-        private System.Windows.Forms.TextBox textBoxCodePostal;
         private System.Windows.Forms.Label labelTypeDeVoie;
-        private System.Windows.Forms.TextBox textBoxTypeDeVoie;
         private System.Windows.Forms.Label labelVoie;
-        private System.Windows.Forms.TextBox textBoxVoie;
-        private System.Windows.Forms.TextBox textBoxNumero;
         private System.Windows.Forms.Label labelNumero;
         private System.Windows.Forms.Label labelFormule;
         private System.Windows.Forms.CheckBox checkBoxPetitDejeune;
@@ -542,12 +574,17 @@
         private System.Windows.Forms.TextBox textBoxIban;
         private System.Windows.Forms.PictureBox pictureBoxPhoto;
         private System.Windows.Forms.Label labelVille;
-        private System.Windows.Forms.TextBox textBoxVille;
         private System.Windows.Forms.Label labelTelephone;
         private System.Windows.Forms.TextBox textBoxTelephone;
         private System.Windows.Forms.Button buttonChargerPhoto;
         private System.Windows.Forms.Label labelSecu;
         private System.Windows.Forms.TextBox textBoxSecu;
+        private System.Windows.Forms.ComboBox comboBoxCodePostal;
+        private System.Windows.Forms.ComboBox comboBoxTypeDeVoie;
+        private System.Windows.Forms.ComboBox comboBoxVoie;
+        private System.Windows.Forms.ComboBox comboBoxNumero;
+        private System.Windows.Forms.ComboBox comboBoxVille;
+        private System.Windows.Forms.Button btnRetour;
     }
 }
 

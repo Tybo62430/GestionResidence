@@ -11,19 +11,49 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
 namespace GestionResidence
-{
-   
+{   
     public partial class CreationResident : Form
     {
-        public int Resultat;
-        public string chemin;
+        public int Resultat; //variable pour la recherche d'Id Pays
+        public int NumFormule; //variable pour la recherche d'Id formule
+        public string chemin; //variable pour le chemin d'acces de la photo
+        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+
         public CreationResident()
         {
             InitializeComponent();
         }
 
-        public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
+        public void SearchCP()// recherche des code postal dans la BDD
+        {
+            comboBoxVille.Items.Clear();
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT DISTINCT codepostal FROM bano_62 order by codepostal";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();                
+                while (DataRead.Read())
+                {
+                    comboBoxCodePostal.Items.Add(DataRead["codepostal"].ToString());
+                    comboBoxCodePostal.SelectedIndex = 0;
+                    
+                }
+                sqlconn.Close();
+            }
 
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+            }
+
+        }
+       
         public string ToMaj(string Aconvert)
         {
             return Aconvert.ToUpper(); //convertir en majuscule
@@ -36,7 +66,7 @@ namespace GestionResidence
             return newprenom;
         }
 
-        public static bool ValidMail(string mail_address)
+        public static bool ValidMail(string mail_address) //control du mail
         {
             bool resultat = true;
             if (mail_address != string.Empty)
@@ -49,7 +79,7 @@ namespace GestionResidence
             return resultat;
         }
 
-        public void rechercher()
+        public void rechercher() //recherche des civilité et de nationnalité
         {
             comboBoxCivilite.Items.Clear();
             comboBoxNationalite.Items.Clear();
@@ -80,8 +110,9 @@ namespace GestionResidence
                 while (DataRead.Read())
                 {
                     comboBoxNationalite.Items.Add(DataRead["NationaliteNom"].ToString());
-                    comboBoxNationalite.SelectedIndex = 0;
+                    
                 }
+                comboBoxNationalite.SelectedIndex = 62;
                 DataRead.Close();
                 DataRead = cmd3.ExecuteReader();
                 while (DataRead.Read())
@@ -104,14 +135,14 @@ namespace GestionResidence
             InsertResident();
         }
 
-        public string IdGenerator(string champ1, string champ2, string champ3)
+        public string IdGenerator(string champ1, string champ2, string champ3) //Generateur d'identifiants
         {
             var random = new Random();
             string Id = champ1.Substring(0, 3) + champ2.Substring(0, 3) + champ3.Substring(6) + random.Next(0, 1000);
             return Id;
         }
 
-        public void SearchIdNationalite()
+        public void SearchIdNationalite()//Recherche de l'id de nationalite
         {
             Resultat = 0;
             try
@@ -147,12 +178,8 @@ namespace GestionResidence
             
         }
 
-        private void InsertResident()
+        private void InsertResident() // insertion client dans la BDD
         {
-
-
-            
-
             int NewElmt = 0;
             SqlConnection thisConnection = new SqlConnection(sChaineConnect);
             thisConnection.Open();
@@ -184,17 +211,17 @@ namespace GestionResidence
             myCommand.Parameters["@ResidentNom"].Value = textBoxNom.Text;
             myCommand.Parameters["@ResidentPrenom"].Value = textBoxPrenom.Text;
             myCommand.Parameters["@ResidentDateDeNaissance"].Value = Convert.ToDateTime(dateTimePickerDateDeNaissance.Text);
-            myCommand.Parameters["@ResidentCodePostal"].Value = textBoxCodePostal.Text;
-            myCommand.Parameters["@ResidentVille"].Value = textBoxVille.Text;
-            myCommand.Parameters["@ResidentTypeDeVoie"].Value = textBoxTypeDeVoie.Text;
-            myCommand.Parameters["@ResidentVoie"].Value = textBoxVoie.Text;
-            myCommand.Parameters["@ResidentNumero"].Value = textBoxNumero.Text;
+            myCommand.Parameters["@ResidentCodePostal"].Value = comboBoxCodePostal.Text;
+            myCommand.Parameters["@ResidentVille"].Value = comboBoxVille.Text;
+            myCommand.Parameters["@ResidentTypeDeVoie"].Value = comboBoxTypeDeVoie.Text;
+            myCommand.Parameters["@ResidentVoie"].Value = comboBoxVoie.Text;
+            myCommand.Parameters["@ResidentNumero"].Value = comboBoxNumero.Text;
             myCommand.Parameters["@ResidentTelephone"].Value = textBoxTelephone.Text;
             myCommand.Parameters["@ResidentMail"].Value = textBoxEmail.Text;
             myCommand.Parameters["@ResidentSecu"].Value = textBoxSecu.Text;
             myCommand.Parameters["@ResidentIban"].Value = textBoxIban.Text;
             myCommand.Parameters["@ResidentPhoto"].Value = chemin;
-            //myCommand.Parameters["@Formule_FormuleId"].Value = comboBoxFormule;
+            //myCommand.Parameters["@Formule_FormuleId"].Value = NumFormule;
             //myCommand.Parameters["@Supplement_SupplementId"].Value = checkBoxPetitDejeune;
             //myCommand.Parameters["@Civilite_CiviliteId"].Value = comboBoxCivilite;
             SearchIdNationalite();
@@ -223,7 +250,7 @@ namespace GestionResidence
 
         private void CreationResident_Load(object sender, EventArgs e)
         {
-            rechercher();
+            rechercher(); SearchCP();
         }
 
         private void textBoxNom_Leave(object sender, EventArgs e)
@@ -250,7 +277,7 @@ namespace GestionResidence
             }
         }
 
-        private void buttonChargerPhoto_Click(object sender, EventArgs e)
+        private void buttonChargerPhoto_Click(object sender, EventArgs e)// charger la photo
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = @"C:\Users\thibault\Pictures";
@@ -261,6 +288,150 @@ namespace GestionResidence
                 pictureBoxPhoto.Image = Image.FromFile(openFileDialog.FileName);
                 chemin = openFileDialog.FileName;
                 
+            }
+        }     
+
+        private void comboBoxCodePostal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxVille.Items.Clear();
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT DISTINCT ville FROM bano_62 where codepostal = @CodePostal ";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                // Add Parameters to Command Parameters collection
+                cmd.Parameters.Add("@CodePostal", SqlDbType.NVarChar, 100);
+                //On affecte les valeurs
+                cmd.Parameters["@CodePostal"].Value = comboBoxCodePostal.Text;
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();                
+                while (DataRead.Read())
+                {
+                    comboBoxVille.Items.Add(DataRead["ville"].ToString());
+                    comboBoxVille.SelectedIndex = 0;                    
+                }
+                sqlconn.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+            }
+        }
+
+        private void comboBoxVille_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxTypeDeVoie.Items.Clear();
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT DISTINCT LEFT(adresse,CHARINDEX(' ',adresse)) AS type_de_voie FROM bano_62 WHERE ville = @ville AND codepostal = @codepostal ORDER BY type_de_voie"; 
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                // Add Parameters to Command Parameters collection
+                cmd.Parameters.Add("@ville", SqlDbType.NVarChar, 100);
+                cmd.Parameters.Add("@codepostal", SqlDbType.NVarChar, 100);
+                //On affecte les valeurs
+                cmd.Parameters["@ville"].Value = comboBoxVille.Text;
+                cmd.Parameters["@codepostal"].Value = comboBoxCodePostal.Text;
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();                
+                while (DataRead.Read())
+                {
+                    comboBoxTypeDeVoie.Items.Add(DataRead["type_de_voie"].ToString());
+                    comboBoxTypeDeVoie.SelectedIndex = 0;                    
+                }
+                sqlconn.Close();               
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+            }
+        }        
+
+        private void comboBoxTypeDeVoie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxVoie.Items.Clear();
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT DISTINCT RIGHT(adresse,LEN(adresse)-CHARINDEX(' ',adresse)) AS nom_voie FROM bano_62 WHERE LEFT(adresse,CHARINDEX(' ',adresse)) = @typedevoie AND ville = @ville ORDER BY nom_voie";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                // Add Parameters to Command Parameters collection
+                cmd.Parameters.Add("@ville", SqlDbType.NVarChar, 100);
+                cmd.Parameters.Add("@typedevoie", SqlDbType.NVarChar, 100);
+                //On affecte les valeurs
+                cmd.Parameters["@ville"].Value = comboBoxVille.Text;
+                cmd.Parameters["@typedevoie"].Value = comboBoxTypeDeVoie.Text;
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();                
+                while (DataRead.Read())
+                {
+                    comboBoxVoie.Items.Add(DataRead["nom_voie"].ToString());
+                    comboBoxVoie.SelectedIndex = 0;                    
+                }
+                sqlconn.Close();               
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+            }
+        }        
+
+        private void comboBoxVoie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxNumero.Items.Clear();
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT DISTINCT numero from bano_62 where LEFT(adresse,CHARINDEX(' ',adresse)) = @typedevoie AND RIGHT(adresse,LEN(adresse)-CHARINDEX(' ',adresse)) = @nomdevoie AND ville = @ville";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                // Add Parameters to Command Parameters collection
+                cmd.Parameters.Add("@typedevoie", SqlDbType.NVarChar, 100);
+                cmd.Parameters.Add("@nomdevoie", SqlDbType.NVarChar, 100);
+                cmd.Parameters.Add("@ville", SqlDbType.NVarChar, 100);
+                //On affecte les valeurs
+                cmd.Parameters["@typedevoie"].Value = comboBoxTypeDeVoie.Text;
+                cmd.Parameters["@nomdevoie"].Value = comboBoxVoie.Text;
+                cmd.Parameters["@ville"].Value = comboBoxVille.Text;
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();                
+                while (DataRead.Read())
+                {
+                    comboBoxNumero.Items.Add(DataRead["numero"].ToString());
+                    comboBoxNumero.SelectedIndex = 0;                    
+                }
+                sqlconn.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+            }
+        }
+
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "Etes-vous sûr ?", "ATTENTION !!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
     }

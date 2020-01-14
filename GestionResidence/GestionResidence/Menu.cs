@@ -68,12 +68,12 @@ namespace GestionResidence
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
+            
         }
 
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
+            
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,13 +113,21 @@ namespace GestionResidence
         private void nouveauRésidentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreationResident NouveauResident = new CreationResident();
-            NouveauResident.Show();
+            NouveauResident.ShowDialog();
         }
 
         private void chambresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuChambre Chambres = new MenuChambre();
             Chambres.Show();
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "Etes-vous sûr ?", "ATTENTION !!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }
