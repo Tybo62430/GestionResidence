@@ -116,6 +116,10 @@ namespace GestionResidence
             NouveauResident.Show();
         }
 
-      
+        private void chambresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuChambre Chambres = new MenuChambre();
+            Chambres.Show();
+        }
     }
 }

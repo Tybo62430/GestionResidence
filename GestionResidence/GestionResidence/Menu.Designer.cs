@@ -71,6 +71,7 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.residentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nouveauRésidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -83,7 +84,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.nouveauRésidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chambresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -99,7 +100,8 @@
             this.toolsMenu,
             this.windowsMenu,
             this.helpMenu,
-            this.residentsToolStripMenuItem});
+            this.residentsToolStripMenuItem,
+            this.chambresToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
@@ -440,6 +442,13 @@
             this.residentsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.residentsToolStripMenuItem.Text = "Résidents";
             // 
+            // nouveauRésidentToolStripMenuItem
+            // 
+            this.nouveauRésidentToolStripMenuItem.Name = "nouveauRésidentToolStripMenuItem";
+            this.nouveauRésidentToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
+            this.nouveauRésidentToolStripMenuItem.Text = "Nouveau Résident";
+            this.nouveauRésidentToolStripMenuItem.Click += new System.EventHandler(this.nouveauRésidentToolStripMenuItem_Click);
+            // 
             // toolStrip
             // 
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -542,12 +551,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(35, 20);
             this.toolStripStatusLabel.Text = "État";
             // 
-            // nouveauRésidentToolStripMenuItem
+            // chambresToolStripMenuItem
             // 
-            this.nouveauRésidentToolStripMenuItem.Name = "nouveauRésidentToolStripMenuItem";
-            this.nouveauRésidentToolStripMenuItem.Size = new System.Drawing.Size(204, 26);
-            this.nouveauRésidentToolStripMenuItem.Text = "Nouveau Résident";
-            this.nouveauRésidentToolStripMenuItem.Click += new System.EventHandler(this.nouveauRésidentToolStripMenuItem_Click);
+            this.chambresToolStripMenuItem.Name = "chambresToolStripMenuItem";
+            this.chambresToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
+            this.chambresToolStripMenuItem.Text = "Chambres";
+            this.chambresToolStripMenuItem.Click += new System.EventHandler(this.chambresToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -632,6 +641,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem residentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nouveauRésidentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chambresToolStripMenuItem;
     }
 }
 

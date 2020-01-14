@@ -22,7 +22,7 @@ namespace GestionResidence
             InitializeComponent();
         }
 
-        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+        public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
 
         public string ToMaj(string Aconvert)
         {
@@ -171,6 +171,7 @@ namespace GestionResidence
             myCommand.Parameters.Add("@ResidentNumero", SqlDbType.VarChar, 10);
             myCommand.Parameters.Add("@ResidentTelephone", SqlDbType.VarChar, 14);
             myCommand.Parameters.Add("@ResidentMail", SqlDbType.VarChar, 50);
+            myCommand.Parameters.Add("@ResidentSecu", SqlDbType.VarChar, 13);
             myCommand.Parameters.Add("@ResidentIban", SqlDbType.VarChar, 50);
             myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.VarChar, 100);
             //myCommand.Parameters.Add("@Formule_FormuleId", SqlDbType.Int);
@@ -190,6 +191,7 @@ namespace GestionResidence
             myCommand.Parameters["@ResidentNumero"].Value = textBoxNumero.Text;
             myCommand.Parameters["@ResidentTelephone"].Value = textBoxTelephone.Text;
             myCommand.Parameters["@ResidentMail"].Value = textBoxEmail.Text;
+            myCommand.Parameters["@ResidentSecu"].Value = textBoxSecu.Text;
             myCommand.Parameters["@ResidentIban"].Value = textBoxIban.Text;
             myCommand.Parameters["@ResidentPhoto"].Value = chemin;
             //myCommand.Parameters["@Formule_FormuleId"].Value = comboBoxFormule;
