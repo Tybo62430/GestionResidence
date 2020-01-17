@@ -14,8 +14,10 @@ namespace GestionResidence
 {   
     public partial class CreationResident : Form
     {
-        public int Resultat; //variable pour la recherche d'Id Pays
-        public int NumFormule; //variable pour la recherche d'Id formule
+        public int Nationalite; //variable pour la recherche d'Id Pays
+        public int Formule; //variable pour la recherche d'Id formule
+        public int Civilite; //variable pour la recherche d'Id civilite   
+        public int Supplement = 0; //variable pour la recherche d'Id Supplement 
         public string chemin; //variable pour le chemin d'acces de la photo
         public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
 
@@ -79,6 +81,19 @@ namespace GestionResidence
             return resultat;
         }
 
+        public static bool ValidLettre(string lettre) //control du uniquement des lettres
+        {
+            bool resultat = true;
+            if (lettre != string.Empty)
+            {
+                Regex myRegex = new
+                 Regex(@"^([a-zA-Z]){3,50}$",
+                RegexOptions.IgnoreCase);
+                resultat = myRegex.IsMatch(lettre);
+            }
+            return resultat;
+        }
+
         public void rechercher() //recherche des civilité et de nationnalité
         {
             comboBoxCivilite.Items.Clear();
@@ -90,7 +105,7 @@ namespace GestionResidence
                 string sSQL, sSQL2, sSQL3;
                 sSQL = "SELECT CiviliteNom FROM Civilite";
                 sSQL2 = "SELECT NationaliteNom FROM Nationalite";
-                sSQL3 = "SELECT FormuleNom FROM Formule";
+                sSQL3 = "SELECT FormuleDescriptif FROM Formule";
                 cmd = new SqlCommand(sSQL, sqlconn);
                 cmd2 = new SqlCommand(sSQL2, sqlconn);
                 cmd3 = new SqlCommand(sSQL3, sqlconn);
@@ -117,7 +132,7 @@ namespace GestionResidence
                 DataRead = cmd3.ExecuteReader();
                 while (DataRead.Read())
                 {
-                    comboBoxFormule.Items.Add(DataRead["FormuleNom"].ToString());
+                    comboBoxFormule.Items.Add(DataRead["FormuleDescriptif"].ToString());
                     comboBoxFormule.SelectedIndex = 0;
                 }
                 sqlconn.Close();
@@ -138,13 +153,16 @@ namespace GestionResidence
         public string IdGenerator(string champ1, string champ2, string champ3) //Generateur d'identifiants
         {
             var random = new Random();
-            string Id = champ1.Substring(0, 3) + champ2.Substring(0, 3) + champ3.Substring(6) + random.Next(0, 1000);
+            champ1 = champ1.Replace(" ","");
+            champ2 = champ2.Replace(" ", "");
+            champ3 = champ3.Replace(" ", "");            
+            string Id = ToMaj(champ1.Substring(0, 3)) + ToMaj(champ2.Substring(0, 3)) + champ3 ;            
             return Id;
         }
 
         public void SearchIdNationalite()//Recherche de l'id de nationalite
         {
-            Resultat = 0;
+            Nationalite = 0;
             try
             {
                 SqlConnection sqlconn = new SqlConnection(sChaineConnect);
@@ -165,17 +183,81 @@ namespace GestionResidence
                 while (DataRead.Read())
                 {
                     id = Convert.ToInt32(DataRead["NationaliteId"]);
-                    Resultat = id;                                  
+                    Nationalite = id;                                  
                 }
-                sqlconn.Close();
-                
+                sqlconn.Close();                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erreur: " + ex);
-                Resultat = 0;
+                Nationalite = 0;
+            }            
+        }
+
+        public void SearchIdFormule()//Recherche de l'id de formule
+        {
+            Formule = 0;
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT FormuleId FROM Formule WHERE FormuleDescriptif = @formuledescriptif";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                // Add Parameters to Command Parameters collection
+                cmd.Parameters.Add("@formuledescriptif", SqlDbType.NVarChar, 100);
+                //On affecte les valeurs
+                cmd.Parameters["@formuledescriptif"].Value = comboBoxFormule.Text;
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();
+                int id;
+                while (DataRead.Read())
+                {
+                    id = Convert.ToInt32(DataRead["FormuleID"]);
+                    Formule = id;
+                }
+                sqlconn.Close();
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+                Formule = 0;
+            }
+        }
+
+        public void SearchIdCivilite()//Recherche de l'id de Civilite
+        {
+            Civilite = 0;
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT CiviliteId FROM Civilite WHERE CiviliteNom = @civilitenom";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                // Add Parameters to Command Parameters collection
+                cmd.Parameters.Add("@civilitenom", SqlDbType.NVarChar, 100);
+                //On affecte les valeurs
+                cmd.Parameters["@civilitenom"].Value = comboBoxCivilite.Text;
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();
+                int id;
+                while (DataRead.Read())
+                {
+                    id = Convert.ToInt32(DataRead["CiviliteId"]);
+                    Civilite = id;
+                }
+                sqlconn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+                Civilite = 0;
+            }
         }
 
         private void InsertResident() // insertion client dans la BDD
@@ -187,7 +269,7 @@ namespace GestionResidence
             myCommand.CommandType = CommandType.StoredProcedure;
             // Add Parameters to Command Parameters collection
 
-            myCommand.Parameters.Add("@ResidentIdentifiant", SqlDbType.VarChar, 10);
+            myCommand.Parameters.Add("@ResidentIdentifiant", SqlDbType.VarChar, 30);
             myCommand.Parameters.Add("@ResidentNom", SqlDbType.VarChar, 30);
             myCommand.Parameters.Add("@ResidentPrenom", SqlDbType.VarChar, 50);
             myCommand.Parameters.Add("@ResidentDateDeNaissance", SqlDbType.Date);
@@ -201,13 +283,13 @@ namespace GestionResidence
             myCommand.Parameters.Add("@ResidentSecu", SqlDbType.VarChar, 13);
             myCommand.Parameters.Add("@ResidentIban", SqlDbType.VarChar, 50);
             myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.VarChar, 100);
-            //myCommand.Parameters.Add("@Formule_FormuleId", SqlDbType.Int);
-            //myCommand.Parameters.Add("@Supplement_SupplementId", SqlDbType.Int);
-            //myCommand.Parameters.Add("@Civilite_CiviliteId", SqlDbType.Int);
+            myCommand.Parameters.Add("@Formule_FormuleId", SqlDbType.Int);
+            myCommand.Parameters.Add("@Supplement_SupplementId", SqlDbType.Int);
+            myCommand.Parameters.Add("@Civilite_CiviliteId", SqlDbType.Int);
             myCommand.Parameters.Add("@Nationalite_NationaliteId", SqlDbType.Int);
 
             // Affectation des valeurs
-            myCommand.Parameters["@ResidentIdentifiant"].Value = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, dateTimePickerDateDeNaissance.Text);
+            myCommand.Parameters["@ResidentIdentifiant"].Value = IdGenerator(textBoxNom.Text, textBoxPrenom.Text,textBoxTelephone.Text.ToString());
             myCommand.Parameters["@ResidentNom"].Value = textBoxNom.Text;
             myCommand.Parameters["@ResidentPrenom"].Value = textBoxPrenom.Text;
             myCommand.Parameters["@ResidentDateDeNaissance"].Value = Convert.ToDateTime(dateTimePickerDateDeNaissance.Text);
@@ -216,16 +298,23 @@ namespace GestionResidence
             myCommand.Parameters["@ResidentTypeDeVoie"].Value = comboBoxTypeDeVoie.Text;
             myCommand.Parameters["@ResidentVoie"].Value = comboBoxVoie.Text;
             myCommand.Parameters["@ResidentNumero"].Value = comboBoxNumero.Text;
-            myCommand.Parameters["@ResidentTelephone"].Value = textBoxTelephone.Text;
+            myCommand.Parameters["@ResidentTelephone"].Value = textBoxTelephone.Text;                     
             myCommand.Parameters["@ResidentMail"].Value = textBoxEmail.Text;
             myCommand.Parameters["@ResidentSecu"].Value = textBoxSecu.Text;
             myCommand.Parameters["@ResidentIban"].Value = textBoxIban.Text;
+            if (chemin==null)            
+                myCommand.Parameters["@ResidentPhoto"].Value = "";
+            else    
             myCommand.Parameters["@ResidentPhoto"].Value = chemin;
-            //myCommand.Parameters["@Formule_FormuleId"].Value = NumFormule;
-            //myCommand.Parameters["@Supplement_SupplementId"].Value = checkBoxPetitDejeune;
-            //myCommand.Parameters["@Civilite_CiviliteId"].Value = comboBoxCivilite;
+            SearchIdFormule();
+            myCommand.Parameters["@Formule_FormuleId"].Value = Formule;
+            myCommand.Parameters["@Supplement_SupplementId"].Value = Supplement;
+            SearchIdCivilite();
+            myCommand.Parameters["@Civilite_CiviliteId"].Value = Civilite;
             SearchIdNationalite();
-            myCommand.Parameters["@Nationalite_NationaliteId"].Value = Resultat ;
+            myCommand.Parameters["@Nationalite_NationaliteId"].Value = Nationalite ;
+
+            
             // Affectation des valeurs            
             try
             {
@@ -233,7 +322,7 @@ namespace GestionResidence
 
                 if (NewElmt == 1)
                 {
-                    MessageBox.Show("Résident déjà existant");
+                    MessageBox.Show("Client existe deja");
                 }
                 else
                 {
@@ -251,32 +340,8 @@ namespace GestionResidence
         private void CreationResident_Load(object sender, EventArgs e)
         {
             rechercher(); SearchCP();
-        }
-
-        private void textBoxNom_Leave(object sender, EventArgs e)
-        {
-            string nom = textBoxNom.Text;
-            textBoxNom.Text = ToMaj(nom);
-        }
-
-        private void textBoxPrenom_Leave(object sender, EventArgs e)
-        {
-            string prenom = textBoxPrenom.Text;
-            textBoxPrenom.Text = FirsLetterToMaj(prenom);
-        }
-
-        private void textBoxEmail_TextChanged(object sender, EventArgs e)
-        {
-            if (ValidMail(textBoxEmail.Text))
-            {
-                textBoxEmail.BackColor = Color.Green;
-            }
-            else
-            {
-                textBoxEmail.BackColor = Color.Red;
-            }
-        }
-
+        } 
+       
         private void buttonChargerPhoto_Click(object sender, EventArgs e)// charger la photo
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -433,6 +498,112 @@ namespace GestionResidence
             {
                 this.Close();
             }
+        }
+
+        private void checkBoxPetitDejeune_CheckedChanged(object sender, EventArgs e)
+        {
+            Supplement = 0;
+            if (checkBoxPetitDejeune.Checked)
+                Supplement = 1 ;
+            else
+                Supplement = 0 ;
+        }
+
+        private void textBoxEmail_Leave(object sender, EventArgs e)
+        {
+            if (ValidMail(textBoxEmail.Text))
+            {
+                ErreurMail.Text = "";
+            }
+            else
+            {
+                ErreurMail.Text = "E-mail invalide";
+            }
+        }
+
+        private void buttonViderChamps_Click(object sender, EventArgs e)
+        {
+            textBoxNom.Clear();
+            textBoxPrenom.Clear();
+            comboBoxCivilite.SelectedItem = 0;
+            comboBoxNationalite.SelectedItem = 63; //63 = Francaise
+            dateTimePickerDateDeNaissance.Value = DateTime.Now;
+            textBoxTelephone.Clear();
+            textBoxSecu.Clear();
+            comboBoxCodePostal.SelectedItem = 0;
+            comboBoxVille.SelectedItem = 0;
+            comboBoxTypeDeVoie.SelectedItem = 0;
+            comboBoxVoie.SelectedItem = 0;
+            comboBoxNumero.SelectedItem = 0;
+            textBoxIban.Clear();
+            comboBoxFormule.SelectedItem = 0;
+            checkBoxPetitDejeune.Checked = false;
+            pictureBoxPhoto.Image = null;
+
+        }
+
+        private void textBoxNom_Validated(object sender, EventArgs e)
+        {
+            textBoxNom.Text = textBoxNom.Text.ToUpper();               
+        }
+
+        private void textBoxPrenom_Validated(object sender, EventArgs e)
+        {
+            textBoxPrenom.Text = FirsLetterToMaj(textBoxPrenom.Text);
+        }
+
+        private void btnRechercher_Click(object sender, EventArgs e)
+        {
+            string ValRechercher = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, textBoxTelephone.Text);
+            RechercherByNameSurNamePhone(ValRechercher);
+        }
+        private void RechercherByNameSurNamePhone(string var1)
+        {
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT * FROM Resident WHERE ResidentIdentifiant=@ValeurRechercher";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                // Add Parameters to Command Parameters collection
+                cmd.Parameters.Add("@ValeurRechercher", SqlDbType.NVarChar, 100);
+                
+                //On affecte les valeurs
+                cmd.Parameters["@ValeurRechercher"].Value =var1;
+               
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();
+                while (DataRead.Read())
+                {
+                    //comboBoxCivilite.SelectedItem = DataRead["Civilite_CiviliteId"].ToString();
+                    //textBoxEmail.Text = DataRead["ResidentMail"].ToString();
+                    //textBoxSecu.Text = DataRead["ResidentSecu"].ToString();
+                    //comboBoxCodePostal.SelectedItem = DataRead["ResidentCodePostal"].ToString();
+                    //comboBoxVille.SelectedItem = DataRead["ResidentVille"].ToString();
+                    //comboBoxTypeDeVoie.SelectedItem = DataRead["ResidentTypeDeVoie"].ToString();
+                    //comboBoxVoie.SelectedItem = DataRead["ResidentVoie"].ToString();
+                    //comboBoxNumero.SelectedItem = DataRead["ResidentNumero"].ToString();
+                    //textBoxIban.Text = DataRead["ResidentIban"].ToString();
+                    //comboBoxFormule.Text = DataRead["Formule_FormuleId"].ToString();
+                    //pictureBoxPhoto.Image = Image.FromFile(DataRead["ResidentPhoto"].ToString());
+                    MessageBox.Show("Client existe deja");
+                }
+                sqlconn.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+            }
+        }
+
+        private void textBoxTelephone_Validated(object sender, EventArgs e)
+        {
+            string ValRechercher = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, textBoxTelephone.Text);
+            RechercherByNameSurNamePhone(ValRechercher);
         }
     }
 }

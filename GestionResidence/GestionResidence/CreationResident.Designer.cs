@@ -73,6 +73,9 @@
             this.comboBoxNumero = new System.Windows.Forms.ComboBox();
             this.comboBoxVille = new System.Windows.Forms.ComboBox();
             this.btnRetour = new System.Windows.Forms.Button();
+            this.ErreurNom = new System.Windows.Forms.Label();
+            this.ErreurMail = new System.Windows.Forms.Label();
+            this.btnRechercher = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +86,7 @@
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(225, 22);
             this.textBoxNom.TabIndex = 1;
-            this.textBoxNom.Leave += new System.EventHandler(this.textBoxNom_Leave);
+            this.textBoxNom.Validated += new System.EventHandler(this.textBoxNom_Validated);
             // 
             // labelNom
             // 
@@ -110,7 +113,7 @@
             this.textBoxPrenom.Name = "textBoxPrenom";
             this.textBoxPrenom.Size = new System.Drawing.Size(225, 22);
             this.textBoxPrenom.TabIndex = 2;
-            this.textBoxPrenom.Leave += new System.EventHandler(this.textBoxPrenom_Leave);
+            this.textBoxPrenom.Validated += new System.EventHandler(this.textBoxPrenom_Validated);
             // 
             // labelCivilite
             // 
@@ -154,7 +157,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(225, 22);
             this.textBoxEmail.TabIndex = 7;
-            this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
+            this.textBoxEmail.Leave += new System.EventHandler(this.textBoxEmail_Leave);
             // 
             // labelCodePostal
             // 
@@ -204,19 +207,20 @@
             // checkBoxPetitDejeune
             // 
             this.checkBoxPetitDejeune.AutoSize = true;
-            this.checkBoxPetitDejeune.Location = new System.Drawing.Point(349, 542);
+            this.checkBoxPetitDejeune.Location = new System.Drawing.Point(390, 542);
             this.checkBoxPetitDejeune.Name = "checkBoxPetitDejeune";
             this.checkBoxPetitDejeune.Size = new System.Drawing.Size(115, 21);
             this.checkBoxPetitDejeune.TabIndex = 16;
             this.checkBoxPetitDejeune.Text = "Petit Déjeuné";
             this.checkBoxPetitDejeune.UseVisualStyleBackColor = true;
+            this.checkBoxPetitDejeune.CheckedChanged += new System.EventHandler(this.checkBoxPetitDejeune_CheckedChanged);
             // 
             // comboBoxFormule
             // 
             this.comboBoxFormule.FormattingEnabled = true;
             this.comboBoxFormule.Location = new System.Drawing.Point(186, 540);
             this.comboBoxFormule.Name = "comboBoxFormule";
-            this.comboBoxFormule.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxFormule.Size = new System.Drawing.Size(196, 24);
             this.comboBoxFormule.TabIndex = 15;
             // 
             // labelDetails
@@ -239,6 +243,7 @@
             // 
             // textBoxLoyer
             // 
+            this.textBoxLoyer.Enabled = false;
             this.textBoxLoyer.Location = new System.Drawing.Point(36, 658);
             this.textBoxLoyer.Name = "textBoxLoyer";
             this.textBoxLoyer.Size = new System.Drawing.Size(133, 22);
@@ -273,6 +278,7 @@
             // 
             // textBoxTotal
             // 
+            this.textBoxTotal.Enabled = false;
             this.textBoxTotal.Location = new System.Drawing.Point(546, 658);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.Size = new System.Drawing.Size(133, 22);
@@ -280,6 +286,7 @@
             // 
             // textBoxPetitDejeuneRedevance
             // 
+            this.textBoxPetitDejeuneRedevance.Enabled = false;
             this.textBoxPetitDejeuneRedevance.Location = new System.Drawing.Point(372, 658);
             this.textBoxPetitDejeuneRedevance.Name = "textBoxPetitDejeuneRedevance";
             this.textBoxPetitDejeuneRedevance.Size = new System.Drawing.Size(133, 22);
@@ -287,6 +294,7 @@
             // 
             // textBoxFormuleRedevance
             // 
+            this.textBoxFormuleRedevance.Enabled = false;
             this.textBoxFormuleRedevance.Location = new System.Drawing.Point(208, 658);
             this.textBoxFormuleRedevance.Name = "textBoxFormuleRedevance";
             this.textBoxFormuleRedevance.Size = new System.Drawing.Size(133, 22);
@@ -294,22 +302,23 @@
             // 
             // buttonCreer
             // 
-            this.buttonCreer.Location = new System.Drawing.Point(36, 725);
+            this.buttonCreer.Location = new System.Drawing.Point(36, 686);
             this.buttonCreer.Name = "buttonCreer";
-            this.buttonCreer.Size = new System.Drawing.Size(112, 39);
+            this.buttonCreer.Size = new System.Drawing.Size(125, 39);
             this.buttonCreer.TabIndex = 21;
-            this.buttonCreer.Text = "Créer";
+            this.buttonCreer.Text = "Créer ";
             this.buttonCreer.UseVisualStyleBackColor = true;
             this.buttonCreer.Click += new System.EventHandler(this.buttonCreer_Click);
             // 
             // buttonViderChamps
             // 
-            this.buttonViderChamps.Location = new System.Drawing.Point(186, 725);
+            this.buttonViderChamps.Location = new System.Drawing.Point(170, 686);
             this.buttonViderChamps.Name = "buttonViderChamps";
             this.buttonViderChamps.Size = new System.Drawing.Size(112, 39);
             this.buttonViderChamps.TabIndex = 22;
             this.buttonViderChamps.Text = "Vider Champs";
             this.buttonViderChamps.UseVisualStyleBackColor = true;
+            this.buttonViderChamps.Click += new System.EventHandler(this.buttonViderChamps_Click);
             // 
             // dateTimePickerDateDeNaissance
             // 
@@ -390,6 +399,7 @@
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(163, 22);
             this.textBoxTelephone.TabIndex = 6;
+            this.textBoxTelephone.Validated += new System.EventHandler(this.textBoxTelephone_Validated);
             // 
             // buttonChargerPhoto
             // 
@@ -424,7 +434,7 @@
             this.comboBoxCodePostal.FormattingEnabled = true;
             this.comboBoxCodePostal.Location = new System.Drawing.Point(186, 378);
             this.comboBoxCodePostal.Name = "comboBoxCodePostal";
-            this.comboBoxCodePostal.Size = new System.Drawing.Size(60, 24);
+            this.comboBoxCodePostal.Size = new System.Drawing.Size(86, 24);
             this.comboBoxCodePostal.TabIndex = 53;
             this.comboBoxCodePostal.SelectedIndexChanged += new System.EventHandler(this.comboBoxCodePostal_SelectedIndexChanged);
             // 
@@ -469,7 +479,7 @@
             // 
             // btnRetour
             // 
-            this.btnRetour.Location = new System.Drawing.Point(316, 725);
+            this.btnRetour.Location = new System.Drawing.Point(287, 686);
             this.btnRetour.Name = "btnRetour";
             this.btnRetour.Size = new System.Drawing.Size(112, 39);
             this.btnRetour.TabIndex = 58;
@@ -477,12 +487,43 @@
             this.btnRetour.UseVisualStyleBackColor = true;
             this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
+            // ErreurNom
+            // 
+            this.ErreurNom.AutoSize = true;
+            this.ErreurNom.Location = new System.Drawing.Point(418, 40);
+            this.ErreurNom.Name = "ErreurNom";
+            this.ErreurNom.Size = new System.Drawing.Size(12, 17);
+            this.ErreurNom.TabIndex = 59;
+            this.ErreurNom.Text = ".";
+            // 
+            // ErreurMail
+            // 
+            this.ErreurMail.AutoSize = true;
+            this.ErreurMail.Location = new System.Drawing.Point(418, 295);
+            this.ErreurMail.Name = "ErreurMail";
+            this.ErreurMail.Size = new System.Drawing.Size(12, 17);
+            this.ErreurMail.TabIndex = 60;
+            this.ErreurMail.Text = ".";
+            // 
+            // btnRechercher
+            // 
+            this.btnRechercher.Location = new System.Drawing.Point(356, 248);
+            this.btnRechercher.Name = "btnRechercher";
+            this.btnRechercher.Size = new System.Drawing.Size(101, 23);
+            this.btnRechercher.TabIndex = 61;
+            this.btnRechercher.Text = "Rechercher";
+            this.btnRechercher.UseVisualStyleBackColor = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
+            // 
             // CreationResident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 924);
+            this.ClientSize = new System.Drawing.Size(896, 730);
             this.ControlBox = false;
+            this.Controls.Add(this.btnRechercher);
+            this.Controls.Add(this.ErreurMail);
+            this.Controls.Add(this.ErreurNom);
             this.Controls.Add(this.btnRetour);
             this.Controls.Add(this.comboBoxVille);
             this.Controls.Add(this.comboBoxNumero);
@@ -585,6 +626,9 @@
         private System.Windows.Forms.ComboBox comboBoxNumero;
         private System.Windows.Forms.ComboBox comboBoxVille;
         private System.Windows.Forms.Button btnRetour;
+        private System.Windows.Forms.Label ErreurNom;
+        private System.Windows.Forms.Label ErreurMail;
+        private System.Windows.Forms.Button btnRechercher;
     }
 }
 
