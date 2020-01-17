@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GestionResidenceDataSet" targetNamespace="http://tempuri.org/GestionResidenceDataSet.xsd" xmlns:mstns="http://tempuri.org/GestionResidenceDataSet.xsd" xmlns="http://tempuri.org/GestionResidenceDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionResidence.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VueChambresTableAdapter" GeneratorDataComponentClassName="VueChambresTableAdapter" Name="VueChambres" UserDataComponentName="VueChambresTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GestionResidence.dbo.VueChambres" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ChambreIdentifiant, ChambreType, ChambreEtage, ResidentIdentifiant, ResidentNom, ResidentPrenom, PeriodeLocationDateFin, PeriodeLocationDateDebut FROM dbo.VueChambres</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ChambreIdentifiant" DataSetColumn="ChambreIdentifiant" />
+              <Mapping SourceColumn="ChambreType" DataSetColumn="ChambreType" />
+              <Mapping SourceColumn="ChambreEtage" DataSetColumn="ChambreEtage" />
+              <Mapping SourceColumn="ResidentIdentifiant" DataSetColumn="ResidentIdentifiant" />
+              <Mapping SourceColumn="ResidentNom" DataSetColumn="ResidentNom" />
+              <Mapping SourceColumn="ResidentPrenom" DataSetColumn="ResidentPrenom" />
+              <Mapping SourceColumn="PeriodeLocationDateFin" DataSetColumn="PeriodeLocationDateFin" />
+              <Mapping SourceColumn="PeriodeLocationDateDebut" DataSetColumn="PeriodeLocationDateDebut" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GestionResidenceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GestionResidenceDataSet" msprop:Generator_UserDSName="GestionResidenceDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VueChambres" msprop:Generator_TableClassName="VueChambresDataTable" msprop:Generator_TableVarName="tableVueChambres" msprop:Generator_TablePropName="VueChambres" msprop:Generator_RowDeletingName="VueChambresRowDeleting" msprop:Generator_RowChangingName="VueChambresRowChanging" msprop:Generator_RowEvHandlerName="VueChambresRowChangeEventHandler" msprop:Generator_RowDeletedName="VueChambresRowDeleted" msprop:Generator_UserTableName="VueChambres" msprop:Generator_RowChangedName="VueChambresRowChanged" msprop:Generator_RowEvArgName="VueChambresRowChangeEvent" msprop:Generator_RowClassName="VueChambresRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ChambreIdentifiant" msprop:Generator_ColumnVarNameInTable="columnChambreIdentifiant" msprop:Generator_ColumnPropNameInRow="ChambreIdentifiant" msprop:Generator_ColumnPropNameInTable="ChambreIdentifiantColumn" msprop:Generator_UserColumnName="ChambreIdentifiant">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChambreType" msprop:Generator_ColumnVarNameInTable="columnChambreType" msprop:Generator_ColumnPropNameInRow="ChambreType" msprop:Generator_ColumnPropNameInTable="ChambreTypeColumn" msprop:Generator_UserColumnName="ChambreType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChambreEtage" msprop:Generator_ColumnVarNameInTable="columnChambreEtage" msprop:Generator_ColumnPropNameInRow="ChambreEtage" msprop:Generator_ColumnPropNameInTable="ChambreEtageColumn" msprop:Generator_UserColumnName="ChambreEtage" type="xs:int" />
+              <xs:element name="ResidentIdentifiant" msprop:Generator_ColumnVarNameInTable="columnResidentIdentifiant" msprop:Generator_ColumnPropNameInRow="ResidentIdentifiant" msprop:Generator_ColumnPropNameInTable="ResidentIdentifiantColumn" msprop:Generator_UserColumnName="ResidentIdentifiant">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ResidentNom" msprop:Generator_ColumnVarNameInTable="columnResidentNom" msprop:Generator_ColumnPropNameInRow="ResidentNom" msprop:Generator_ColumnPropNameInTable="ResidentNomColumn" msprop:Generator_UserColumnName="ResidentNom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ResidentPrenom" msprop:Generator_ColumnVarNameInTable="columnResidentPrenom" msprop:Generator_ColumnPropNameInRow="ResidentPrenom" msprop:Generator_ColumnPropNameInTable="ResidentPrenomColumn" msprop:Generator_UserColumnName="ResidentPrenom">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PeriodeLocationDateFin" msprop:Generator_ColumnVarNameInTable="columnPeriodeLocationDateFin" msprop:Generator_ColumnPropNameInRow="PeriodeLocationDateFin" msprop:Generator_ColumnPropNameInTable="PeriodeLocationDateFinColumn" msprop:Generator_UserColumnName="PeriodeLocationDateFin" type="xs:dateTime" />
+              <xs:element name="PeriodeLocationDateDebut" msprop:Generator_ColumnVarNameInTable="columnPeriodeLocationDateDebut" msprop:Generator_ColumnPropNameInRow="PeriodeLocationDateDebut" msprop:Generator_ColumnPropNameInTable="PeriodeLocationDateDebutColumn" msprop:Generator_UserColumnName="PeriodeLocationDateDebut" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
