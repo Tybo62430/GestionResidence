@@ -24,7 +24,7 @@ namespace GestionResidence {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class ChambresDataSet : global::System.Data.DataSet {
         
-        private ChambreDataTable tableChambre;
+        private VueChambresDataTable tableVueChambres;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace GestionResidence {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Chambre"] != null)) {
-                    base.Tables.Add(new ChambreDataTable(ds.Tables["Chambre"]));
+                if ((ds.Tables["VueChambres"] != null)) {
+                    base.Tables.Add(new VueChambresDataTable(ds.Tables["VueChambres"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace GestionResidence {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ChambreDataTable Chambre {
+        public VueChambresDataTable VueChambres {
             get {
-                return this.tableChambre;
+                return this.tableVueChambres;
             }
         }
         
@@ -152,8 +152,8 @@ namespace GestionResidence {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Chambre"] != null)) {
-                    base.Tables.Add(new ChambreDataTable(ds.Tables["Chambre"]));
+                if ((ds.Tables["VueChambres"] != null)) {
+                    base.Tables.Add(new VueChambresDataTable(ds.Tables["VueChambres"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace GestionResidence {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableChambre = ((ChambreDataTable)(base.Tables["Chambre"]));
+            this.tableVueChambres = ((VueChambresDataTable)(base.Tables["VueChambres"]));
             if ((initTable == true)) {
-                if ((this.tableChambre != null)) {
-                    this.tableChambre.InitVars();
+                if ((this.tableVueChambres != null)) {
+                    this.tableVueChambres.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace GestionResidence {
             this.Namespace = "http://tempuri.org/ChambresDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableChambre = new ChambreDataTable();
-            base.Tables.Add(this.tableChambre);
+            this.tableVueChambres = new VueChambresDataTable();
+            base.Tables.Add(this.tableVueChambres);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeChambre() {
+        private bool ShouldSerializeVueChambres() {
             return false;
         }
         
@@ -270,14 +270,14 @@ namespace GestionResidence {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ChambreRowChangeEventHandler(object sender, ChambreRowChangeEvent e);
+        public delegate void VueChambresRowChangeEventHandler(object sender, VueChambresRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ChambreDataTable : global::System.Data.TypedTableBase<ChambreRow> {
+        public partial class VueChambresDataTable : global::System.Data.TypedTableBase<VueChambresRow> {
             
             private global::System.Data.DataColumn columnChambreIdentifiant;
             
@@ -285,12 +285,20 @@ namespace GestionResidence {
             
             private global::System.Data.DataColumn columnChambreEtage;
             
-            private global::System.Data.DataColumn columnChambrePrixMensuelHT;
+            private global::System.Data.DataColumn columnResidentIdentifiant;
+            
+            private global::System.Data.DataColumn columnResidentNom;
+            
+            private global::System.Data.DataColumn columnResidentPrenom;
+            
+            private global::System.Data.DataColumn columnPeriodeLocationDateDebut;
+            
+            private global::System.Data.DataColumn columnPeriodeLocationDateFin;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ChambreDataTable() {
-                this.TableName = "Chambre";
+            public VueChambresDataTable() {
+                this.TableName = "VueChambres";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +306,7 @@ namespace GestionResidence {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ChambreDataTable(global::System.Data.DataTable table) {
+            internal VueChambresDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,7 +323,7 @@ namespace GestionResidence {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ChambreDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected VueChambresDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -346,9 +354,41 @@ namespace GestionResidence {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ChambrePrixMensuelHTColumn {
+            public global::System.Data.DataColumn ResidentIdentifiantColumn {
                 get {
-                    return this.columnChambrePrixMensuelHT;
+                    return this.columnResidentIdentifiant;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ResidentNomColumn {
+                get {
+                    return this.columnResidentNom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ResidentPrenomColumn {
+                get {
+                    return this.columnResidentPrenom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PeriodeLocationDateDebutColumn {
+                get {
+                    return this.columnPeriodeLocationDateDebut;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PeriodeLocationDateFinColumn {
+                get {
+                    return this.columnPeriodeLocationDateFin;
                 }
             }
             
@@ -363,48 +403,52 @@ namespace GestionResidence {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ChambreRow this[int index] {
+            public VueChambresRow this[int index] {
                 get {
-                    return ((ChambreRow)(this.Rows[index]));
+                    return ((VueChambresRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ChambreRowChangeEventHandler ChambreRowChanging;
+            public event VueChambresRowChangeEventHandler VueChambresRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ChambreRowChangeEventHandler ChambreRowChanged;
+            public event VueChambresRowChangeEventHandler VueChambresRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ChambreRowChangeEventHandler ChambreRowDeleting;
+            public event VueChambresRowChangeEventHandler VueChambresRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ChambreRowChangeEventHandler ChambreRowDeleted;
+            public event VueChambresRowChangeEventHandler VueChambresRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddChambreRow(ChambreRow row) {
+            public void AddVueChambresRow(VueChambresRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ChambreRow AddChambreRow(string ChambreIdentifiant, string ChambreType, int ChambreEtage, decimal ChambrePrixMensuelHT) {
-                ChambreRow rowChambreRow = ((ChambreRow)(this.NewRow()));
+            public VueChambresRow AddVueChambresRow(string ChambreIdentifiant, string ChambreType, int ChambreEtage, string ResidentIdentifiant, string ResidentNom, string ResidentPrenom, System.DateTime PeriodeLocationDateDebut, System.DateTime PeriodeLocationDateFin) {
+                VueChambresRow rowVueChambresRow = ((VueChambresRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ChambreIdentifiant,
                         ChambreType,
                         ChambreEtage,
-                        ChambrePrixMensuelHT};
-                rowChambreRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowChambreRow);
-                return rowChambreRow;
+                        ResidentIdentifiant,
+                        ResidentNom,
+                        ResidentPrenom,
+                        PeriodeLocationDateDebut,
+                        PeriodeLocationDateFin};
+                rowVueChambresRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVueChambresRow);
+                return rowVueChambresRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ChambreDataTable cln = ((ChambreDataTable)(base.Clone()));
+                VueChambresDataTable cln = ((VueChambresDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -412,7 +456,7 @@ namespace GestionResidence {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ChambreDataTable();
+                return new VueChambresDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -421,7 +465,11 @@ namespace GestionResidence {
                 this.columnChambreIdentifiant = base.Columns["ChambreIdentifiant"];
                 this.columnChambreType = base.Columns["ChambreType"];
                 this.columnChambreEtage = base.Columns["ChambreEtage"];
-                this.columnChambrePrixMensuelHT = base.Columns["ChambrePrixMensuelHT"];
+                this.columnResidentIdentifiant = base.Columns["ResidentIdentifiant"];
+                this.columnResidentNom = base.Columns["ResidentNom"];
+                this.columnResidentPrenom = base.Columns["ResidentPrenom"];
+                this.columnPeriodeLocationDateDebut = base.Columns["PeriodeLocationDateDebut"];
+                this.columnPeriodeLocationDateFin = base.Columns["PeriodeLocationDateFin"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -433,40 +481,47 @@ namespace GestionResidence {
                 base.Columns.Add(this.columnChambreType);
                 this.columnChambreEtage = new global::System.Data.DataColumn("ChambreEtage", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnChambreEtage);
-                this.columnChambrePrixMensuelHT = new global::System.Data.DataColumn("ChambrePrixMensuelHT", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChambrePrixMensuelHT);
-                this.columnChambreIdentifiant.AllowDBNull = false;
+                this.columnResidentIdentifiant = new global::System.Data.DataColumn("ResidentIdentifiant", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnResidentIdentifiant);
+                this.columnResidentNom = new global::System.Data.DataColumn("ResidentNom", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnResidentNom);
+                this.columnResidentPrenom = new global::System.Data.DataColumn("ResidentPrenom", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnResidentPrenom);
+                this.columnPeriodeLocationDateDebut = new global::System.Data.DataColumn("PeriodeLocationDateDebut", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriodeLocationDateDebut);
+                this.columnPeriodeLocationDateFin = new global::System.Data.DataColumn("PeriodeLocationDateFin", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriodeLocationDateFin);
                 this.columnChambreIdentifiant.MaxLength = 50;
-                this.columnChambreType.AllowDBNull = false;
                 this.columnChambreType.MaxLength = 20;
-                this.columnChambreEtage.AllowDBNull = false;
-                this.columnChambrePrixMensuelHT.AllowDBNull = false;
+                this.columnResidentIdentifiant.MaxLength = 30;
+                this.columnResidentNom.MaxLength = 50;
+                this.columnResidentPrenom.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ChambreRow NewChambreRow() {
-                return ((ChambreRow)(this.NewRow()));
+            public VueChambresRow NewVueChambresRow() {
+                return ((VueChambresRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ChambreRow(builder);
+                return new VueChambresRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ChambreRow);
+                return typeof(VueChambresRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ChambreRowChanged != null)) {
-                    this.ChambreRowChanged(this, new ChambreRowChangeEvent(((ChambreRow)(e.Row)), e.Action));
+                if ((this.VueChambresRowChanged != null)) {
+                    this.VueChambresRowChanged(this, new VueChambresRowChangeEvent(((VueChambresRow)(e.Row)), e.Action));
                 }
             }
             
@@ -474,8 +529,8 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ChambreRowChanging != null)) {
-                    this.ChambreRowChanging(this, new ChambreRowChangeEvent(((ChambreRow)(e.Row)), e.Action));
+                if ((this.VueChambresRowChanging != null)) {
+                    this.VueChambresRowChanging(this, new VueChambresRowChangeEvent(((VueChambresRow)(e.Row)), e.Action));
                 }
             }
             
@@ -483,8 +538,8 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ChambreRowDeleted != null)) {
-                    this.ChambreRowDeleted(this, new ChambreRowChangeEvent(((ChambreRow)(e.Row)), e.Action));
+                if ((this.VueChambresRowDeleted != null)) {
+                    this.VueChambresRowDeleted(this, new VueChambresRowChangeEvent(((VueChambresRow)(e.Row)), e.Action));
                 }
             }
             
@@ -492,14 +547,14 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ChambreRowDeleting != null)) {
-                    this.ChambreRowDeleting(this, new ChambreRowChangeEvent(((ChambreRow)(e.Row)), e.Action));
+                if ((this.VueChambresRowDeleting != null)) {
+                    this.VueChambresRowDeleting(this, new VueChambresRowChangeEvent(((VueChambresRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveChambreRow(ChambreRow row) {
+            public void RemoveVueChambresRow(VueChambresRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -526,7 +581,7 @@ namespace GestionResidence {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ChambreDataTable";
+                attribute2.FixedValue = "VueChambresDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -570,25 +625,31 @@ namespace GestionResidence {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ChambreRow : global::System.Data.DataRow {
+        public partial class VueChambresRow : global::System.Data.DataRow {
             
-            private ChambreDataTable tableChambre;
+            private VueChambresDataTable tableVueChambres;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ChambreRow(global::System.Data.DataRowBuilder rb) : 
+            internal VueChambresRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableChambre = ((ChambreDataTable)(this.Table));
+                this.tableVueChambres = ((VueChambresDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ChambreIdentifiant {
                 get {
-                    return ((string)(this[this.tableChambre.ChambreIdentifiantColumn]));
+                    try {
+                        return ((string)(this[this.tableVueChambres.ChambreIdentifiantColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ChambreIdentifiant\' dans la table \'VueChambres\' est DB" +
+                                "Null.", e);
+                    }
                 }
                 set {
-                    this[this.tableChambre.ChambreIdentifiantColumn] = value;
+                    this[this.tableVueChambres.ChambreIdentifiantColumn] = value;
                 }
             }
             
@@ -596,10 +657,15 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ChambreType {
                 get {
-                    return ((string)(this[this.tableChambre.ChambreTypeColumn]));
+                    try {
+                        return ((string)(this[this.tableVueChambres.ChambreTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ChambreType\' dans la table \'VueChambres\' est DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableChambre.ChambreTypeColumn] = value;
+                    this[this.tableVueChambres.ChambreTypeColumn] = value;
                 }
             }
             
@@ -607,22 +673,196 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int ChambreEtage {
                 get {
-                    return ((int)(this[this.tableChambre.ChambreEtageColumn]));
+                    try {
+                        return ((int)(this[this.tableVueChambres.ChambreEtageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ChambreEtage\' dans la table \'VueChambres\' est DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableChambre.ChambreEtageColumn] = value;
+                    this[this.tableVueChambres.ChambreEtageColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal ChambrePrixMensuelHT {
+            public string ResidentIdentifiant {
                 get {
-                    return ((decimal)(this[this.tableChambre.ChambrePrixMensuelHTColumn]));
+                    try {
+                        return ((string)(this[this.tableVueChambres.ResidentIdentifiantColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ResidentIdentifiant\' dans la table \'VueChambres\' est D" +
+                                "BNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableChambre.ChambrePrixMensuelHTColumn] = value;
+                    this[this.tableVueChambres.ResidentIdentifiantColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ResidentNom {
+                get {
+                    try {
+                        return ((string)(this[this.tableVueChambres.ResidentNomColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ResidentNom\' dans la table \'VueChambres\' est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVueChambres.ResidentNomColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ResidentPrenom {
+                get {
+                    try {
+                        return ((string)(this[this.tableVueChambres.ResidentPrenomColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ResidentPrenom\' dans la table \'VueChambres\' est DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableVueChambres.ResidentPrenomColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime PeriodeLocationDateDebut {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableVueChambres.PeriodeLocationDateDebutColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'PeriodeLocationDateDebut\' dans la table \'VueChambres\' " +
+                                "est DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVueChambres.PeriodeLocationDateDebutColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime PeriodeLocationDateFin {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableVueChambres.PeriodeLocationDateFinColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'PeriodeLocationDateFin\' dans la table \'VueChambres\' es" +
+                                "t DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVueChambres.PeriodeLocationDateFinColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChambreIdentifiantNull() {
+                return this.IsNull(this.tableVueChambres.ChambreIdentifiantColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChambreIdentifiantNull() {
+                this[this.tableVueChambres.ChambreIdentifiantColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChambreTypeNull() {
+                return this.IsNull(this.tableVueChambres.ChambreTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChambreTypeNull() {
+                this[this.tableVueChambres.ChambreTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChambreEtageNull() {
+                return this.IsNull(this.tableVueChambres.ChambreEtageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChambreEtageNull() {
+                this[this.tableVueChambres.ChambreEtageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsResidentIdentifiantNull() {
+                return this.IsNull(this.tableVueChambres.ResidentIdentifiantColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetResidentIdentifiantNull() {
+                this[this.tableVueChambres.ResidentIdentifiantColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsResidentNomNull() {
+                return this.IsNull(this.tableVueChambres.ResidentNomColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetResidentNomNull() {
+                this[this.tableVueChambres.ResidentNomColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsResidentPrenomNull() {
+                return this.IsNull(this.tableVueChambres.ResidentPrenomColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetResidentPrenomNull() {
+                this[this.tableVueChambres.ResidentPrenomColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPeriodeLocationDateDebutNull() {
+                return this.IsNull(this.tableVueChambres.PeriodeLocationDateDebutColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPeriodeLocationDateDebutNull() {
+                this[this.tableVueChambres.PeriodeLocationDateDebutColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPeriodeLocationDateFinNull() {
+                return this.IsNull(this.tableVueChambres.PeriodeLocationDateFinColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPeriodeLocationDateFinNull() {
+                this[this.tableVueChambres.PeriodeLocationDateFinColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -630,22 +870,22 @@ namespace GestionResidence {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ChambreRowChangeEvent : global::System.EventArgs {
+        public class VueChambresRowChangeEvent : global::System.EventArgs {
             
-            private ChambreRow eventRow;
+            private VueChambresRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ChambreRowChangeEvent(ChambreRow row, global::System.Data.DataRowAction action) {
+            public VueChambresRowChangeEvent(VueChambresRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ChambreRow Row {
+            public VueChambresRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -673,7 +913,7 @@ namespace GestionResidence.ChambresDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ChambreTableAdapter : global::System.ComponentModel.Component {
+    public partial class VueChambresTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -687,7 +927,7 @@ namespace GestionResidence.ChambresDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ChambreTableAdapter() {
+        public VueChambresTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -784,11 +1024,15 @@ namespace GestionResidence.ChambresDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Chambre";
+            tableMapping.DataSetTable = "VueChambres";
             tableMapping.ColumnMappings.Add("ChambreIdentifiant", "ChambreIdentifiant");
             tableMapping.ColumnMappings.Add("ChambreType", "ChambreType");
             tableMapping.ColumnMappings.Add("ChambreEtage", "ChambreEtage");
-            tableMapping.ColumnMappings.Add("ChambrePrixMensuelHT", "ChambrePrixMensuelHT");
+            tableMapping.ColumnMappings.Add("ResidentIdentifiant", "ResidentIdentifiant");
+            tableMapping.ColumnMappings.Add("ResidentNom", "ResidentNom");
+            tableMapping.ColumnMappings.Add("ResidentPrenom", "ResidentPrenom");
+            tableMapping.ColumnMappings.Add("PeriodeLocationDateDebut", "PeriodeLocationDateDebut");
+            tableMapping.ColumnMappings.Add("PeriodeLocationDateFin", "PeriodeLocationDateFin");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -805,8 +1049,9 @@ namespace GestionResidence.ChambresDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ChambreIdentifiant, ChambreType, ChambreEtage, ChambrePrixMensuelHT FROM d" +
-                "bo.Chambre";
+            this._commandCollection[0].CommandText = "SELECT ChambreIdentifiant, ChambreType, ChambreEtage, ResidentIdentifiant, Reside" +
+                "ntNom, ResidentPrenom, PeriodeLocationDateDebut, PeriodeLocationDateFin FROM dbo" +
+                ".VueChambres";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -814,7 +1059,7 @@ namespace GestionResidence.ChambresDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ChambresDataSet.ChambreDataTable dataTable) {
+        public virtual int Fill(ChambresDataSet.VueChambresDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -827,9 +1072,9 @@ namespace GestionResidence.ChambresDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ChambresDataSet.ChambreDataTable GetData() {
+        public virtual ChambresDataSet.VueChambresDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ChambresDataSet.ChambreDataTable dataTable = new ChambresDataSet.ChambreDataTable();
+            ChambresDataSet.VueChambresDataTable dataTable = new ChambresDataSet.VueChambresDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

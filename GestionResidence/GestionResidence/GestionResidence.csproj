@@ -63,16 +63,17 @@
     <Compile Include="CreationResident.Designer.cs">
       <DependentUpon>CreationResident.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionResidenceDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ListeDesResidents.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ListeDesResidents.Designer.cs">
       <DependentUpon>ListeDesResidents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuChambres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuChambres.Designer.cs">
+      <DependentUpon>MenuChambres.cs</DependentUpon>
     </Compile>
     <Compile Include="ModifierChambre.cs">
       <SubType>Form</SubType>
@@ -86,12 +87,6 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuChambre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuChambre.Designer.cs">
-      <DependentUpon>MenuChambre.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Connexion.resx">
@@ -103,14 +98,14 @@
     <EmbeddedResource Include="ListeDesResidents.resx">
       <DependentUpon>ListeDesResidents.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MenuChambres.resx">
+      <DependentUpon>MenuChambres.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModifierChambre.resx">
       <DependentUpon>ModifierChambre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuChambre.resx">
-      <DependentUpon>MenuChambre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,17 +126,6 @@
     </None>
     <None Include="ChambresDataSet.xss">
       <DependentUpon>ChambresDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GestionResidenceDataSet.xsc">
-      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GestionResidenceDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionResidenceDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionResidenceDataSet.xss">
-      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

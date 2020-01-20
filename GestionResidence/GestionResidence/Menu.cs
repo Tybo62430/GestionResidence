@@ -118,7 +118,7 @@ namespace GestionResidence
 
         private void chambresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MenuChambre Chambres = new MenuChambre();
+            MenuChambres Chambres = new MenuChambres();
             Chambres.Show();
         }
 
