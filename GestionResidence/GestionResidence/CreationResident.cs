@@ -53,13 +53,7 @@ namespace GestionResidence
             {
                 MessageBox.Show("Erreur: " + ex);
             }
-
-        }
-       
-        public string ToMaj(string Aconvert)
-        {
-            return Aconvert.ToUpper(); //convertir en majuscule
-        }
+        }       
 
         static string FirsLetterToMaj(string mot)
         {
@@ -77,6 +71,19 @@ namespace GestionResidence
                 Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
                 RegexOptions.IgnoreCase);
                 resultat = myRegex.IsMatch(mail_address);
+            }
+            return resultat;
+        }
+
+        public static bool ValideDate(string date)
+        {
+            bool resultat = true;
+            if (date != string.Empty)
+            {
+                Regex myRegex = new
+                Regex(@"^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$",
+                RegexOptions.IgnoreCase);
+                resultat = myRegex.IsMatch(date);
             }
             return resultat;
         }
@@ -152,11 +159,15 @@ namespace GestionResidence
 
         public string IdGenerator(string champ1, string champ2, string champ3) //Generateur d'identifiants
         {
-            var random = new Random();
-            champ1 = champ1.Replace(" ","");
-            champ2 = champ2.Replace(" ", "");
-            champ3 = champ3.Replace(" ", "");            
-            string Id = ToMaj(champ1.Substring(0, 3)) + ToMaj(champ2.Substring(0, 3)) + champ3 ;            
+            string Id = "";
+            if (champ1 != string.Empty && champ2 != string.Empty && champ3 != string.Empty)
+            {
+                var random = new Random();
+                champ1 = champ1.Replace(" ", "");
+                champ2 = champ2.Replace(" ", "");
+                champ3 = champ3.Replace(" ", "");
+                Id = champ1.Substring(0, 2).ToUpper() + champ2.Substring(0, 2).ToUpper() + champ3;                          
+            }
             return Id;
         }
 
@@ -292,7 +303,7 @@ namespace GestionResidence
             myCommand.Parameters["@ResidentIdentifiant"].Value = IdGenerator(textBoxNom.Text, textBoxPrenom.Text,textBoxTelephone.Text.ToString());
             myCommand.Parameters["@ResidentNom"].Value = textBoxNom.Text;
             myCommand.Parameters["@ResidentPrenom"].Value = textBoxPrenom.Text;
-            myCommand.Parameters["@ResidentDateDeNaissance"].Value = Convert.ToDateTime(dateTimePickerDateDeNaissance.Text);
+            myCommand.Parameters["@ResidentDateDeNaissance"].Value = textBoxDateDeNaissance.Text;
             myCommand.Parameters["@ResidentCodePostal"].Value = comboBoxCodePostal.Text;
             myCommand.Parameters["@ResidentVille"].Value = comboBoxVille.Text;
             myCommand.Parameters["@ResidentTypeDeVoie"].Value = comboBoxTypeDeVoie.Text;
@@ -339,7 +350,8 @@ namespace GestionResidence
 
         private void CreationResident_Load(object sender, EventArgs e)
         {
-            rechercher(); SearchCP();
+            rechercher();
+            SearchCP();            
         } 
        
         private void buttonChargerPhoto_Click(object sender, EventArgs e)// charger la photo
@@ -527,8 +539,9 @@ namespace GestionResidence
             textBoxPrenom.Clear();
             comboBoxCivilite.SelectedItem = 0;
             comboBoxNationalite.SelectedItem = 63; //63 = Francaise
-            dateTimePickerDateDeNaissance.Value = DateTime.Now;
+            textBoxDateDeNaissance.Clear();
             textBoxTelephone.Clear();
+            textBoxEmail.Clear();
             textBoxSecu.Clear();
             comboBoxCodePostal.SelectedItem = 0;
             comboBoxVille.SelectedItem = 0;
@@ -543,20 +556,27 @@ namespace GestionResidence
         }
 
         private void textBoxNom_Validated(object sender, EventArgs e)
-        {
-            textBoxNom.Text = textBoxNom.Text.ToUpper();               
+        {              
+            if (textBoxNom.Text != string.Empty)
+            {
+                textBoxNom.Text = textBoxNom.Text.ToUpper();
+                UnlockCreate();
+            }
+            else
+                buttonCreer.Enabled = false;
         }
 
         private void textBoxPrenom_Validated(object sender, EventArgs e)
         {
-            textBoxPrenom.Text = FirsLetterToMaj(textBoxPrenom.Text);
+            if(textBoxPrenom.Text != string.Empty)
+            {
+                UnlockCreate();
+                textBoxPrenom.Text = FirsLetterToMaj(textBoxPrenom.Text);
+            }
+            else
+                buttonCreer.Enabled = false;
         }
-
-        private void btnRechercher_Click(object sender, EventArgs e)
-        {
-            string ValRechercher = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, textBoxTelephone.Text);
-            RechercherByNameSurNamePhone(ValRechercher);
-        }
+               
         private void RechercherByNameSurNamePhone(string var1)
         {
             try
@@ -602,8 +622,82 @@ namespace GestionResidence
 
         private void textBoxTelephone_Validated(object sender, EventArgs e)
         {
-            string ValRechercher = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, textBoxTelephone.Text);
-            RechercherByNameSurNamePhone(ValRechercher);
+            string Numero = textBoxTelephone.Text;
+            string ValRechercher;
+            if (Numero.Length < 10)
+            {
+                ErreurNumero.Text = "numero invalide";
+                buttonCreer.Enabled = false;
+
+            }                
+            else
+            {
+                ValRechercher = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, textBoxTelephone.Text);
+                RechercherByNameSurNamePhone(ValRechercher);
+                ErreurNumero.Text = "";
+                UnlockCreate();
+            }            
         }
+
+        private void textBoxDateDeNaissance_Validated(object sender, EventArgs e)
+        {
+            if (ValideDate(textBoxDateDeNaissance.Text))
+            {
+                ErreurDate.Text = "";
+                UnlockCreate();
+            }
+            else
+            {
+                ErreurDate.Text = "Date invalide";
+                buttonCreer.Enabled = false;
+            }
+        }
+
+        private void textBoxTelephone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar)
+                && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxSecu_Validated(object sender, EventArgs e)
+        {
+            string secu = textBoxSecu.Text;
+            if (secu.Length < 13)
+                ErreurSecu.Text = "numero de secu invalide";
+            else
+                ErreurSecu.Text = "";
+        }
+
+        private void textBoxSecu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar)
+                && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxIban_Validated(object sender, EventArgs e)
+        {
+            string Iban = textBoxSecu.Text;
+            if (Iban.Length < 27)
+                ErreurIban.Text = "numero Iban invalide";
+            else
+                ErreurIban.Text = "";
+        }
+
+        public void UnlockCreate()
+        {
+            if ((textBoxNom.Text != string.Empty) && (textBoxPrenom.Text != string.Empty) && (textBoxDateDeNaissance.Text != string.Empty) && (textBoxTelephone.Text != string.Empty))
+                buttonCreer.Enabled = true;
+            else
+                buttonCreer.Enabled = false;
+
+        }      
     }
 }

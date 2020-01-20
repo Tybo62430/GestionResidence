@@ -129,5 +129,11 @@ namespace GestionResidence
                 this.Close();
             }
         }
+
+        private void listeDesRésidentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListeDesResidents NouvelleListe = new ListeDesResidents();
+            NouvelleListe.Show();
+        }
     }
 }

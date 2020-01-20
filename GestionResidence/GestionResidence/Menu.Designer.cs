@@ -32,12 +32,12 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.residentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauRésidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeDesRésidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chambresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.listeDesRésidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,13 @@
             this.nouveauRésidentToolStripMenuItem.Text = "Nouveau Résident";
             this.nouveauRésidentToolStripMenuItem.Click += new System.EventHandler(this.nouveauRésidentToolStripMenuItem_Click);
             // 
+            // listeDesRésidentsToolStripMenuItem
+            // 
+            this.listeDesRésidentsToolStripMenuItem.Name = "listeDesRésidentsToolStripMenuItem";
+            this.listeDesRésidentsToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
+            this.listeDesRésidentsToolStripMenuItem.Text = "Liste des Résidents";
+            this.listeDesRésidentsToolStripMenuItem.Click += new System.EventHandler(this.listeDesRésidentsToolStripMenuItem_Click);
+            // 
             // chambresToolStripMenuItem
             // 
             this.chambresToolStripMenuItem.Name = "chambresToolStripMenuItem";
@@ -103,12 +110,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(35, 20);
             this.toolStripStatusLabel.Text = "État";
-            // 
-            // listeDesRésidentsToolStripMenuItem
-            // 
-            this.listeDesRésidentsToolStripMenuItem.Name = "listeDesRésidentsToolStripMenuItem";
-            this.listeDesRésidentsToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            this.listeDesRésidentsToolStripMenuItem.Text = "Liste des Résidents";
             // 
             // Menu
             // 

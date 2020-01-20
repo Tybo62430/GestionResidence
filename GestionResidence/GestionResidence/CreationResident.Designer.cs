@@ -55,7 +55,6 @@
             this.textBoxFormuleRedevance = new System.Windows.Forms.TextBox();
             this.buttonCreer = new System.Windows.Forms.Button();
             this.buttonViderChamps = new System.Windows.Forms.Button();
-            this.dateTimePickerDateDeNaissance = new System.Windows.Forms.DateTimePicker();
             this.comboBoxCivilite = new System.Windows.Forms.ComboBox();
             this.comboBoxNationalite = new System.Windows.Forms.ComboBox();
             this.labelIban = new System.Windows.Forms.Label();
@@ -74,8 +73,13 @@
             this.comboBoxVille = new System.Windows.Forms.ComboBox();
             this.btnRetour = new System.Windows.Forms.Button();
             this.ErreurNom = new System.Windows.Forms.Label();
+            this.ErreurSecu = new System.Windows.Forms.Label();
+            this.textBoxDateDeNaissance = new System.Windows.Forms.TextBox();
+            this.ErreurDate = new System.Windows.Forms.Label();
+            this.ErreurNumero = new System.Windows.Forms.Label();
             this.ErreurMail = new System.Windows.Forms.Label();
-            this.btnRechercher = new System.Windows.Forms.Button();
+            this.ErreurIban = new System.Windows.Forms.Label();
+            this.ErreurPrenom = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -302,7 +306,8 @@
             // 
             // buttonCreer
             // 
-            this.buttonCreer.Location = new System.Drawing.Point(36, 686);
+            this.buttonCreer.Enabled = false;
+            this.buttonCreer.Location = new System.Drawing.Point(23, 686);
             this.buttonCreer.Name = "buttonCreer";
             this.buttonCreer.Size = new System.Drawing.Size(125, 39);
             this.buttonCreer.TabIndex = 21;
@@ -319,15 +324,6 @@
             this.buttonViderChamps.Text = "Vider Champs";
             this.buttonViderChamps.UseVisualStyleBackColor = true;
             this.buttonViderChamps.Click += new System.EventHandler(this.buttonViderChamps_Click);
-            // 
-            // dateTimePickerDateDeNaissance
-            // 
-            this.dateTimePickerDateDeNaissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDateDeNaissance.Location = new System.Drawing.Point(186, 208);
-            this.dateTimePickerDateDeNaissance.Name = "dateTimePickerDateDeNaissance";
-            this.dateTimePickerDateDeNaissance.Size = new System.Drawing.Size(96, 22);
-            this.dateTimePickerDateDeNaissance.TabIndex = 5;
-            this.dateTimePickerDateDeNaissance.Value = new System.DateTime(2020, 1, 14, 0, 0, 0, 0);
             // 
             // comboBoxCivilite
             // 
@@ -363,6 +359,7 @@
             this.textBoxIban.Name = "textBoxIban";
             this.textBoxIban.Size = new System.Drawing.Size(196, 22);
             this.textBoxIban.TabIndex = 14;
+            this.textBoxIban.Validated += new System.EventHandler(this.textBoxIban_Validated);
             // 
             // pictureBoxPhoto
             // 
@@ -399,6 +396,7 @@
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(163, 22);
             this.textBoxTelephone.TabIndex = 6;
+            this.textBoxTelephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTelephone_KeyPress);
             this.textBoxTelephone.Validated += new System.EventHandler(this.textBoxTelephone_Validated);
             // 
             // buttonChargerPhoto
@@ -426,7 +424,9 @@
             this.textBoxSecu.MaxLength = 13;
             this.textBoxSecu.Name = "textBoxSecu";
             this.textBoxSecu.Size = new System.Drawing.Size(109, 22);
-            this.textBoxSecu.TabIndex = 52;
+            this.textBoxSecu.TabIndex = 8;
+            this.textBoxSecu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSecu_KeyPress);
+            this.textBoxSecu.Validated += new System.EventHandler(this.textBoxSecu_Validated);
             // 
             // comboBoxCodePostal
             // 
@@ -435,7 +435,7 @@
             this.comboBoxCodePostal.Location = new System.Drawing.Point(186, 378);
             this.comboBoxCodePostal.Name = "comboBoxCodePostal";
             this.comboBoxCodePostal.Size = new System.Drawing.Size(86, 24);
-            this.comboBoxCodePostal.TabIndex = 53;
+            this.comboBoxCodePostal.TabIndex = 9;
             this.comboBoxCodePostal.SelectedIndexChanged += new System.EventHandler(this.comboBoxCodePostal_SelectedIndexChanged);
             // 
             // comboBoxTypeDeVoie
@@ -445,7 +445,7 @@
             this.comboBoxTypeDeVoie.Location = new System.Drawing.Point(186, 464);
             this.comboBoxTypeDeVoie.Name = "comboBoxTypeDeVoie";
             this.comboBoxTypeDeVoie.Size = new System.Drawing.Size(163, 24);
-            this.comboBoxTypeDeVoie.TabIndex = 54;
+            this.comboBoxTypeDeVoie.TabIndex = 11;
             this.comboBoxTypeDeVoie.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeDeVoie_SelectedIndexChanged);
             // 
             // comboBoxVoie
@@ -455,7 +455,7 @@
             this.comboBoxVoie.Location = new System.Drawing.Point(417, 464);
             this.comboBoxVoie.Name = "comboBoxVoie";
             this.comboBoxVoie.Size = new System.Drawing.Size(163, 24);
-            this.comboBoxVoie.TabIndex = 55;
+            this.comboBoxVoie.TabIndex = 12;
             this.comboBoxVoie.SelectedIndexChanged += new System.EventHandler(this.comboBoxVoie_SelectedIndexChanged);
             // 
             // comboBoxNumero
@@ -465,7 +465,7 @@
             this.comboBoxNumero.Location = new System.Drawing.Point(658, 464);
             this.comboBoxNumero.Name = "comboBoxNumero";
             this.comboBoxNumero.Size = new System.Drawing.Size(163, 24);
-            this.comboBoxNumero.TabIndex = 56;
+            this.comboBoxNumero.TabIndex = 13;
             // 
             // comboBoxVille
             // 
@@ -474,7 +474,7 @@
             this.comboBoxVille.Location = new System.Drawing.Point(186, 420);
             this.comboBoxVille.Name = "comboBoxVille";
             this.comboBoxVille.Size = new System.Drawing.Size(163, 24);
-            this.comboBoxVille.TabIndex = 57;
+            this.comboBoxVille.TabIndex = 10;
             this.comboBoxVille.SelectedIndexChanged += new System.EventHandler(this.comboBoxVille_SelectedIndexChanged);
             // 
             // btnRetour
@@ -496,24 +496,67 @@
             this.ErreurNom.TabIndex = 59;
             this.ErreurNom.Text = ".";
             // 
+            // ErreurSecu
+            // 
+            this.ErreurSecu.AutoSize = true;
+            this.ErreurSecu.Location = new System.Drawing.Point(304, 339);
+            this.ErreurSecu.Name = "ErreurSecu";
+            this.ErreurSecu.Size = new System.Drawing.Size(12, 17);
+            this.ErreurSecu.TabIndex = 60;
+            this.ErreurSecu.Text = ".";
+            // 
+            // textBoxDateDeNaissance
+            // 
+            this.textBoxDateDeNaissance.Location = new System.Drawing.Point(186, 205);
+            this.textBoxDateDeNaissance.Name = "textBoxDateDeNaissance";
+            this.textBoxDateDeNaissance.Size = new System.Drawing.Size(100, 22);
+            this.textBoxDateDeNaissance.TabIndex = 5;
+            this.textBoxDateDeNaissance.Validated += new System.EventHandler(this.textBoxDateDeNaissance_Validated);
+            // 
+            // ErreurDate
+            // 
+            this.ErreurDate.AutoSize = true;
+            this.ErreurDate.Location = new System.Drawing.Point(292, 210);
+            this.ErreurDate.Name = "ErreurDate";
+            this.ErreurDate.Size = new System.Drawing.Size(12, 17);
+            this.ErreurDate.TabIndex = 63;
+            this.ErreurDate.Text = ".";
+            // 
+            // ErreurNumero
+            // 
+            this.ErreurNumero.AutoSize = true;
+            this.ErreurNumero.Location = new System.Drawing.Point(355, 251);
+            this.ErreurNumero.Name = "ErreurNumero";
+            this.ErreurNumero.Size = new System.Drawing.Size(12, 17);
+            this.ErreurNumero.TabIndex = 64;
+            this.ErreurNumero.Text = ".";
+            // 
             // ErreurMail
             // 
             this.ErreurMail.AutoSize = true;
-            this.ErreurMail.Location = new System.Drawing.Point(418, 295);
+            this.ErreurMail.Location = new System.Drawing.Point(418, 297);
             this.ErreurMail.Name = "ErreurMail";
             this.ErreurMail.Size = new System.Drawing.Size(12, 17);
-            this.ErreurMail.TabIndex = 60;
+            this.ErreurMail.TabIndex = 65;
             this.ErreurMail.Text = ".";
             // 
-            // btnRechercher
+            // ErreurIban
             // 
-            this.btnRechercher.Location = new System.Drawing.Point(356, 248);
-            this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(101, 23);
-            this.btnRechercher.TabIndex = 61;
-            this.btnRechercher.Text = "Rechercher";
-            this.btnRechercher.UseVisualStyleBackColor = true;
-            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
+            this.ErreurIban.AutoSize = true;
+            this.ErreurIban.Location = new System.Drawing.Point(388, 506);
+            this.ErreurIban.Name = "ErreurIban";
+            this.ErreurIban.Size = new System.Drawing.Size(12, 17);
+            this.ErreurIban.TabIndex = 66;
+            this.ErreurIban.Text = ".";
+            // 
+            // ErreurPrenom
+            // 
+            this.ErreurPrenom.AutoSize = true;
+            this.ErreurPrenom.Location = new System.Drawing.Point(414, 83);
+            this.ErreurPrenom.Name = "ErreurPrenom";
+            this.ErreurPrenom.Size = new System.Drawing.Size(12, 17);
+            this.ErreurPrenom.TabIndex = 67;
+            this.ErreurPrenom.Text = ".";
             // 
             // CreationResident
             // 
@@ -521,8 +564,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 730);
             this.ControlBox = false;
-            this.Controls.Add(this.btnRechercher);
+            this.Controls.Add(this.ErreurPrenom);
+            this.Controls.Add(this.ErreurIban);
             this.Controls.Add(this.ErreurMail);
+            this.Controls.Add(this.ErreurNumero);
+            this.Controls.Add(this.ErreurDate);
+            this.Controls.Add(this.textBoxDateDeNaissance);
+            this.Controls.Add(this.ErreurSecu);
             this.Controls.Add(this.ErreurNom);
             this.Controls.Add(this.btnRetour);
             this.Controls.Add(this.comboBoxVille);
@@ -541,7 +589,6 @@
             this.Controls.Add(this.textBoxIban);
             this.Controls.Add(this.comboBoxNationalite);
             this.Controls.Add(this.comboBoxCivilite);
-            this.Controls.Add(this.dateTimePickerDateDeNaissance);
             this.Controls.Add(this.buttonViderChamps);
             this.Controls.Add(this.buttonCreer);
             this.Controls.Add(this.textBoxFormuleRedevance);
@@ -608,7 +655,6 @@
         private System.Windows.Forms.TextBox textBoxFormuleRedevance;
         private System.Windows.Forms.Button buttonCreer;
         private System.Windows.Forms.Button buttonViderChamps;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDateDeNaissance;
         private System.Windows.Forms.ComboBox comboBoxCivilite;
         private System.Windows.Forms.ComboBox comboBoxNationalite;
         private System.Windows.Forms.Label labelIban;
@@ -627,8 +673,13 @@
         private System.Windows.Forms.ComboBox comboBoxVille;
         private System.Windows.Forms.Button btnRetour;
         private System.Windows.Forms.Label ErreurNom;
+        private System.Windows.Forms.Label ErreurSecu;
+        private System.Windows.Forms.TextBox textBoxDateDeNaissance;
+        private System.Windows.Forms.Label ErreurDate;
+        private System.Windows.Forms.Label ErreurNumero;
         private System.Windows.Forms.Label ErreurMail;
-        private System.Windows.Forms.Button btnRechercher;
+        private System.Windows.Forms.Label ErreurIban;
+        private System.Windows.Forms.Label ErreurPrenom;
     }
 }
 

@@ -33,5 +33,16 @@ namespace GestionResidence.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-6RAATB3;Initial Catalog=GestionResidence;Integrated Security=" +
+            "True")]
+        public string GestionResidenceConnectionString {
+            get {
+                return ((string)(this["GestionResidenceConnectionString"]));
+            }
+        }
     }
 }
