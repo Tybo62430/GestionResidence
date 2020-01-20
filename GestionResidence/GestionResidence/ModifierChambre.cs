@@ -13,7 +13,8 @@ namespace GestionResidence
 {
     public partial class ModifierChambre : Form
     {
-        public int Resultat;
+        public int Chambre;
+        public int Resident;
         string DonneeCellule;
 
         public ModifierChambre(string recupRow)
@@ -40,7 +41,7 @@ namespace GestionResidence
                 DataRead = cmd.ExecuteReader();
                 while (DataRead.Read())
                 {
-                    comboBoxIdentifiant.Items.Add(DataRead["ResidentIdentifiant"].ToString());
+                    comboBoxIdentifiant.Items.Add(DataRead["ResidentIdentifiant"].ToString() + " - " + DataRead["ResidentNom"].ToString() + " - " + DataRead["ResidentPrenom"].ToString());
                     comboBoxIdentifiant.SelectedIndex = 0;
                 }
                 DataRead.Close();
@@ -56,7 +57,7 @@ namespace GestionResidence
 
         public void SearchIdResident()
         {
-            Resultat = 0;
+            Chambre = 0;
             try
             {
                 SqlConnection sqlconn = new SqlConnection(sChaineConnect);
@@ -67,6 +68,7 @@ namespace GestionResidence
                 cmd.CommandType = CommandType.Text;
                 // Add Parameters to Command Parameters collection
                 cmd.Parameters.Add("@ResidentIdentifiant", SqlDbType.NVarChar, 100);
+
                 //On affecte les valeurs
                 cmd.Parameters["@ResidentIdentifiant"].Value = comboBoxIdentifiant.Text;
 
@@ -76,8 +78,8 @@ namespace GestionResidence
                 int id;
                 while (DataRead.Read())
                 {
-                    id = Convert.ToInt32(DataRead["NationaliteId"]);
-                    Resultat = id;
+                    id = Convert.ToInt32(DataRead["ResidentId"]);
+                    Chambre = id;
                 }
                 sqlconn.Close();
 
@@ -85,7 +87,7 @@ namespace GestionResidence
             catch (Exception ex)
             {
                 MessageBox.Show("Erreur: " + ex);
-                Resultat = 0;
+                Chambre = 0;
             }
 
         }
@@ -100,10 +102,17 @@ namespace GestionResidence
 
             // Add Parameters to Command Parameters collection
             myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.VarChar, 100);
+            myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.VarChar, 100);
+            myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.VarChar, 100);
+            myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.VarChar, 100);
 
             // Affectation des valeurs
             SearchIdResident();
-            myCommand.Parameters["@Chambre_ChambreId"].Value = Resultat;
+            myCommand.Parameters["@Chambre_ChambreId"].Value = Chambre;
+            myCommand.Parameters["@Chambre_ChambreId"].Value = Chambre;
+            myCommand.Parameters["@Chambre_ChambreId"].Value = Chambre;
+            myCommand.Parameters["@Chambre_ChambreId"].Value = Chambre;
+
 
             try
             {

@@ -19,7 +19,8 @@ namespace GestionResidence
         public int Civilite; //variable pour la recherche d'Id civilite   
         public int Supplement = 0; //variable pour la recherche d'Id Supplement 
         public string chemin; //variable pour le chemin d'acces de la photo
-        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+        //public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+        public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
 
         public CreationResident()
         {
