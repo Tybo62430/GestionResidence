@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GestionResidence
 {
     public partial class Menu : Form
     {
         private int childFormNumber = 0;
+        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+        public int NbPetitDej ;
 
         public Menu()
         {
@@ -108,6 +111,7 @@ namespace GestionResidence
         {
             //Connexion NouvelleConnection = new Connexion();
             //NouvelleConnection.ShowDialog();
+            CalculpetitDej();
         }
 
         private void nouveauRésidentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,6 +138,39 @@ namespace GestionResidence
         {
             ListeDesResidents NouvelleListe = new ListeDesResidents();
             NouvelleListe.Show();
+        }
+
+        public void CalculpetitDej()
+        {
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "SELECT COUNT(*) AS 'NbPetitDej' from Location where Supplement_SupplementId = '1'";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;               
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();
+                int id;
+                while (DataRead.Read())
+                {
+                    id = Convert.ToInt32(DataRead["NbPetitDej"]);
+                    NbPetitDej = id;
+                }
+                sqlconn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+                NbPetitDej = 0;
+            }
+
+            if (NbPetitDej > 1)
+                labelNbPetitDej.Text = "Il y a " + NbPetitDej + " petit dejeuner a preparer.";
+            else
+                labelNbPetitDej.Text = "Aucun petit dejeuner a preparer ce jour.";
         }
     }
 }

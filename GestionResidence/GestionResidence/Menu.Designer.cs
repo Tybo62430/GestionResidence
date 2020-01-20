@@ -38,6 +38,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.labelNbPetitDej = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -111,12 +112,22 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(35, 20);
             this.toolStripStatusLabel.Text = "État";
             // 
+            // labelNbPetitDej
+            // 
+            this.labelNbPetitDej.AutoSize = true;
+            this.labelNbPetitDej.Location = new System.Drawing.Point(848, 56);
+            this.labelNbPetitDej.Name = "labelNbPetitDej";
+            this.labelNbPetitDej.Size = new System.Drawing.Size(12, 17);
+            this.labelNbPetitDej.TabIndex = 4;
+            this.labelNbPetitDej.Text = ".";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.ControlBox = false;
+            this.Controls.Add(this.labelNbPetitDej);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
@@ -147,6 +158,7 @@
         private System.Windows.Forms.ToolStripMenuItem chambresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesRésidentsToolStripMenuItem;
+        private System.Windows.Forms.Label labelNbPetitDej;
     }
 }
 

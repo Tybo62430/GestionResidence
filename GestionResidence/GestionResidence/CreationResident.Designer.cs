@@ -41,18 +41,6 @@
             this.labelTypeDeVoie = new System.Windows.Forms.Label();
             this.labelVoie = new System.Windows.Forms.Label();
             this.labelNumero = new System.Windows.Forms.Label();
-            this.labelFormule = new System.Windows.Forms.Label();
-            this.checkBoxPetitDejeune = new System.Windows.Forms.CheckBox();
-            this.comboBoxFormule = new System.Windows.Forms.ComboBox();
-            this.labelDetails = new System.Windows.Forms.Label();
-            this.labelLoyer = new System.Windows.Forms.Label();
-            this.textBoxLoyer = new System.Windows.Forms.TextBox();
-            this.labelPetitDejeuneRedevance = new System.Windows.Forms.Label();
-            this.labelFormuleRedevance = new System.Windows.Forms.Label();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.textBoxTotal = new System.Windows.Forms.TextBox();
-            this.textBoxPetitDejeuneRedevance = new System.Windows.Forms.TextBox();
-            this.textBoxFormuleRedevance = new System.Windows.Forms.TextBox();
             this.buttonCreer = new System.Windows.Forms.Button();
             this.buttonViderChamps = new System.Windows.Forms.Button();
             this.comboBoxCivilite = new System.Windows.Forms.ComboBox();
@@ -199,115 +187,10 @@
             this.labelNumero.TabIndex = 19;
             this.labelNumero.Text = "Numero :";
             // 
-            // labelFormule
-            // 
-            this.labelFormule.AutoSize = true;
-            this.labelFormule.Location = new System.Drawing.Point(33, 545);
-            this.labelFormule.Name = "labelFormule";
-            this.labelFormule.Size = new System.Drawing.Size(67, 17);
-            this.labelFormule.TabIndex = 21;
-            this.labelFormule.Text = "Formule :";
-            // 
-            // checkBoxPetitDejeune
-            // 
-            this.checkBoxPetitDejeune.AutoSize = true;
-            this.checkBoxPetitDejeune.Location = new System.Drawing.Point(390, 542);
-            this.checkBoxPetitDejeune.Name = "checkBoxPetitDejeune";
-            this.checkBoxPetitDejeune.Size = new System.Drawing.Size(115, 21);
-            this.checkBoxPetitDejeune.TabIndex = 16;
-            this.checkBoxPetitDejeune.Text = "Petit Déjeuné";
-            this.checkBoxPetitDejeune.UseVisualStyleBackColor = true;
-            this.checkBoxPetitDejeune.CheckedChanged += new System.EventHandler(this.checkBoxPetitDejeune_CheckedChanged);
-            // 
-            // comboBoxFormule
-            // 
-            this.comboBoxFormule.FormattingEnabled = true;
-            this.comboBoxFormule.Location = new System.Drawing.Point(186, 540);
-            this.comboBoxFormule.Name = "comboBoxFormule";
-            this.comboBoxFormule.Size = new System.Drawing.Size(196, 24);
-            this.comboBoxFormule.TabIndex = 15;
-            // 
-            // labelDetails
-            // 
-            this.labelDetails.AutoSize = true;
-            this.labelDetails.Location = new System.Drawing.Point(33, 585);
-            this.labelDetails.Name = "labelDetails";
-            this.labelDetails.Size = new System.Drawing.Size(127, 17);
-            this.labelDetails.TabIndex = 24;
-            this.labelDetails.Text = "Détails Redevance";
-            // 
-            // labelLoyer
-            // 
-            this.labelLoyer.AutoSize = true;
-            this.labelLoyer.Location = new System.Drawing.Point(33, 638);
-            this.labelLoyer.Name = "labelLoyer";
-            this.labelLoyer.Size = new System.Drawing.Size(52, 17);
-            this.labelLoyer.TabIndex = 26;
-            this.labelLoyer.Text = "Loyer :";
-            // 
-            // textBoxLoyer
-            // 
-            this.textBoxLoyer.Enabled = false;
-            this.textBoxLoyer.Location = new System.Drawing.Point(36, 658);
-            this.textBoxLoyer.Name = "textBoxLoyer";
-            this.textBoxLoyer.Size = new System.Drawing.Size(133, 22);
-            this.textBoxLoyer.TabIndex = 17;
-            // 
-            // labelPetitDejeuneRedevance
-            // 
-            this.labelPetitDejeuneRedevance.AutoSize = true;
-            this.labelPetitDejeuneRedevance.Location = new System.Drawing.Point(369, 638);
-            this.labelPetitDejeuneRedevance.Name = "labelPetitDejeuneRedevance";
-            this.labelPetitDejeuneRedevance.Size = new System.Drawing.Size(101, 17);
-            this.labelPetitDejeuneRedevance.TabIndex = 30;
-            this.labelPetitDejeuneRedevance.Text = "Petit Déjeuné :";
-            // 
-            // labelFormuleRedevance
-            // 
-            this.labelFormuleRedevance.AutoSize = true;
-            this.labelFormuleRedevance.Location = new System.Drawing.Point(205, 638);
-            this.labelFormuleRedevance.Name = "labelFormuleRedevance";
-            this.labelFormuleRedevance.Size = new System.Drawing.Size(67, 17);
-            this.labelFormuleRedevance.TabIndex = 32;
-            this.labelFormuleRedevance.Text = "Formule :";
-            // 
-            // labelTotal
-            // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(543, 638);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(48, 17);
-            this.labelTotal.TabIndex = 34;
-            this.labelTotal.Text = "Total :";
-            // 
-            // textBoxTotal
-            // 
-            this.textBoxTotal.Enabled = false;
-            this.textBoxTotal.Location = new System.Drawing.Point(546, 658);
-            this.textBoxTotal.Name = "textBoxTotal";
-            this.textBoxTotal.Size = new System.Drawing.Size(133, 22);
-            this.textBoxTotal.TabIndex = 20;
-            // 
-            // textBoxPetitDejeuneRedevance
-            // 
-            this.textBoxPetitDejeuneRedevance.Enabled = false;
-            this.textBoxPetitDejeuneRedevance.Location = new System.Drawing.Point(372, 658);
-            this.textBoxPetitDejeuneRedevance.Name = "textBoxPetitDejeuneRedevance";
-            this.textBoxPetitDejeuneRedevance.Size = new System.Drawing.Size(133, 22);
-            this.textBoxPetitDejeuneRedevance.TabIndex = 19;
-            // 
-            // textBoxFormuleRedevance
-            // 
-            this.textBoxFormuleRedevance.Enabled = false;
-            this.textBoxFormuleRedevance.Location = new System.Drawing.Point(208, 658);
-            this.textBoxFormuleRedevance.Name = "textBoxFormuleRedevance";
-            this.textBoxFormuleRedevance.Size = new System.Drawing.Size(133, 22);
-            this.textBoxFormuleRedevance.TabIndex = 18;
-            // 
             // buttonCreer
             // 
             this.buttonCreer.Enabled = false;
-            this.buttonCreer.Location = new System.Drawing.Point(23, 686);
+            this.buttonCreer.Location = new System.Drawing.Point(256, 563);
             this.buttonCreer.Name = "buttonCreer";
             this.buttonCreer.Size = new System.Drawing.Size(125, 39);
             this.buttonCreer.TabIndex = 21;
@@ -317,7 +200,7 @@
             // 
             // buttonViderChamps
             // 
-            this.buttonViderChamps.Location = new System.Drawing.Point(170, 686);
+            this.buttonViderChamps.Location = new System.Drawing.Point(393, 563);
             this.buttonViderChamps.Name = "buttonViderChamps";
             this.buttonViderChamps.Size = new System.Drawing.Size(112, 39);
             this.buttonViderChamps.TabIndex = 22;
@@ -479,7 +362,7 @@
             // 
             // btnRetour
             // 
-            this.btnRetour.Location = new System.Drawing.Point(287, 686);
+            this.btnRetour.Location = new System.Drawing.Point(520, 563);
             this.btnRetour.Name = "btnRetour";
             this.btnRetour.Size = new System.Drawing.Size(112, 39);
             this.btnRetour.TabIndex = 58;
@@ -591,18 +474,6 @@
             this.Controls.Add(this.comboBoxCivilite);
             this.Controls.Add(this.buttonViderChamps);
             this.Controls.Add(this.buttonCreer);
-            this.Controls.Add(this.textBoxFormuleRedevance);
-            this.Controls.Add(this.textBoxPetitDejeuneRedevance);
-            this.Controls.Add(this.textBoxTotal);
-            this.Controls.Add(this.labelTotal);
-            this.Controls.Add(this.labelFormuleRedevance);
-            this.Controls.Add(this.labelPetitDejeuneRedevance);
-            this.Controls.Add(this.labelLoyer);
-            this.Controls.Add(this.textBoxLoyer);
-            this.Controls.Add(this.labelDetails);
-            this.Controls.Add(this.comboBoxFormule);
-            this.Controls.Add(this.checkBoxPetitDejeune);
-            this.Controls.Add(this.labelFormule);
             this.Controls.Add(this.labelNumero);
             this.Controls.Add(this.labelVoie);
             this.Controls.Add(this.labelTypeDeVoie);
@@ -641,18 +512,6 @@
         private System.Windows.Forms.Label labelTypeDeVoie;
         private System.Windows.Forms.Label labelVoie;
         private System.Windows.Forms.Label labelNumero;
-        private System.Windows.Forms.Label labelFormule;
-        private System.Windows.Forms.CheckBox checkBoxPetitDejeune;
-        private System.Windows.Forms.ComboBox comboBoxFormule;
-        private System.Windows.Forms.Label labelDetails;
-        private System.Windows.Forms.Label labelLoyer;
-        private System.Windows.Forms.TextBox textBoxLoyer;
-        private System.Windows.Forms.Label labelPetitDejeuneRedevance;
-        private System.Windows.Forms.Label labelFormuleRedevance;
-        private System.Windows.Forms.Label labelTotal;
-        private System.Windows.Forms.TextBox textBoxTotal;
-        private System.Windows.Forms.TextBox textBoxPetitDejeuneRedevance;
-        private System.Windows.Forms.TextBox textBoxFormuleRedevance;
         private System.Windows.Forms.Button buttonCreer;
         private System.Windows.Forms.Button buttonViderChamps;
         private System.Windows.Forms.ComboBox comboBoxCivilite;

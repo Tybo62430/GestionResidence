@@ -86,20 +86,7 @@ namespace GestionResidence
                 resultat = myRegex.IsMatch(date);
             }
             return resultat;
-        }
-
-        public static bool ValidLettre(string lettre) //control du uniquement des lettres
-        {
-            bool resultat = true;
-            if (lettre != string.Empty)
-            {
-                Regex myRegex = new
-                 Regex(@"^([a-zA-Z]){3,50}$",
-                RegexOptions.IgnoreCase);
-                resultat = myRegex.IsMatch(lettre);
-            }
-            return resultat;
-        }
+        }        
 
         public void rechercher() //recherche des civilité et de nationnalité
         {
@@ -112,13 +99,13 @@ namespace GestionResidence
                 string sSQL, sSQL2, sSQL3;
                 sSQL = "SELECT CiviliteNom FROM Civilite";
                 sSQL2 = "SELECT NationaliteNom FROM Nationalite";
-                sSQL3 = "SELECT FormuleDescriptif FROM Formule";
+                //sSQL3 = "SELECT FormuleDescriptif FROM Formule";
                 cmd = new SqlCommand(sSQL, sqlconn);
                 cmd2 = new SqlCommand(sSQL2, sqlconn);
-                cmd3 = new SqlCommand(sSQL3, sqlconn);
+                //cmd3 = new SqlCommand(sSQL3, sqlconn);
                 cmd.CommandType = CommandType.Text;
                 cmd2.CommandType = CommandType.Text;
-                cmd3.CommandType = CommandType.Text;
+                //cmd3.CommandType = CommandType.Text;
                 SqlDataReader DataRead;
                 sqlconn.Open();
                 DataRead = cmd.ExecuteReader();
@@ -136,12 +123,12 @@ namespace GestionResidence
                 }
                 comboBoxNationalite.SelectedIndex = 62;
                 DataRead.Close();
-                DataRead = cmd3.ExecuteReader();
-                while (DataRead.Read())
-                {
-                    comboBoxFormule.Items.Add(DataRead["FormuleDescriptif"].ToString());
-                    comboBoxFormule.SelectedIndex = 0;
-                }
+                //DataRead = cmd3.ExecuteReader();
+                //while (DataRead.Read())
+                //{
+                //    comboBoxFormule.Items.Add(DataRead["FormuleDescriptif"].ToString());
+                //    comboBoxFormule.SelectedIndex = 0;
+                //}
                 sqlconn.Close();
             }
 
@@ -205,38 +192,38 @@ namespace GestionResidence
             }            
         }
 
-        public void SearchIdFormule()//Recherche de l'id de formule
-        {
-            Formule = 0;
-            try
-            {
-                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
-                SqlCommand cmd;
-                string sSQL;
-                sSQL = "SELECT FormuleId FROM Formule WHERE FormuleDescriptif = @formuledescriptif";
-                cmd = new SqlCommand(sSQL, sqlconn);
-                cmd.CommandType = CommandType.Text;
-                // Add Parameters to Command Parameters collection
-                cmd.Parameters.Add("@formuledescriptif", SqlDbType.NVarChar, 100);
-                //On affecte les valeurs
-                cmd.Parameters["@formuledescriptif"].Value = comboBoxFormule.Text;
-                SqlDataReader DataRead;
-                sqlconn.Open();
-                DataRead = cmd.ExecuteReader();
-                int id;
-                while (DataRead.Read())
-                {
-                    id = Convert.ToInt32(DataRead["FormuleID"]);
-                    Formule = id;
-                }
-                sqlconn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur: " + ex);
-                Formule = 0;
-            }
-        }
+        //public void SearchIdFormule()//Recherche de l'id de formule
+        //{
+        //    Formule = 0;
+        //    try
+        //    {
+        //        SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+        //        SqlCommand cmd;
+        //        string sSQL;
+        //        sSQL = "SELECT FormuleId FROM Formule WHERE FormuleDescriptif = @formuledescriptif";
+        //        cmd = new SqlCommand(sSQL, sqlconn);
+        //        cmd.CommandType = CommandType.Text;
+        //        // Add Parameters to Command Parameters collection
+        //        cmd.Parameters.Add("@formuledescriptif", SqlDbType.NVarChar, 100);
+        //        //On affecte les valeurs
+        //        cmd.Parameters["@formuledescriptif"].Value = comboBoxFormule.Text;
+        //        SqlDataReader DataRead;
+        //        sqlconn.Open();
+        //        DataRead = cmd.ExecuteReader();
+        //        int id;
+        //        while (DataRead.Read())
+        //        {
+        //            id = Convert.ToInt32(DataRead["FormuleID"]);
+        //            Formule = id;
+        //        }
+        //        sqlconn.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Erreur: " + ex);
+        //        Formule = 0;
+        //    }
+        //}
 
         public void SearchIdCivilite()//Recherche de l'id de Civilite
         {
@@ -294,8 +281,8 @@ namespace GestionResidence
             myCommand.Parameters.Add("@ResidentSecu", SqlDbType.VarChar, 13);
             myCommand.Parameters.Add("@ResidentIban", SqlDbType.VarChar, 50);
             myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.VarChar, 100);
-            myCommand.Parameters.Add("@Formule_FormuleId", SqlDbType.Int);
-            myCommand.Parameters.Add("@Supplement_SupplementId", SqlDbType.Int);
+            //myCommand.Parameters.Add("@Formule_FormuleId", SqlDbType.Int);
+            //myCommand.Parameters.Add("@Supplement_SupplementId", SqlDbType.Int);
             myCommand.Parameters.Add("@Civilite_CiviliteId", SqlDbType.Int);
             myCommand.Parameters.Add("@Nationalite_NationaliteId", SqlDbType.Int);
 
@@ -317,9 +304,9 @@ namespace GestionResidence
                 myCommand.Parameters["@ResidentPhoto"].Value = "";
             else    
             myCommand.Parameters["@ResidentPhoto"].Value = chemin;
-            SearchIdFormule();
-            myCommand.Parameters["@Formule_FormuleId"].Value = Formule;
-            myCommand.Parameters["@Supplement_SupplementId"].Value = Supplement;
+            //SearchIdFormule();
+            //myCommand.Parameters["@Formule_FormuleId"].Value = Formule;
+            //myCommand.Parameters["@Supplement_SupplementId"].Value = Supplement;
             SearchIdCivilite();
             myCommand.Parameters["@Civilite_CiviliteId"].Value = Civilite;
             SearchIdNationalite();
@@ -512,14 +499,14 @@ namespace GestionResidence
             }
         }
 
-        private void checkBoxPetitDejeune_CheckedChanged(object sender, EventArgs e)
-        {
-            Supplement = 0;
-            if (checkBoxPetitDejeune.Checked)
-                Supplement = 1 ;
-            else
-                Supplement = 0 ;
-        }
+        //private void checkBoxPetitDejeune_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    Supplement = 0;
+        //    if (checkBoxPetitDejeune.Checked)
+        //        Supplement = 1 ;
+        //    else
+        //        Supplement = 0 ;
+        //}
 
         private void textBoxEmail_Leave(object sender, EventArgs e)
         {
@@ -549,8 +536,8 @@ namespace GestionResidence
             comboBoxVoie.SelectedItem = 0;
             comboBoxNumero.SelectedItem = 0;
             textBoxIban.Clear();
-            comboBoxFormule.SelectedItem = 0;
-            checkBoxPetitDejeune.Checked = false;
+            //comboBoxFormule.SelectedItem = 0;
+            //checkBoxPetitDejeune.Checked = false;
             pictureBoxPhoto.Image = null;
 
         }
