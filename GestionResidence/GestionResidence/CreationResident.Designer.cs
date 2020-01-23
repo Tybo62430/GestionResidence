@@ -83,7 +83,7 @@
             // labelNom
             // 
             this.labelNom.AutoSize = true;
-            this.labelNom.Location = new System.Drawing.Point(33, 45);
+            this.labelNom.Location = new System.Drawing.Point(32, 45);
             this.labelNom.Name = "labelNom";
             this.labelNom.Size = new System.Drawing.Size(45, 17);
             this.labelNom.TabIndex = 1;
@@ -92,7 +92,7 @@
             // labelPrenom
             // 
             this.labelPrenom.AutoSize = true;
-            this.labelPrenom.Location = new System.Drawing.Point(33, 83);
+            this.labelPrenom.Location = new System.Drawing.Point(32, 71);
             this.labelPrenom.Name = "labelPrenom";
             this.labelPrenom.Size = new System.Drawing.Size(65, 17);
             this.labelPrenom.TabIndex = 4;
@@ -100,7 +100,7 @@
             // 
             // textBoxPrenom
             // 
-            this.textBoxPrenom.Location = new System.Drawing.Point(186, 78);
+            this.textBoxPrenom.Location = new System.Drawing.Point(186, 66);
             this.textBoxPrenom.MaxLength = 30;
             this.textBoxPrenom.Name = "textBoxPrenom";
             this.textBoxPrenom.Size = new System.Drawing.Size(225, 22);
@@ -110,7 +110,7 @@
             // labelCivilite
             // 
             this.labelCivilite.AutoSize = true;
-            this.labelCivilite.Location = new System.Drawing.Point(33, 125);
+            this.labelCivilite.Location = new System.Drawing.Point(32, 97);
             this.labelCivilite.Name = "labelCivilite";
             this.labelCivilite.Size = new System.Drawing.Size(56, 17);
             this.labelCivilite.TabIndex = 6;
@@ -119,7 +119,7 @@
             // labelNationalite
             // 
             this.labelNationalite.AutoSize = true;
-            this.labelNationalite.Location = new System.Drawing.Point(33, 168);
+            this.labelNationalite.Location = new System.Drawing.Point(32, 126);
             this.labelNationalite.Name = "labelNationalite";
             this.labelNationalite.Size = new System.Drawing.Size(83, 17);
             this.labelNationalite.TabIndex = 8;
@@ -128,7 +128,7 @@
             // labelDateDeNaissance
             // 
             this.labelDateDeNaissance.AutoSize = true;
-            this.labelDateDeNaissance.Location = new System.Drawing.Point(33, 208);
+            this.labelDateDeNaissance.Location = new System.Drawing.Point(32, 155);
             this.labelDateDeNaissance.Name = "labelDateDeNaissance";
             this.labelDateDeNaissance.Size = new System.Drawing.Size(138, 17);
             this.labelDateDeNaissance.TabIndex = 10;
@@ -137,7 +137,7 @@
             // labelMail
             // 
             this.labelMail.AutoSize = true;
-            this.labelMail.Location = new System.Drawing.Point(33, 297);
+            this.labelMail.Location = new System.Drawing.Point(32, 209);
             this.labelMail.Name = "labelMail";
             this.labelMail.Size = new System.Drawing.Size(54, 17);
             this.labelMail.TabIndex = 12;
@@ -145,7 +145,7 @@
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(186, 292);
+            this.textBoxEmail.Location = new System.Drawing.Point(186, 204);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(225, 22);
             this.textBoxEmail.TabIndex = 7;
@@ -154,7 +154,7 @@
             // labelCodePostal
             // 
             this.labelCodePostal.AutoSize = true;
-            this.labelCodePostal.Location = new System.Drawing.Point(33, 381);
+            this.labelCodePostal.Location = new System.Drawing.Point(33, 259);
             this.labelCodePostal.Name = "labelCodePostal";
             this.labelCodePostal.Size = new System.Drawing.Size(92, 17);
             this.labelCodePostal.TabIndex = 14;
@@ -163,7 +163,7 @@
             // labelTypeDeVoie
             // 
             this.labelTypeDeVoie.AutoSize = true;
-            this.labelTypeDeVoie.Location = new System.Drawing.Point(33, 467);
+            this.labelTypeDeVoie.Location = new System.Drawing.Point(33, 317);
             this.labelTypeDeVoie.Name = "labelTypeDeVoie";
             this.labelTypeDeVoie.Size = new System.Drawing.Size(100, 17);
             this.labelTypeDeVoie.TabIndex = 16;
@@ -172,7 +172,7 @@
             // labelVoie
             // 
             this.labelVoie.AutoSize = true;
-            this.labelVoie.Location = new System.Drawing.Point(367, 467);
+            this.labelVoie.Location = new System.Drawing.Point(367, 317);
             this.labelVoie.Name = "labelVoie";
             this.labelVoie.Size = new System.Drawing.Size(44, 17);
             this.labelVoie.TabIndex = 17;
@@ -181,7 +181,7 @@
             // labelNumero
             // 
             this.labelNumero.AutoSize = true;
-            this.labelNumero.Location = new System.Drawing.Point(586, 465);
+            this.labelNumero.Location = new System.Drawing.Point(586, 315);
             this.labelNumero.Name = "labelNumero";
             this.labelNumero.Size = new System.Drawing.Size(66, 17);
             this.labelNumero.TabIndex = 19;
@@ -190,7 +190,7 @@
             // buttonCreer
             // 
             this.buttonCreer.Enabled = false;
-            this.buttonCreer.Location = new System.Drawing.Point(256, 563);
+            this.buttonCreer.Location = new System.Drawing.Point(256, 373);
             this.buttonCreer.Name = "buttonCreer";
             this.buttonCreer.Size = new System.Drawing.Size(125, 39);
             this.buttonCreer.TabIndex = 21;
@@ -200,7 +200,7 @@
             // 
             // buttonViderChamps
             // 
-            this.buttonViderChamps.Location = new System.Drawing.Point(393, 563);
+            this.buttonViderChamps.Location = new System.Drawing.Point(393, 373);
             this.buttonViderChamps.Name = "buttonViderChamps";
             this.buttonViderChamps.Size = new System.Drawing.Size(112, 39);
             this.buttonViderChamps.TabIndex = 22;
@@ -212,7 +212,7 @@
             // 
             this.comboBoxCivilite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCivilite.FormattingEnabled = true;
-            this.comboBoxCivilite.Location = new System.Drawing.Point(186, 122);
+            this.comboBoxCivilite.Location = new System.Drawing.Point(186, 94);
             this.comboBoxCivilite.Name = "comboBoxCivilite";
             this.comboBoxCivilite.Size = new System.Drawing.Size(163, 24);
             this.comboBoxCivilite.TabIndex = 3;
@@ -221,7 +221,7 @@
             // 
             this.comboBoxNationalite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNationalite.FormattingEnabled = true;
-            this.comboBoxNationalite.Location = new System.Drawing.Point(186, 165);
+            this.comboBoxNationalite.Location = new System.Drawing.Point(186, 123);
             this.comboBoxNationalite.Name = "comboBoxNationalite";
             this.comboBoxNationalite.Size = new System.Drawing.Size(163, 24);
             this.comboBoxNationalite.TabIndex = 4;
@@ -229,7 +229,7 @@
             // labelIban
             // 
             this.labelIban.AutoSize = true;
-            this.labelIban.Location = new System.Drawing.Point(33, 506);
+            this.labelIban.Location = new System.Drawing.Point(33, 348);
             this.labelIban.Name = "labelIban";
             this.labelIban.Size = new System.Drawing.Size(43, 17);
             this.labelIban.TabIndex = 44;
@@ -237,7 +237,7 @@
             // 
             // textBoxIban
             // 
-            this.textBoxIban.Location = new System.Drawing.Point(186, 501);
+            this.textBoxIban.Location = new System.Drawing.Point(186, 343);
             this.textBoxIban.MaxLength = 27;
             this.textBoxIban.Name = "textBoxIban";
             this.textBoxIban.Size = new System.Drawing.Size(196, 22);
@@ -257,7 +257,7 @@
             // labelVille
             // 
             this.labelVille.AutoSize = true;
-            this.labelVille.Location = new System.Drawing.Point(33, 423);
+            this.labelVille.Location = new System.Drawing.Point(33, 287);
             this.labelVille.Name = "labelVille";
             this.labelVille.Size = new System.Drawing.Size(42, 17);
             this.labelVille.TabIndex = 47;
@@ -266,7 +266,7 @@
             // labelTelephone
             // 
             this.labelTelephone.AutoSize = true;
-            this.labelTelephone.Location = new System.Drawing.Point(33, 253);
+            this.labelTelephone.Location = new System.Drawing.Point(32, 182);
             this.labelTelephone.Name = "labelTelephone";
             this.labelTelephone.Size = new System.Drawing.Size(84, 17);
             this.labelTelephone.TabIndex = 49;
@@ -274,7 +274,7 @@
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(186, 248);
+            this.textBoxTelephone.Location = new System.Drawing.Point(186, 177);
             this.textBoxTelephone.MaxLength = 12;
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(163, 22);
@@ -296,7 +296,7 @@
             // labelSecu
             // 
             this.labelSecu.AutoSize = true;
-            this.labelSecu.Location = new System.Drawing.Point(33, 337);
+            this.labelSecu.Location = new System.Drawing.Point(32, 232);
             this.labelSecu.Name = "labelSecu";
             this.labelSecu.Size = new System.Drawing.Size(128, 17);
             this.labelSecu.TabIndex = 51;
@@ -304,7 +304,7 @@
             // 
             // textBoxSecu
             // 
-            this.textBoxSecu.Location = new System.Drawing.Point(189, 334);
+            this.textBoxSecu.Location = new System.Drawing.Point(185, 229);
             this.textBoxSecu.MaxLength = 13;
             this.textBoxSecu.Name = "textBoxSecu";
             this.textBoxSecu.Size = new System.Drawing.Size(109, 22);
@@ -316,7 +316,7 @@
             // 
             this.comboBoxCodePostal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCodePostal.FormattingEnabled = true;
-            this.comboBoxCodePostal.Location = new System.Drawing.Point(186, 378);
+            this.comboBoxCodePostal.Location = new System.Drawing.Point(186, 256);
             this.comboBoxCodePostal.Name = "comboBoxCodePostal";
             this.comboBoxCodePostal.Size = new System.Drawing.Size(86, 24);
             this.comboBoxCodePostal.TabIndex = 9;
@@ -326,7 +326,7 @@
             // 
             this.comboBoxTypeDeVoie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypeDeVoie.FormattingEnabled = true;
-            this.comboBoxTypeDeVoie.Location = new System.Drawing.Point(186, 464);
+            this.comboBoxTypeDeVoie.Location = new System.Drawing.Point(186, 314);
             this.comboBoxTypeDeVoie.Name = "comboBoxTypeDeVoie";
             this.comboBoxTypeDeVoie.Size = new System.Drawing.Size(163, 24);
             this.comboBoxTypeDeVoie.TabIndex = 11;
@@ -336,7 +336,7 @@
             // 
             this.comboBoxVoie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxVoie.FormattingEnabled = true;
-            this.comboBoxVoie.Location = new System.Drawing.Point(417, 464);
+            this.comboBoxVoie.Location = new System.Drawing.Point(417, 314);
             this.comboBoxVoie.Name = "comboBoxVoie";
             this.comboBoxVoie.Size = new System.Drawing.Size(163, 24);
             this.comboBoxVoie.TabIndex = 12;
@@ -346,7 +346,7 @@
             // 
             this.comboBoxNumero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNumero.FormattingEnabled = true;
-            this.comboBoxNumero.Location = new System.Drawing.Point(658, 464);
+            this.comboBoxNumero.Location = new System.Drawing.Point(658, 314);
             this.comboBoxNumero.Name = "comboBoxNumero";
             this.comboBoxNumero.Size = new System.Drawing.Size(163, 24);
             this.comboBoxNumero.TabIndex = 13;
@@ -355,7 +355,7 @@
             // 
             this.comboBoxVille.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxVille.FormattingEnabled = true;
-            this.comboBoxVille.Location = new System.Drawing.Point(186, 420);
+            this.comboBoxVille.Location = new System.Drawing.Point(186, 284);
             this.comboBoxVille.Name = "comboBoxVille";
             this.comboBoxVille.Size = new System.Drawing.Size(163, 24);
             this.comboBoxVille.TabIndex = 10;
@@ -363,7 +363,7 @@
             // 
             // btnRetour
             // 
-            this.btnRetour.Location = new System.Drawing.Point(520, 563);
+            this.btnRetour.Location = new System.Drawing.Point(520, 373);
             this.btnRetour.Name = "btnRetour";
             this.btnRetour.Size = new System.Drawing.Size(112, 39);
             this.btnRetour.TabIndex = 58;
@@ -374,7 +374,7 @@
             // ErreurNom
             // 
             this.ErreurNom.AutoSize = true;
-            this.ErreurNom.Location = new System.Drawing.Point(418, 40);
+            this.ErreurNom.Location = new System.Drawing.Point(414, 43);
             this.ErreurNom.Name = "ErreurNom";
             this.ErreurNom.Size = new System.Drawing.Size(12, 17);
             this.ErreurNom.TabIndex = 59;
@@ -383,7 +383,7 @@
             // ErreurSecu
             // 
             this.ErreurSecu.AutoSize = true;
-            this.ErreurSecu.Location = new System.Drawing.Point(304, 339);
+            this.ErreurSecu.Location = new System.Drawing.Point(303, 234);
             this.ErreurSecu.Name = "ErreurSecu";
             this.ErreurSecu.Size = new System.Drawing.Size(12, 17);
             this.ErreurSecu.TabIndex = 60;
@@ -391,7 +391,8 @@
             // 
             // textBoxDateDeNaissance
             // 
-            this.textBoxDateDeNaissance.Location = new System.Drawing.Point(186, 205);
+            this.textBoxDateDeNaissance.Location = new System.Drawing.Point(186, 152);
+            this.textBoxDateDeNaissance.MaxLength = 10;
             this.textBoxDateDeNaissance.Name = "textBoxDateDeNaissance";
             this.textBoxDateDeNaissance.Size = new System.Drawing.Size(100, 22);
             this.textBoxDateDeNaissance.TabIndex = 5;
@@ -400,7 +401,7 @@
             // ErreurDate
             // 
             this.ErreurDate.AutoSize = true;
-            this.ErreurDate.Location = new System.Drawing.Point(292, 210);
+            this.ErreurDate.Location = new System.Drawing.Point(292, 157);
             this.ErreurDate.Name = "ErreurDate";
             this.ErreurDate.Size = new System.Drawing.Size(12, 17);
             this.ErreurDate.TabIndex = 63;
@@ -409,7 +410,7 @@
             // ErreurNumero
             // 
             this.ErreurNumero.AutoSize = true;
-            this.ErreurNumero.Location = new System.Drawing.Point(355, 251);
+            this.ErreurNumero.Location = new System.Drawing.Point(355, 180);
             this.ErreurNumero.Name = "ErreurNumero";
             this.ErreurNumero.Size = new System.Drawing.Size(12, 17);
             this.ErreurNumero.TabIndex = 64;
@@ -418,7 +419,7 @@
             // ErreurMail
             // 
             this.ErreurMail.AutoSize = true;
-            this.ErreurMail.Location = new System.Drawing.Point(418, 297);
+            this.ErreurMail.Location = new System.Drawing.Point(417, 209);
             this.ErreurMail.Name = "ErreurMail";
             this.ErreurMail.Size = new System.Drawing.Size(12, 17);
             this.ErreurMail.TabIndex = 65;
@@ -427,7 +428,7 @@
             // ErreurIban
             // 
             this.ErreurIban.AutoSize = true;
-            this.ErreurIban.Location = new System.Drawing.Point(388, 506);
+            this.ErreurIban.Location = new System.Drawing.Point(388, 348);
             this.ErreurIban.Name = "ErreurIban";
             this.ErreurIban.Size = new System.Drawing.Size(12, 17);
             this.ErreurIban.TabIndex = 66;
@@ -436,7 +437,7 @@
             // ErreurPrenom
             // 
             this.ErreurPrenom.AutoSize = true;
-            this.ErreurPrenom.Location = new System.Drawing.Point(414, 83);
+            this.ErreurPrenom.Location = new System.Drawing.Point(414, 71);
             this.ErreurPrenom.Name = "ErreurPrenom";
             this.ErreurPrenom.Size = new System.Drawing.Size(12, 17);
             this.ErreurPrenom.TabIndex = 67;
@@ -539,7 +540,7 @@
         private System.Windows.Forms.Label ErreurNumero;
         private System.Windows.Forms.Label ErreurMail;
         private System.Windows.Forms.Label ErreurIban;
-        private System.Windows.Forms.Label ErreurPrenom;
+        private System.Windows.Forms.Label ErreurPrenom; 
     }
 }
 

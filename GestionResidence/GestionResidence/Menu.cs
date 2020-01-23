@@ -117,8 +117,8 @@ namespace GestionResidence
 
         private void nouveauRésidentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreationResident NouveauResident = new CreationResident();
-            NouveauResident.ShowDialog();
+            //CreationResident NouveauResident = new CreationResident();
+            //NouveauResident.ShowDialog();
         }
 
         private void chambresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,7 +148,7 @@ namespace GestionResidence
                 SqlConnection sqlconn = new SqlConnection(sChaineConnect);
                 SqlCommand cmd;
                 string sSQL;
-                sSQL = "SELECT COUNT(*) AS 'NbPetitDej' from Location where Supplement_SupplementId = '1'";
+                sSQL = "SELECT COUNT(*) AS 'NbPetitDej' from Location where ((Supplement_SupplementId = '1') AND (GETDATE() BETWEEN PeriodeLocationDateDeBut AND PeriodeLocationDateFin))";
                 cmd = new SqlCommand(sSQL, sqlconn);
                 cmd.CommandType = CommandType.Text;               
                 SqlDataReader DataRead;
@@ -168,10 +168,16 @@ namespace GestionResidence
                 NbPetitDej = 0;
             }
 
-            if (NbPetitDej > 1)
+            if (NbPetitDej >= 1)
                 labelNbPetitDej.Text = "Il y a " + NbPetitDej + " petit dejeuner a preparer.";
             else
                 labelNbPetitDej.Text = "Aucun petit dejeuner a preparer ce jour.";
+        }
+
+        private void residentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListeDesResidents NouvelleListes = new ListeDesResidents();
+            NouvelleListes.ShowDialog();
         }
     }
 }

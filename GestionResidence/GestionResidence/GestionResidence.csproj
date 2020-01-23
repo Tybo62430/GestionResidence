@@ -68,15 +68,13 @@
     <Compile Include="CreationResident.Designer.cs">
       <DependentUpon>CreationResident.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionResidenceDataSet.cs">
+      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GestionResidenceDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="GestionResidenceDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionResidenceDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="ListeDesResidents.cs">
       <SubType>Form</SubType>
@@ -163,17 +161,6 @@
     </None>
     <None Include="GestionResidenceDataSet.xss">
       <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GestionResidenceDataSet1.xsc">
-      <DependentUpon>GestionResidenceDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="GestionResidenceDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionResidenceDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionResidenceDataSet1.xss">
-      <DependentUpon>GestionResidenceDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

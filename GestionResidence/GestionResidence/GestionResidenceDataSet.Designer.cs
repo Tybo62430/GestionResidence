@@ -24,7 +24,7 @@ namespace GestionResidence {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class GestionResidenceDataSet : global::System.Data.DataSet {
         
-        private ViewResidentDataTable tableViewResident;
+        private VueClientsDataTable tableVueClients;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace GestionResidence {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["ViewResident"] != null)) {
-                    base.Tables.Add(new ViewResidentDataTable(ds.Tables["ViewResident"]));
+                if ((ds.Tables["VueClients"] != null)) {
+                    base.Tables.Add(new VueClientsDataTable(ds.Tables["VueClients"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace GestionResidence {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ViewResidentDataTable ViewResident {
+        public VueClientsDataTable VueClients {
             get {
-                return this.tableViewResident;
+                return this.tableVueClients;
             }
         }
         
@@ -152,8 +152,8 @@ namespace GestionResidence {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["ViewResident"] != null)) {
-                    base.Tables.Add(new ViewResidentDataTable(ds.Tables["ViewResident"]));
+                if ((ds.Tables["VueClients"] != null)) {
+                    base.Tables.Add(new VueClientsDataTable(ds.Tables["VueClients"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace GestionResidence {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableViewResident = ((ViewResidentDataTable)(base.Tables["ViewResident"]));
+            this.tableVueClients = ((VueClientsDataTable)(base.Tables["VueClients"]));
             if ((initTable == true)) {
-                if ((this.tableViewResident != null)) {
-                    this.tableViewResident.InitVars();
+                if ((this.tableVueClients != null)) {
+                    this.tableVueClients.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace GestionResidence {
             this.Namespace = "http://tempuri.org/GestionResidenceDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableViewResident = new ViewResidentDataTable();
-            base.Tables.Add(this.tableViewResident);
+            this.tableVueClients = new VueClientsDataTable();
+            base.Tables.Add(this.tableVueClients);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeViewResident() {
+        private bool ShouldSerializeVueClients() {
             return false;
         }
         
@@ -270,16 +270,14 @@ namespace GestionResidence {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ViewResidentRowChangeEventHandler(object sender, ViewResidentRowChangeEvent e);
+        public delegate void VueClientsRowChangeEventHandler(object sender, VueClientsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ViewResidentDataTable : global::System.Data.TypedTableBase<ViewResidentRow> {
-            
-            private global::System.Data.DataColumn columnResidentId;
+        public partial class VueClientsDataTable : global::System.Data.TypedTableBase<VueClientsRow> {
             
             private global::System.Data.DataColumn columnResidentIdentifiant;
             
@@ -287,10 +285,18 @@ namespace GestionResidence {
             
             private global::System.Data.DataColumn columnResidentPrenom;
             
+            private global::System.Data.DataColumn columnChambreIdentifiant;
+            
+            private global::System.Data.DataColumn columnFormuleDescriptif;
+            
+            private global::System.Data.DataColumn columnPeriodeLocationDateDebut;
+            
+            private global::System.Data.DataColumn columnPeriodeLocationDateFin;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ViewResidentDataTable() {
-                this.TableName = "ViewResident";
+            public VueClientsDataTable() {
+                this.TableName = "VueClients";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +304,7 @@ namespace GestionResidence {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ViewResidentDataTable(global::System.Data.DataTable table) {
+            internal VueClientsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,17 +321,9 @@ namespace GestionResidence {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ViewResidentDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected VueClientsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ResidentIdColumn {
-                get {
-                    return this.columnResidentId;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -354,6 +352,38 @@ namespace GestionResidence {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ChambreIdentifiantColumn {
+                get {
+                    return this.columnChambreIdentifiant;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FormuleDescriptifColumn {
+                get {
+                    return this.columnFormuleDescriptif;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PeriodeLocationDateDebutColumn {
+                get {
+                    return this.columnPeriodeLocationDateDebut;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PeriodeLocationDateFinColumn {
+                get {
+                    return this.columnPeriodeLocationDateFin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -363,48 +393,51 @@ namespace GestionResidence {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ViewResidentRow this[int index] {
+            public VueClientsRow this[int index] {
                 get {
-                    return ((ViewResidentRow)(this.Rows[index]));
+                    return ((VueClientsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ViewResidentRowChangeEventHandler ViewResidentRowChanging;
+            public event VueClientsRowChangeEventHandler VueClientsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ViewResidentRowChangeEventHandler ViewResidentRowChanged;
+            public event VueClientsRowChangeEventHandler VueClientsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ViewResidentRowChangeEventHandler ViewResidentRowDeleting;
+            public event VueClientsRowChangeEventHandler VueClientsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ViewResidentRowChangeEventHandler ViewResidentRowDeleted;
+            public event VueClientsRowChangeEventHandler VueClientsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddViewResidentRow(ViewResidentRow row) {
+            public void AddVueClientsRow(VueClientsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ViewResidentRow AddViewResidentRow(string ResidentIdentifiant, string ResidentNom, string ResidentPrenom) {
-                ViewResidentRow rowViewResidentRow = ((ViewResidentRow)(this.NewRow()));
+            public VueClientsRow AddVueClientsRow(string ResidentIdentifiant, string ResidentNom, string ResidentPrenom, string ChambreIdentifiant, string FormuleDescriptif, System.DateTime PeriodeLocationDateDebut, System.DateTime PeriodeLocationDateFin) {
+                VueClientsRow rowVueClientsRow = ((VueClientsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
                         ResidentIdentifiant,
                         ResidentNom,
-                        ResidentPrenom};
-                rowViewResidentRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowViewResidentRow);
-                return rowViewResidentRow;
+                        ResidentPrenom,
+                        ChambreIdentifiant,
+                        FormuleDescriptif,
+                        PeriodeLocationDateDebut,
+                        PeriodeLocationDateFin};
+                rowVueClientsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVueClientsRow);
+                return rowVueClientsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ViewResidentDataTable cln = ((ViewResidentDataTable)(base.Clone()));
+                VueClientsDataTable cln = ((VueClientsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -412,66 +445,72 @@ namespace GestionResidence {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ViewResidentDataTable();
+                return new VueClientsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnResidentId = base.Columns["ResidentId"];
                 this.columnResidentIdentifiant = base.Columns["ResidentIdentifiant"];
                 this.columnResidentNom = base.Columns["ResidentNom"];
                 this.columnResidentPrenom = base.Columns["ResidentPrenom"];
+                this.columnChambreIdentifiant = base.Columns["ChambreIdentifiant"];
+                this.columnFormuleDescriptif = base.Columns["FormuleDescriptif"];
+                this.columnPeriodeLocationDateDebut = base.Columns["PeriodeLocationDateDebut"];
+                this.columnPeriodeLocationDateFin = base.Columns["PeriodeLocationDateFin"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnResidentId = new global::System.Data.DataColumn("ResidentId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnResidentId);
                 this.columnResidentIdentifiant = new global::System.Data.DataColumn("ResidentIdentifiant", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnResidentIdentifiant);
                 this.columnResidentNom = new global::System.Data.DataColumn("ResidentNom", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnResidentNom);
                 this.columnResidentPrenom = new global::System.Data.DataColumn("ResidentPrenom", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnResidentPrenom);
-                this.columnResidentId.AutoIncrement = true;
-                this.columnResidentId.AutoIncrementSeed = -1;
-                this.columnResidentId.AutoIncrementStep = -1;
-                this.columnResidentId.AllowDBNull = false;
-                this.columnResidentId.ReadOnly = true;
+                this.columnChambreIdentifiant = new global::System.Data.DataColumn("ChambreIdentifiant", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChambreIdentifiant);
+                this.columnFormuleDescriptif = new global::System.Data.DataColumn("FormuleDescriptif", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFormuleDescriptif);
+                this.columnPeriodeLocationDateDebut = new global::System.Data.DataColumn("PeriodeLocationDateDebut", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriodeLocationDateDebut);
+                this.columnPeriodeLocationDateFin = new global::System.Data.DataColumn("PeriodeLocationDateFin", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriodeLocationDateFin);
                 this.columnResidentIdentifiant.AllowDBNull = false;
                 this.columnResidentIdentifiant.MaxLength = 30;
                 this.columnResidentNom.AllowDBNull = false;
                 this.columnResidentNom.MaxLength = 50;
                 this.columnResidentPrenom.AllowDBNull = false;
                 this.columnResidentPrenom.MaxLength = 50;
+                this.columnChambreIdentifiant.MaxLength = 50;
+                this.columnFormuleDescriptif.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ViewResidentRow NewViewResidentRow() {
-                return ((ViewResidentRow)(this.NewRow()));
+            public VueClientsRow NewVueClientsRow() {
+                return ((VueClientsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ViewResidentRow(builder);
+                return new VueClientsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ViewResidentRow);
+                return typeof(VueClientsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ViewResidentRowChanged != null)) {
-                    this.ViewResidentRowChanged(this, new ViewResidentRowChangeEvent(((ViewResidentRow)(e.Row)), e.Action));
+                if ((this.VueClientsRowChanged != null)) {
+                    this.VueClientsRowChanged(this, new VueClientsRowChangeEvent(((VueClientsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -479,8 +518,8 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ViewResidentRowChanging != null)) {
-                    this.ViewResidentRowChanging(this, new ViewResidentRowChangeEvent(((ViewResidentRow)(e.Row)), e.Action));
+                if ((this.VueClientsRowChanging != null)) {
+                    this.VueClientsRowChanging(this, new VueClientsRowChangeEvent(((VueClientsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -488,8 +527,8 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ViewResidentRowDeleted != null)) {
-                    this.ViewResidentRowDeleted(this, new ViewResidentRowChangeEvent(((ViewResidentRow)(e.Row)), e.Action));
+                if ((this.VueClientsRowDeleted != null)) {
+                    this.VueClientsRowDeleted(this, new VueClientsRowChangeEvent(((VueClientsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -497,14 +536,14 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ViewResidentRowDeleting != null)) {
-                    this.ViewResidentRowDeleting(this, new ViewResidentRowChangeEvent(((ViewResidentRow)(e.Row)), e.Action));
+                if ((this.VueClientsRowDeleting != null)) {
+                    this.VueClientsRowDeleting(this, new VueClientsRowChangeEvent(((VueClientsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveViewResidentRow(ViewResidentRow row) {
+            public void RemoveVueClientsRow(VueClientsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -531,7 +570,7 @@ namespace GestionResidence {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ViewResidentDataTable";
+                attribute2.FixedValue = "VueClientsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -575,36 +614,25 @@ namespace GestionResidence {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ViewResidentRow : global::System.Data.DataRow {
+        public partial class VueClientsRow : global::System.Data.DataRow {
             
-            private ViewResidentDataTable tableViewResident;
+            private VueClientsDataTable tableVueClients;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ViewResidentRow(global::System.Data.DataRowBuilder rb) : 
+            internal VueClientsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableViewResident = ((ViewResidentDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ResidentId {
-                get {
-                    return ((int)(this[this.tableViewResident.ResidentIdColumn]));
-                }
-                set {
-                    this[this.tableViewResident.ResidentIdColumn] = value;
-                }
+                this.tableVueClients = ((VueClientsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ResidentIdentifiant {
                 get {
-                    return ((string)(this[this.tableViewResident.ResidentIdentifiantColumn]));
+                    return ((string)(this[this.tableVueClients.ResidentIdentifiantColumn]));
                 }
                 set {
-                    this[this.tableViewResident.ResidentIdentifiantColumn] = value;
+                    this[this.tableVueClients.ResidentIdentifiantColumn] = value;
                 }
             }
             
@@ -612,10 +640,10 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ResidentNom {
                 get {
-                    return ((string)(this[this.tableViewResident.ResidentNomColumn]));
+                    return ((string)(this[this.tableVueClients.ResidentNomColumn]));
                 }
                 set {
-                    this[this.tableViewResident.ResidentNomColumn] = value;
+                    this[this.tableVueClients.ResidentNomColumn] = value;
                 }
             }
             
@@ -623,11 +651,127 @@ namespace GestionResidence {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ResidentPrenom {
                 get {
-                    return ((string)(this[this.tableViewResident.ResidentPrenomColumn]));
+                    return ((string)(this[this.tableVueClients.ResidentPrenomColumn]));
                 }
                 set {
-                    this[this.tableViewResident.ResidentPrenomColumn] = value;
+                    this[this.tableVueClients.ResidentPrenomColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ChambreIdentifiant {
+                get {
+                    try {
+                        return ((string)(this[this.tableVueClients.ChambreIdentifiantColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'ChambreIdentifiant\' dans la table \'VueClients\' est DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVueClients.ChambreIdentifiantColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FormuleDescriptif {
+                get {
+                    try {
+                        return ((string)(this[this.tableVueClients.FormuleDescriptifColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'FormuleDescriptif\' dans la table \'VueClients\' est DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableVueClients.FormuleDescriptifColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime PeriodeLocationDateDebut {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableVueClients.PeriodeLocationDateDebutColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'PeriodeLocationDateDebut\' dans la table \'VueClients\' e" +
+                                "st DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVueClients.PeriodeLocationDateDebutColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime PeriodeLocationDateFin {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableVueClients.PeriodeLocationDateFinColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("La valeur pour la colonne \'PeriodeLocationDateFin\' dans la table \'VueClients\' est" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVueClients.PeriodeLocationDateFinColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsChambreIdentifiantNull() {
+                return this.IsNull(this.tableVueClients.ChambreIdentifiantColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetChambreIdentifiantNull() {
+                this[this.tableVueClients.ChambreIdentifiantColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFormuleDescriptifNull() {
+                return this.IsNull(this.tableVueClients.FormuleDescriptifColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFormuleDescriptifNull() {
+                this[this.tableVueClients.FormuleDescriptifColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPeriodeLocationDateDebutNull() {
+                return this.IsNull(this.tableVueClients.PeriodeLocationDateDebutColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPeriodeLocationDateDebutNull() {
+                this[this.tableVueClients.PeriodeLocationDateDebutColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPeriodeLocationDateFinNull() {
+                return this.IsNull(this.tableVueClients.PeriodeLocationDateFinColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPeriodeLocationDateFinNull() {
+                this[this.tableVueClients.PeriodeLocationDateFinColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -635,22 +779,22 @@ namespace GestionResidence {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ViewResidentRowChangeEvent : global::System.EventArgs {
+        public class VueClientsRowChangeEvent : global::System.EventArgs {
             
-            private ViewResidentRow eventRow;
+            private VueClientsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ViewResidentRowChangeEvent(ViewResidentRow row, global::System.Data.DataRowAction action) {
+            public VueClientsRowChangeEvent(VueClientsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ViewResidentRow Row {
+            public VueClientsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -678,7 +822,7 @@ namespace GestionResidence.GestionResidenceDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ViewResidentTableAdapter : global::System.ComponentModel.Component {
+    public partial class VueClientsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -692,7 +836,7 @@ namespace GestionResidence.GestionResidenceDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ViewResidentTableAdapter() {
+        public VueClientsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -789,11 +933,14 @@ namespace GestionResidence.GestionResidenceDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ViewResident";
-            tableMapping.ColumnMappings.Add("ResidentId", "ResidentId");
+            tableMapping.DataSetTable = "VueClients";
             tableMapping.ColumnMappings.Add("ResidentIdentifiant", "ResidentIdentifiant");
             tableMapping.ColumnMappings.Add("ResidentNom", "ResidentNom");
             tableMapping.ColumnMappings.Add("ResidentPrenom", "ResidentPrenom");
+            tableMapping.ColumnMappings.Add("ChambreIdentifiant", "ChambreIdentifiant");
+            tableMapping.ColumnMappings.Add("FormuleDescriptif", "FormuleDescriptif");
+            tableMapping.ColumnMappings.Add("PeriodeLocationDateDebut", "PeriodeLocationDateDebut");
+            tableMapping.ColumnMappings.Add("PeriodeLocationDateFin", "PeriodeLocationDateFin");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -801,7 +948,7 @@ namespace GestionResidence.GestionResidenceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::GestionResidence.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::GestionResidence.Properties.Settings.Default.GestionResidenceConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -810,8 +957,9 @@ namespace GestionResidence.GestionResidenceDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ResidentId, ResidentIdentifiant, ResidentNom, ResidentPrenom FROM dbo.View" +
-                "Resident";
+            this._commandCollection[0].CommandText = "SELECT ResidentIdentifiant, ResidentNom, ResidentPrenom, ChambreIdentifiant, Form" +
+                "uleDescriptif, PeriodeLocationDateDebut, PeriodeLocationDateFin FROM dbo.VueClie" +
+                "nts";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -819,7 +967,7 @@ namespace GestionResidence.GestionResidenceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GestionResidenceDataSet.ViewResidentDataTable dataTable) {
+        public virtual int Fill(GestionResidenceDataSet.VueClientsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -832,9 +980,9 @@ namespace GestionResidence.GestionResidenceDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GestionResidenceDataSet.ViewResidentDataTable GetData() {
+        public virtual GestionResidenceDataSet.VueClientsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            GestionResidenceDataSet.ViewResidentDataTable dataTable = new GestionResidenceDataSet.ViewResidentDataTable();
+            GestionResidenceDataSet.VueClientsDataTable dataTable = new GestionResidenceDataSet.VueClientsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

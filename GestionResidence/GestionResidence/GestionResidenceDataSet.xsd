@@ -13,16 +13,28 @@
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT ResidentId, ResidentIdentifiant, ResidentNom, ResidentPrenom FROM dbo.ViewResident</CommandText>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="GestionResidenceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GestionResidenceConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionResidence.Properties.Settings.GlobalReference.Default.GestionResidenceConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VueClientsTableAdapter" GeneratorDataComponentClassName="VueClientsTableAdapter" Name="VueClients" UserDataComponentName="VueClientsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GestionResidenceConnectionString (Settings)" DbObjectName="GestionResidence.dbo.VueClients" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ResidentIdentifiant, ResidentNom, ResidentPrenom, ChambreIdentifiant, FormuleDescriptif, PeriodeLocationDateDebut, PeriodeLocationDateFin FROM dbo.VueClients</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="ResidentId" DataSetColumn="ResidentId" />
               <Mapping SourceColumn="ResidentIdentifiant" DataSetColumn="ResidentIdentifiant" />
               <Mapping SourceColumn="ResidentNom" DataSetColumn="ResidentNom" />
               <Mapping SourceColumn="ResidentPrenom" DataSetColumn="ResidentPrenom" />
+              <Mapping SourceColumn="ChambreIdentifiant" DataSetColumn="ChambreIdentifiant" />
+              <Mapping SourceColumn="FormuleDescriptif" DataSetColumn="FormuleDescriptif" />
+              <Mapping SourceColumn="PeriodeLocationDateDebut" DataSetColumn="PeriodeLocationDateDebut" />
+              <Mapping SourceColumn="PeriodeLocationDateFin" DataSetColumn="PeriodeLocationDateFin" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -34,10 +46,9 @@
   <xs:element name="GestionResidenceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GestionResidenceDataSet" msprop:Generator_UserDSName="GestionResidenceDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ViewResident" msprop:Generator_TableClassName="ViewResidentDataTable" msprop:Generator_TableVarName="tableViewResident" msprop:Generator_TablePropName="ViewResident" msprop:Generator_RowDeletingName="ViewResidentRowDeleting" msprop:Generator_RowChangingName="ViewResidentRowChanging" msprop:Generator_RowEvHandlerName="ViewResidentRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewResidentRowDeleted" msprop:Generator_UserTableName="ViewResident" msprop:Generator_RowChangedName="ViewResidentRowChanged" msprop:Generator_RowEvArgName="ViewResidentRowChangeEvent" msprop:Generator_RowClassName="ViewResidentRow">
+        <xs:element name="VueClients" msprop:Generator_TableClassName="VueClientsDataTable" msprop:Generator_TableVarName="tableVueClients" msprop:Generator_TablePropName="VueClients" msprop:Generator_RowDeletingName="VueClientsRowDeleting" msprop:Generator_RowChangingName="VueClientsRowChanging" msprop:Generator_RowEvHandlerName="VueClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="VueClientsRowDeleted" msprop:Generator_UserTableName="VueClients" msprop:Generator_RowChangedName="VueClientsRowChanged" msprop:Generator_RowEvArgName="VueClientsRowChangeEvent" msprop:Generator_RowClassName="VueClientsRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ResidentId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnResidentId" msprop:Generator_ColumnPropNameInRow="ResidentId" msprop:Generator_ColumnPropNameInTable="ResidentIdColumn" msprop:Generator_UserColumnName="ResidentId" type="xs:int" />
               <xs:element name="ResidentIdentifiant" msprop:Generator_ColumnVarNameInTable="columnResidentIdentifiant" msprop:Generator_ColumnPropNameInRow="ResidentIdentifiant" msprop:Generator_ColumnPropNameInTable="ResidentIdentifiantColumn" msprop:Generator_UserColumnName="ResidentIdentifiant">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -59,6 +70,22 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="ChambreIdentifiant" msprop:Generator_ColumnVarNameInTable="columnChambreIdentifiant" msprop:Generator_ColumnPropNameInRow="ChambreIdentifiant" msprop:Generator_ColumnPropNameInTable="ChambreIdentifiantColumn" msprop:Generator_UserColumnName="ChambreIdentifiant" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FormuleDescriptif" msprop:Generator_ColumnVarNameInTable="columnFormuleDescriptif" msprop:Generator_ColumnPropNameInRow="FormuleDescriptif" msprop:Generator_ColumnPropNameInTable="FormuleDescriptifColumn" msprop:Generator_UserColumnName="FormuleDescriptif" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PeriodeLocationDateDebut" msprop:Generator_ColumnVarNameInTable="columnPeriodeLocationDateDebut" msprop:Generator_ColumnPropNameInRow="PeriodeLocationDateDebut" msprop:Generator_ColumnPropNameInTable="PeriodeLocationDateDebutColumn" msprop:Generator_UserColumnName="PeriodeLocationDateDebut" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PeriodeLocationDateFin" msprop:Generator_ColumnVarNameInTable="columnPeriodeLocationDateFin" msprop:Generator_ColumnPropNameInRow="PeriodeLocationDateFin" msprop:Generator_ColumnPropNameInTable="PeriodeLocationDateFinColumn" msprop:Generator_UserColumnName="PeriodeLocationDateFin" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

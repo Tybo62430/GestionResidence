@@ -72,8 +72,6 @@
             this.dataGridViewChambres.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewChambres.MultiSelect = false;
             this.dataGridViewChambres.Name = "dataGridViewChambres";
-            this.dataGridViewChambres.ReadOnly = true;
-            this.dataGridViewChambres.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewChambres.RowTemplate.Height = 24;
             this.dataGridViewChambres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewChambres.Size = new System.Drawing.Size(1358, 281);
