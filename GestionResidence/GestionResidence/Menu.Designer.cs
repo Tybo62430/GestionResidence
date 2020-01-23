@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.residentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nouveauRésidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listeDesRésidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chambresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -59,26 +57,10 @@
             // 
             // residentsToolStripMenuItem
             // 
-            this.residentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nouveauRésidentToolStripMenuItem,
-            this.listeDesRésidentsToolStripMenuItem});
             this.residentsToolStripMenuItem.Name = "residentsToolStripMenuItem";
             this.residentsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.residentsToolStripMenuItem.Text = "Résidents";
-            // 
-            // nouveauRésidentToolStripMenuItem
-            // 
-            this.nouveauRésidentToolStripMenuItem.Name = "nouveauRésidentToolStripMenuItem";
-            this.nouveauRésidentToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            this.nouveauRésidentToolStripMenuItem.Text = "Nouveau Résident";
-            this.nouveauRésidentToolStripMenuItem.Click += new System.EventHandler(this.nouveauRésidentToolStripMenuItem_Click);
-            // 
-            // listeDesRésidentsToolStripMenuItem
-            // 
-            this.listeDesRésidentsToolStripMenuItem.Name = "listeDesRésidentsToolStripMenuItem";
-            this.listeDesRésidentsToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            this.listeDesRésidentsToolStripMenuItem.Text = "Liste des Résidents";
-            this.listeDesRésidentsToolStripMenuItem.Click += new System.EventHandler(this.listeDesRésidentsToolStripMenuItem_Click);
+            this.residentsToolStripMenuItem.Click += new System.EventHandler(this.residentsToolStripMenuItem_Click);
             // 
             // chambresToolStripMenuItem
             // 
@@ -115,7 +97,7 @@
             // labelNbPetitDej
             // 
             this.labelNbPetitDej.AutoSize = true;
-            this.labelNbPetitDej.Location = new System.Drawing.Point(848, 56);
+            this.labelNbPetitDej.Location = new System.Drawing.Point(666, 49);
             this.labelNbPetitDej.Name = "labelNbPetitDej";
             this.labelNbPetitDej.Size = new System.Drawing.Size(12, 17);
             this.labelNbPetitDej.TabIndex = 4;
@@ -154,10 +136,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem residentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nouveauRésidentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chambresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listeDesRésidentsToolStripMenuItem;
         private System.Windows.Forms.Label labelNbPetitDej;
     }
 }

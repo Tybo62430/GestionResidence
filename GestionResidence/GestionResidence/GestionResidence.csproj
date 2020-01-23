@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChambresDataSet.cs">
+      <DependentUpon>ChambresDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ChambresDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,6 +65,14 @@
     </Compile>
     <Compile Include="CreationResident.Designer.cs">
       <DependentUpon>CreationResident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionResidenceDataSet.cs">
+      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionResidenceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ListeDesResidents.cs">
       <SubType>Form</SubType>
@@ -126,6 +137,17 @@
     </None>
     <None Include="ChambresDataSet.xss">
       <DependentUpon>ChambresDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionResidenceDataSet.xsc">
+      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionResidenceDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionResidenceDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionResidenceDataSet.xss">
+      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
