@@ -23,8 +23,9 @@ namespace GestionResidence
 
         private void ListeDesResidents_Load(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'gestionResidenceDataSet.VueClients'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            this.vueClientsTableAdapter.Fill(this.gestionResidenceDataSet.VueClients);            
+            // TODO: cette ligne de code charge les données dans la table 'gestionResidenceDataListeResident.VueClients'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
+            this.vueClientsTableAdapter.Fill(this.gestionResidenceDataListeResident.VueClients);
+
         }
 
         private void buttonNouveauClient_Click(object sender, EventArgs e)
@@ -107,7 +108,7 @@ namespace GestionResidence
             if (MessageBox.Show(this, "Supprimer Client ?", "SUPPREMIER !!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 SupprimerClient();
-                this.vueClientsTableAdapter.Fill(this.gestionResidenceDataSet.VueClients);
+                this.vueClientsTableAdapter.Fill(this.gestionResidenceDataListeResident.VueClients);
             }
         }
     }

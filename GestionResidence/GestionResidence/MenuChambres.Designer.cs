@@ -30,26 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewChambres = new System.Windows.Forms.DataGridView();
-            this.buttonModifier = new System.Windows.Forms.Button();
-            this.chambreIdentifiantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chambreTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chambreEtageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.residentIdentifiantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.residentNomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.residentPrenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.periodeLocationDateDebutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.periodeLocationDateFinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vueChambresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chambresDataSet = new GestionResidence.ChambresDataSet();
-            this.vueChambresTableAdapter = new GestionResidence.ChambresDataSetTableAdapters.VueChambresTableAdapter();
-            this.chambreDataSet2 = new GestionResidence.ChambreDataSet2();
             this.vueChambres2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vueChambres2TableAdapter = new GestionResidence.ChambreDataSet2TableAdapters.VueChambres2TableAdapter();
+            this.buttonModifier = new System.Windows.Forms.Button();
+            this.vueChambresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gestionResidenceDataSetListeChambre = new GestionResidence.GestionResidenceDataSetListeChambre();
+            this.vueChambres2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.vueChambres2TableAdapter = new GestionResidence.GestionResidenceDataSetListeChambreTableAdapters.VueChambres2TableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChambres)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vueChambresBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chambresDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chambreDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vueChambresBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSetListeChambre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewChambres
@@ -60,22 +59,27 @@
             this.dataGridViewChambres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewChambres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewChambres.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.chambreIdentifiantDataGridViewTextBoxColumn,
-            this.chambreTypeDataGridViewTextBoxColumn,
-            this.chambreEtageDataGridViewTextBoxColumn,
-            this.residentIdentifiantDataGridViewTextBoxColumn,
-            this.residentNomDataGridViewTextBoxColumn,
-            this.residentPrenomDataGridViewTextBoxColumn,
-            this.periodeLocationDateDebutDataGridViewTextBoxColumn,
-            this.periodeLocationDateFinDataGridViewTextBoxColumn});
-            this.dataGridViewChambres.DataSource = this.vueChambres2BindingSource;
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.dataGridViewChambres.DataSource = this.vueChambres2BindingSource1;
             this.dataGridViewChambres.Location = new System.Drawing.Point(12, 12);
             this.dataGridViewChambres.MultiSelect = false;
             this.dataGridViewChambres.Name = "dataGridViewChambres";
+            this.dataGridViewChambres.ReadOnly = true;
             this.dataGridViewChambres.RowTemplate.Height = 24;
             this.dataGridViewChambres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewChambres.Size = new System.Drawing.Size(1358, 281);
             this.dataGridViewChambres.TabIndex = 0;
+            // 
+            // vueChambres2BindingSource
+            // 
+            this.vueChambres2BindingSource.DataMember = "VueChambres2";
             // 
             // buttonModifier
             // 
@@ -87,89 +91,79 @@
             this.buttonModifier.UseVisualStyleBackColor = true;
             this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
-            // chambreIdentifiantDataGridViewTextBoxColumn
-            // 
-            this.chambreIdentifiantDataGridViewTextBoxColumn.DataPropertyName = "ChambreIdentifiant";
-            this.chambreIdentifiantDataGridViewTextBoxColumn.HeaderText = "ChambreIdentifiant";
-            this.chambreIdentifiantDataGridViewTextBoxColumn.Name = "chambreIdentifiantDataGridViewTextBoxColumn";
-            this.chambreIdentifiantDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // chambreTypeDataGridViewTextBoxColumn
-            // 
-            this.chambreTypeDataGridViewTextBoxColumn.DataPropertyName = "ChambreType";
-            this.chambreTypeDataGridViewTextBoxColumn.HeaderText = "ChambreType";
-            this.chambreTypeDataGridViewTextBoxColumn.Name = "chambreTypeDataGridViewTextBoxColumn";
-            this.chambreTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // chambreEtageDataGridViewTextBoxColumn
-            // 
-            this.chambreEtageDataGridViewTextBoxColumn.DataPropertyName = "ChambreEtage";
-            this.chambreEtageDataGridViewTextBoxColumn.HeaderText = "ChambreEtage";
-            this.chambreEtageDataGridViewTextBoxColumn.Name = "chambreEtageDataGridViewTextBoxColumn";
-            this.chambreEtageDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // residentIdentifiantDataGridViewTextBoxColumn
-            // 
-            this.residentIdentifiantDataGridViewTextBoxColumn.DataPropertyName = "ResidentIdentifiant";
-            this.residentIdentifiantDataGridViewTextBoxColumn.HeaderText = "ResidentIdentifiant";
-            this.residentIdentifiantDataGridViewTextBoxColumn.Name = "residentIdentifiantDataGridViewTextBoxColumn";
-            this.residentIdentifiantDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // residentNomDataGridViewTextBoxColumn
-            // 
-            this.residentNomDataGridViewTextBoxColumn.DataPropertyName = "ResidentNom";
-            this.residentNomDataGridViewTextBoxColumn.HeaderText = "ResidentNom";
-            this.residentNomDataGridViewTextBoxColumn.Name = "residentNomDataGridViewTextBoxColumn";
-            this.residentNomDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // residentPrenomDataGridViewTextBoxColumn
-            // 
-            this.residentPrenomDataGridViewTextBoxColumn.DataPropertyName = "ResidentPrenom";
-            this.residentPrenomDataGridViewTextBoxColumn.HeaderText = "ResidentPrenom";
-            this.residentPrenomDataGridViewTextBoxColumn.Name = "residentPrenomDataGridViewTextBoxColumn";
-            this.residentPrenomDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // periodeLocationDateDebutDataGridViewTextBoxColumn
-            // 
-            this.periodeLocationDateDebutDataGridViewTextBoxColumn.DataPropertyName = "PeriodeLocationDateDebut";
-            this.periodeLocationDateDebutDataGridViewTextBoxColumn.HeaderText = "Début Séjour";
-            this.periodeLocationDateDebutDataGridViewTextBoxColumn.Name = "periodeLocationDateDebutDataGridViewTextBoxColumn";
-            this.periodeLocationDateDebutDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // periodeLocationDateFinDataGridViewTextBoxColumn
-            // 
-            this.periodeLocationDateFinDataGridViewTextBoxColumn.DataPropertyName = "PeriodeLocationDateFin";
-            this.periodeLocationDateFinDataGridViewTextBoxColumn.HeaderText = "Fin Séjour";
-            this.periodeLocationDateFinDataGridViewTextBoxColumn.Name = "periodeLocationDateFinDataGridViewTextBoxColumn";
-            this.periodeLocationDateFinDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // vueChambresBindingSource
             // 
             this.vueChambresBindingSource.DataMember = "VueChambres";
-            this.vueChambresBindingSource.DataSource = this.chambresDataSet;
             // 
-            // chambresDataSet
+            // gestionResidenceDataSetListeChambre
             // 
-            this.chambresDataSet.DataSetName = "ChambresDataSet";
-            this.chambresDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.gestionResidenceDataSetListeChambre.DataSetName = "GestionResidenceDataSetListeChambre";
+            this.gestionResidenceDataSetListeChambre.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // vueChambresTableAdapter
+            // vueChambres2BindingSource1
             // 
-            this.vueChambresTableAdapter.ClearBeforeFill = true;
-            // 
-            // chambreDataSet2
-            // 
-            this.chambreDataSet2.DataSetName = "ChambreDataSet2";
-            this.chambreDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vueChambres2BindingSource
-            // 
-            this.vueChambres2BindingSource.DataMember = "VueChambres2";
-            this.vueChambres2BindingSource.DataSource = this.chambreDataSet2;
+            this.vueChambres2BindingSource1.DataMember = "VueChambres2";
+            this.vueChambres2BindingSource1.DataSource = this.gestionResidenceDataSetListeChambre;
             // 
             // vueChambres2TableAdapter
             // 
             this.vueChambres2TableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ChambreIdentifiant";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ChambreIdentifiant";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ChambreType";
+            this.dataGridViewTextBoxColumn2.HeaderText = "ChambreType";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ChambreEtage";
+            this.dataGridViewTextBoxColumn3.HeaderText = "ChambreEtage";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "ResidentIdentifiant";
+            this.dataGridViewTextBoxColumn4.HeaderText = "ResidentIdentifiant";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "ResidentNom";
+            this.dataGridViewTextBoxColumn5.HeaderText = "ResidentNom";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "ResidentPrenom";
+            this.dataGridViewTextBoxColumn6.HeaderText = "ResidentPrenom";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "PeriodeLocationDateDebut";
+            this.dataGridViewTextBoxColumn7.HeaderText = "PeriodeLocationDateDebut";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "PeriodeLocationDateFin";
+            this.dataGridViewTextBoxColumn8.HeaderText = "PeriodeLocationDateFin";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // MenuChambres
             // 
@@ -182,20 +176,17 @@
             this.Text = "MenuChambres";
             this.Load += new System.EventHandler(this.MenuChambres_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChambres)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vueChambresBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chambresDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chambreDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vueChambresBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSetListeChambre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewChambres;
-        private ChambresDataSet chambresDataSet;
-        private System.Windows.Forms.BindingSource vueChambresBindingSource;
-        private ChambresDataSetTableAdapters.VueChambresTableAdapter vueChambresTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridViewChambres;        
+        private System.Windows.Forms.BindingSource vueChambresBindingSource;       
         private System.Windows.Forms.DataGridViewTextBoxColumn chambreIdentifiantDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chambreTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chambreEtageDataGridViewTextBoxColumn;
@@ -204,9 +195,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn residentPrenomDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn periodeLocationDateDebutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn periodeLocationDateFinDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button buttonModifier;
-        private ChambreDataSet2 chambreDataSet2;
+        private System.Windows.Forms.Button buttonModifier;       
         private System.Windows.Forms.BindingSource vueChambres2BindingSource;
-        private ChambreDataSet2TableAdapters.VueChambres2TableAdapter vueChambres2TableAdapter;
+        private GestionResidenceDataSetListeChambre gestionResidenceDataSetListeChambre;
+        private System.Windows.Forms.BindingSource vueChambres2BindingSource1;
+        private GestionResidenceDataSetListeChambreTableAdapters.VueChambres2TableAdapter vueChambres2TableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

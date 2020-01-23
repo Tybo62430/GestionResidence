@@ -278,7 +278,7 @@ namespace GestionResidence
                 if (NewElmt == 1)
                 {
                     string ValRechercher;
-                    ValRechercher = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, textBoxTelephone.Text);
+                    ValRechercher = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, NumeroTel);
                     RechercherByNameSurNamePhone(ValRechercher);
                 }
                 else
@@ -461,8 +461,8 @@ namespace GestionResidence
             if (MessageBox.Show(this, "Etes-vous sûr ?", "ATTENTION !!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 this.Close();
-                //ListeDesResidents NouvelleListe = new ListeDesResidents();
-                //NouvelleListe.ShowDialog();
+                ListeDesResidents NouvelleListe = new ListeDesResidents();
+                NouvelleListe.ShowDialog();
             }          
         }        
 
@@ -559,8 +559,7 @@ namespace GestionResidence
 
         private void textBoxTelephone_Validated(object sender, EventArgs e)
         {
-            NumeroTel = "0" + textBoxTelephone.Text.Substring(3);
-            MessageBox.Show(NumeroTel);
+            NumeroTel = "0" + textBoxTelephone.Text.Substring(3);           
             string ValRechercher;
             if (NumeroTel.Length < 10)
             {

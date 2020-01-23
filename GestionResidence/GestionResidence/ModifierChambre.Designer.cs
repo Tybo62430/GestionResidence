@@ -40,19 +40,13 @@
             this.comboBoxIdentifiant = new System.Windows.Forms.ComboBox();
             this.buttonAssigner = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.viewResidentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.gestionResidenceDataSet1 = new GestionResidence.GestionResidenceDataSet1();
-            this.gestionResidenceDataSet = new GestionResidence.GestionResidenceDataSet();
-            this.viewResidentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.viewResidentTableAdapter = new GestionResidence.GestionResidenceDataSetTableAdapters.ViewResidentTableAdapter();
-            this.viewResidentTableAdapter1 = new GestionResidence.GestionResidenceDataSet1TableAdapters.ViewResidentTableAdapter();
+            this.viewResidentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);            
+            this.viewResidentBindingSource = new System.Windows.Forms.BindingSource(this.components);            
             this.checkBoxPetitDejeune = new System.Windows.Forms.CheckBox();
             this.comboBoxFormule = new System.Windows.Forms.ComboBox();
             this.labelSupplement = new System.Windows.Forms.Label();
             this.labelFormule = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource1)).BeginInit();            
             ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,34 +145,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Identifiant :";
             // 
-            // viewResidentBindingSource1
-            // 
-            this.viewResidentBindingSource1.DataMember = "ViewResident";
-            this.viewResidentBindingSource1.DataSource = this.gestionResidenceDataSet1;
-            // 
-            // gestionResidenceDataSet1
-            // 
-            this.gestionResidenceDataSet1.DataSetName = "GestionResidenceDataSet1";
-            this.gestionResidenceDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // gestionResidenceDataSet
-            // 
-            this.gestionResidenceDataSet.DataSetName = "GestionResidenceDataSet";
-            this.gestionResidenceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // viewResidentBindingSource
-            // 
-            this.viewResidentBindingSource.DataMember = "ViewResident";
-            this.viewResidentBindingSource.DataSource = this.gestionResidenceDataSet;
-            // 
-            // viewResidentTableAdapter
-            // 
-            this.viewResidentTableAdapter.ClearBeforeFill = true;
-            // 
-            // viewResidentTableAdapter1
-            // 
-            this.viewResidentTableAdapter1.ClearBeforeFill = true;
-            // 
             // checkBoxPetitDejeune
             // 
             this.checkBoxPetitDejeune.AutoSize = true;
@@ -238,9 +204,7 @@
             this.Name = "ModifierChambre";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ModifierChambre_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource1)).EndInit();            
             ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -259,13 +223,9 @@
         private System.Windows.Forms.TextBox textBoxFinSejour;
         private System.Windows.Forms.ComboBox comboBoxIdentifiant;
         private System.Windows.Forms.Button buttonAssigner;
-        private System.Windows.Forms.Label label1;
-        private GestionResidenceDataSet gestionResidenceDataSet;
-        private System.Windows.Forms.BindingSource viewResidentBindingSource;
-        private GestionResidenceDataSetTableAdapters.ViewResidentTableAdapter viewResidentTableAdapter;
-        private GestionResidenceDataSet1 gestionResidenceDataSet1;
-        private System.Windows.Forms.BindingSource viewResidentBindingSource1;
-        private GestionResidenceDataSet1TableAdapters.ViewResidentTableAdapter viewResidentTableAdapter1;
+        private System.Windows.Forms.Label label1;        
+        private System.Windows.Forms.BindingSource viewResidentBindingSource; 
+        private System.Windows.Forms.BindingSource viewResidentBindingSource1;        
         private System.Windows.Forms.CheckBox checkBoxPetitDejeune;
         private System.Windows.Forms.ComboBox comboBoxFormule;
         private System.Windows.Forms.Label labelSupplement;

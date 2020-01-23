@@ -26,7 +26,8 @@ namespace GestionResidence
             DonneeCellule = recupRow;
         }
 
-        public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
+        //public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
+        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
 
         public static bool ValideDate(string date)
         {
