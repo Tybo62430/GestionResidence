@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChambreDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChambreDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ChambresDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,6 +67,16 @@
     </Compile>
     <Compile Include="CreationResident.Designer.cs">
       <DependentUpon>CreationResident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionResidenceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionResidenceDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionResidenceDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="ListeDesResidents.cs">
       <SubType>Form</SubType>
@@ -116,6 +131,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ChambreDataSet2.xsc">
+      <DependentUpon>ChambreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ChambreDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChambreDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ChambreDataSet2.xss">
+      <DependentUpon>ChambreDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="ChambresDataSet.xsc">
       <DependentUpon>ChambresDataSet.xsd</DependentUpon>
     </None>
@@ -126,6 +152,28 @@
     </None>
     <None Include="ChambresDataSet.xss">
       <DependentUpon>ChambresDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionResidenceDataSet.xsc">
+      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionResidenceDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionResidenceDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionResidenceDataSet.xss">
+      <DependentUpon>GestionResidenceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionResidenceDataSet1.xsc">
+      <DependentUpon>GestionResidenceDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GestionResidenceDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionResidenceDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionResidenceDataSet1.xss">
+      <DependentUpon>GestionResidenceDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

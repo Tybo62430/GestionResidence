@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GestionResidence
 {
     public partial class MenuChambres : Form
     {
+
+        //public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+        public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
+
         public MenuChambres()
         {
             InitializeComponent();
@@ -19,8 +24,29 @@ namespace GestionResidence
 
         private void MenuChambres_Load(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'chambresDataSet.VueChambres'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.vueChambresTableAdapter.Fill(this.chambresDataSet.VueChambres);
+
+            // Efface les lignes où la date de sortie est inférieur à la date d'aujourd'hui (devrait, sur un projet normal, se faire archiver)
+
+            try
+            {
+                SqlConnection sqlconn = new SqlConnection(sChaineConnect);
+                SqlCommand cmd;
+                string sSQL;
+                sSQL = "DELETE FROM Location WHERE(PeriodeLocationDateFin <= GETDATE())";
+                cmd = new SqlCommand(sSQL, sqlconn);
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader DataRead;
+                sqlconn.Open();
+                DataRead = cmd.ExecuteReader();
+                sqlconn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex);
+            }
+
+            // TODO: cette ligne de code charge les données dans la table 'chambreDataSet2.VueChambres2'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.vueChambres2TableAdapter.Fill(this.chambreDataSet2.VueChambres2);
 
         }
 
@@ -29,6 +55,19 @@ namespace GestionResidence
             string recupRow = dataGridViewChambres.CurrentRow.Cells[0].Value.ToString();
             ModifierChambre Chambres = new ModifierChambre(recupRow);
             Chambres.Show();
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.vueChambresTableAdapter.FillBy(this.chambresDataSet.VueChambres);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

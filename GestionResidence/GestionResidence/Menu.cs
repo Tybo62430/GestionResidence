@@ -14,7 +14,8 @@ namespace GestionResidence
     public partial class Menu : Form
     {
         private int childFormNumber = 0;
-        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+        //public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+        string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
         public int NbPetitDej ;
 
         public Menu()

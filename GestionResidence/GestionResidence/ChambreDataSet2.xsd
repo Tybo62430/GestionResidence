@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="ChambresDataSet" targetNamespace="http://tempuri.org/ChambresDataSet.xsd" xmlns:mstns="http://tempuri.org/ChambresDataSet.xsd" xmlns="http://tempuri.org/ChambresDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="ChambreDataSet2" targetNamespace="http://tempuri.org/ChambreDataSet2.xsd" xmlns:mstns="http://tempuri.org/ChambreDataSet2.xsd" xmlns="http://tempuri.org/ChambreDataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -7,12 +7,12 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionResidence.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VueChambresTableAdapter" GeneratorDataComponentClassName="VueChambresTableAdapter" Name="VueChambres" UserDataComponentName="VueChambresTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VueChambres2TableAdapter" GeneratorDataComponentClassName="VueChambres2TableAdapter" Name="VueChambres2" UserDataComponentName="VueChambres2TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GestionResidence.dbo.VueChambres" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GestionResidence.dbo.VueChambres2" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ChambreIdentifiant, ChambreType, ChambreEtage, ResidentIdentifiant, ResidentNom, ResidentPrenom, PeriodeLocationDateDebut, PeriodeLocationDateFin FROM dbo.VueChambres</CommandText>
+                    <CommandText>SELECT ChambreIdentifiant, ChambreType, ChambreEtage, ResidentIdentifiant, ResidentNom, ResidentPrenom, PeriodeLocationDateDebut, PeriodeLocationDateFin FROM dbo.VueChambres2</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -28,33 +28,17 @@
               <Mapping SourceColumn="PeriodeLocationDateDebut" DataSetColumn="PeriodeLocationDateDebut" />
               <Mapping SourceColumn="PeriodeLocationDateFin" DataSetColumn="PeriodeLocationDateFin" />
             </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GestionResidence.dbo.VueChambres" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT dbo.VueChambres.ChambreIdentifiant, dbo.VueChambres.ChambreType, dbo.VueChambres.ChambreEtage, dbo.VueChambres.ResidentIdentifiant, dbo.VueChambres.ResidentNom, dbo.VueChambres.ResidentPrenom, 
-                  dbo.VueChambres.PeriodeLocationDateDebut, dbo.VueChambres.PeriodeLocationDateFin
-FROM     dbo.VueChambres INNER JOIN
-                      (SELECT ChambreIdentifiant, MIN(PeriodeLocationDateDebut) AS minDebut
-                       FROM      dbo.VueChambres AS VueChambres_1
-                       GROUP BY ChambreIdentifiant) AS tempTable ON tempTable.ChambreIdentifiant = dbo.VueChambres.ChambreIdentifiant
-WHERE  (tempTable.minDebut = dbo.VueChambres.PeriodeLocationDateDebut) OR
-                  (dbo.VueChambres.ResidentIdentifiant IS NULL)</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="ChambresDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ChambresDataSet" msprop:Generator_UserDSName="ChambresDataSet">
+  <xs:element name="ChambreDataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ChambreDataSet2" msprop:Generator_UserDSName="ChambreDataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="VueChambres" msprop:Generator_TableClassName="VueChambresDataTable" msprop:Generator_TableVarName="tableVueChambres" msprop:Generator_RowChangedName="VueChambresRowChanged" msprop:Generator_TablePropName="VueChambres" msprop:Generator_RowDeletingName="VueChambresRowDeleting" msprop:Generator_RowChangingName="VueChambresRowChanging" msprop:Generator_RowEvHandlerName="VueChambresRowChangeEventHandler" msprop:Generator_RowDeletedName="VueChambresRowDeleted" msprop:Generator_RowClassName="VueChambresRow" msprop:Generator_UserTableName="VueChambres" msprop:Generator_RowEvArgName="VueChambresRowChangeEvent">
+        <xs:element name="VueChambres2" msprop:Generator_TableClassName="VueChambres2DataTable" msprop:Generator_TableVarName="tableVueChambres2" msprop:Generator_TablePropName="VueChambres2" msprop:Generator_RowDeletingName="VueChambres2RowDeleting" msprop:Generator_RowChangingName="VueChambres2RowChanging" msprop:Generator_RowEvHandlerName="VueChambres2RowChangeEventHandler" msprop:Generator_RowDeletedName="VueChambres2RowDeleted" msprop:Generator_UserTableName="VueChambres2" msprop:Generator_RowChangedName="VueChambres2RowChanged" msprop:Generator_RowEvArgName="VueChambres2RowChangeEvent" msprop:Generator_RowClassName="VueChambres2Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ChambreIdentifiant" msprop:Generator_ColumnVarNameInTable="columnChambreIdentifiant" msprop:Generator_ColumnPropNameInRow="ChambreIdentifiant" msprop:Generator_ColumnPropNameInTable="ChambreIdentifiantColumn" msprop:Generator_UserColumnName="ChambreIdentifiant" minOccurs="0">

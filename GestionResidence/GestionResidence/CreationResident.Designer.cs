@@ -279,6 +279,7 @@
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(163, 22);
             this.textBoxTelephone.TabIndex = 6;
+            this.textBoxTelephone.Text = "+33";
             this.textBoxTelephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTelephone_KeyPress);
             this.textBoxTelephone.Validated += new System.EventHandler(this.textBoxTelephone_Validated);
             // 

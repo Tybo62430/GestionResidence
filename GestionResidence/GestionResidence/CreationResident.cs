@@ -14,6 +14,7 @@ namespace GestionResidence
 {   
     public partial class CreationResident : Form
     {
+        public string NumeroTel;
         public int Nationalite; //variable pour la recherche d'Id Pays
         public int Formule; //variable pour la recherche d'Id formule
         public int Civilite; //variable pour la recherche d'Id civilite   
@@ -27,7 +28,7 @@ namespace GestionResidence
             InitializeComponent();
         }
 
-        public void SearchCP()// recherche des code postal dans la BDD
+        public void SearchCP() // recherche des code postal dans la BDD
         {
             comboBoxVille.Items.Clear();
             try
@@ -96,8 +97,8 @@ namespace GestionResidence
             try
             {
                 SqlConnection sqlconn = new SqlConnection(sChaineConnect);
-                SqlCommand cmd, cmd2, cmd3;
-                string sSQL, sSQL2, sSQL3;
+                SqlCommand cmd, cmd2;
+                string sSQL, sSQL2;
                 sSQL = "SELECT CiviliteNom FROM Civilite";
                 sSQL2 = "SELECT NationaliteNom FROM Nationalite";
                 //sSQL3 = "SELECT FormuleDescriptif FROM Formule";
@@ -145,16 +146,16 @@ namespace GestionResidence
             InsertResident();
         }
 
-        public string IdGenerator(string champ1, string champ2, string champ3) //Generateur d'identifiants
+        public string IdGenerator(string nom, string prenom, string numero) //Generateur d'identifiants
         {
             string Id = "";
-            if (champ1 != string.Empty && champ2 != string.Empty && champ3 != string.Empty)
+            if (nom != string.Empty && prenom != string.Empty && numero != string.Empty)
             {
                 var random = new Random();
-                champ1 = champ1.Replace(" ", "");
-                champ2 = champ2.Replace(" ", "");
-                champ3 = champ3.Replace(" ", "");
-                Id = champ1.Substring(0, 2).ToUpper() + champ2.Substring(0, 2).ToUpper() + champ3;                          
+                nom = nom.Replace(" ", "");
+                prenom = prenom.Replace(" ", "");
+                numero = numero.Replace(" ", "");
+                Id = nom.Substring(0, 2).ToUpper() + prenom.Substring(0, 2).ToUpper() + numero;                          
             }
             return Id;
         }
@@ -288,7 +289,7 @@ namespace GestionResidence
             myCommand.Parameters.Add("@Nationalite_NationaliteId", SqlDbType.Int);
 
             // Affectation des valeurs
-            myCommand.Parameters["@ResidentIdentifiant"].Value = IdGenerator(textBoxNom.Text, textBoxPrenom.Text,textBoxTelephone.Text.ToString());
+            myCommand.Parameters["@ResidentIdentifiant"].Value = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, NumeroTel);
             myCommand.Parameters["@ResidentNom"].Value = textBoxNom.Text;
             myCommand.Parameters["@ResidentPrenom"].Value = textBoxPrenom.Text;
             myCommand.Parameters["@ResidentDateDeNaissance"].Value = textBoxDateDeNaissance.Text;
@@ -297,7 +298,7 @@ namespace GestionResidence
             myCommand.Parameters["@ResidentTypeDeVoie"].Value = comboBoxTypeDeVoie.Text;
             myCommand.Parameters["@ResidentVoie"].Value = comboBoxVoie.Text;
             myCommand.Parameters["@ResidentNumero"].Value = comboBoxNumero.Text;
-            myCommand.Parameters["@ResidentTelephone"].Value = textBoxTelephone.Text;                     
+            myCommand.Parameters["@ResidentTelephone"].Value = NumeroTel;
             myCommand.Parameters["@ResidentMail"].Value = textBoxEmail.Text;
             myCommand.Parameters["@ResidentSecu"].Value = textBoxSecu.Text;
             myCommand.Parameters["@ResidentIban"].Value = textBoxIban.Text;
@@ -500,15 +501,6 @@ namespace GestionResidence
             }
         }
 
-        //private void checkBoxPetitDejeune_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    Supplement = 0;
-        //    if (checkBoxPetitDejeune.Checked)
-        //        Supplement = 1 ;
-        //    else
-        //        Supplement = 0 ;
-        //}
-
         private void textBoxEmail_Leave(object sender, EventArgs e)
         {
             if (ValidMail(textBoxEmail.Text))
@@ -610,17 +602,17 @@ namespace GestionResidence
 
         private void textBoxTelephone_Validated(object sender, EventArgs e)
         {
-            string Numero = textBoxTelephone.Text;
+            NumeroTel = "0" + textBoxTelephone.Text.Substring(3);
+            MessageBox.Show(NumeroTel);
             string ValRechercher;
-            if (Numero.Length < 10)
+            if (NumeroTel.Length < 10)
             {
                 ErreurNumero.Text = "numero invalide";
                 buttonCreer.Enabled = false;
-
             }                
             else
             {
-                ValRechercher = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, textBoxTelephone.Text);
+                ValRechercher = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, NumeroTel);
                 RechercherByNameSurNamePhone(ValRechercher);
                 ErreurNumero.Text = "";
                 UnlockCreate();

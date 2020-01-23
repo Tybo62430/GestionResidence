@@ -28,22 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelChambre = new System.Windows.Forms.Label();
             this.labelIdentifiant = new System.Windows.Forms.Label();
             this.labelDebutSejour = new System.Windows.Forms.Label();
             this.labelFinSejour = new System.Windows.Forms.Label();
             this.textBoxChambre = new System.Windows.Forms.TextBox();
-            this.textBoxIdentifiant = new System.Windows.Forms.TextBox();
+            this.textBoxNom = new System.Windows.Forms.TextBox();
             this.textBoxDebutSejour = new System.Windows.Forms.TextBox();
             this.textBoxFinSejour = new System.Windows.Forms.TextBox();
             this.comboBoxIdentifiant = new System.Windows.Forms.ComboBox();
             this.buttonAssigner = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.viewResidentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.gestionResidenceDataSet1 = new GestionResidence.GestionResidenceDataSet1();
+            this.gestionResidenceDataSet = new GestionResidence.GestionResidenceDataSet();
+            this.viewResidentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.viewResidentTableAdapter = new GestionResidence.GestionResidenceDataSetTableAdapters.ViewResidentTableAdapter();
+            this.viewResidentTableAdapter1 = new GestionResidence.GestionResidenceDataSet1TableAdapters.ViewResidentTableAdapter();
+            this.checkBoxPetitDejeune = new System.Windows.Forms.CheckBox();
+            this.comboBoxFormule = new System.Windows.Forms.ComboBox();
+            this.labelSupplement = new System.Windows.Forms.Label();
+            this.labelFormule = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelChambre
             // 
             this.labelChambre.AutoSize = true;
-            this.labelChambre.Location = new System.Drawing.Point(337, 125);
+            this.labelChambre.Location = new System.Drawing.Point(338, 52);
             this.labelChambre.Name = "labelChambre";
             this.labelChambre.Size = new System.Drawing.Size(73, 17);
             this.labelChambre.TabIndex = 0;
@@ -52,16 +68,16 @@
             // labelIdentifiant
             // 
             this.labelIdentifiant.AutoSize = true;
-            this.labelIdentifiant.Location = new System.Drawing.Point(337, 169);
+            this.labelIdentifiant.Location = new System.Drawing.Point(338, 96);
             this.labelIdentifiant.Name = "labelIdentifiant";
-            this.labelIdentifiant.Size = new System.Drawing.Size(77, 17);
+            this.labelIdentifiant.Size = new System.Drawing.Size(45, 17);
             this.labelIdentifiant.TabIndex = 1;
-            this.labelIdentifiant.Text = "Identifiant :";
+            this.labelIdentifiant.Text = "Nom :";
             // 
             // labelDebutSejour
             // 
             this.labelDebutSejour.AutoSize = true;
-            this.labelDebutSejour.Location = new System.Drawing.Point(337, 213);
+            this.labelDebutSejour.Location = new System.Drawing.Point(338, 194);
             this.labelDebutSejour.Name = "labelDebutSejour";
             this.labelDebutSejour.Size = new System.Drawing.Size(117, 17);
             this.labelDebutSejour.TabIndex = 2;
@@ -70,7 +86,7 @@
             // labelFinSejour
             // 
             this.labelFinSejour.AutoSize = true;
-            this.labelFinSejour.Location = new System.Drawing.Point(337, 257);
+            this.labelFinSejour.Location = new System.Drawing.Point(338, 238);
             this.labelFinSejour.Name = "labelFinSejour";
             this.labelFinSejour.Size = new System.Drawing.Size(98, 17);
             this.labelFinSejour.TabIndex = 3;
@@ -78,44 +94,47 @@
             // 
             // textBoxChambre
             // 
-            this.textBoxChambre.Location = new System.Drawing.Point(463, 122);
+            this.textBoxChambre.Location = new System.Drawing.Point(464, 49);
             this.textBoxChambre.Name = "textBoxChambre";
             this.textBoxChambre.ReadOnly = true;
             this.textBoxChambre.Size = new System.Drawing.Size(177, 22);
             this.textBoxChambre.TabIndex = 4;
             // 
-            // textBoxIdentifiant
+            // textBoxNom
             // 
-            this.textBoxIdentifiant.Location = new System.Drawing.Point(463, 166);
-            this.textBoxIdentifiant.Name = "textBoxIdentifiant";
-            this.textBoxIdentifiant.Size = new System.Drawing.Size(177, 22);
-            this.textBoxIdentifiant.TabIndex = 5;
+            this.textBoxNom.Location = new System.Drawing.Point(464, 93);
+            this.textBoxNom.Name = "textBoxNom";
+            this.textBoxNom.Size = new System.Drawing.Size(177, 22);
+            this.textBoxNom.TabIndex = 5;
+            this.textBoxNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIdentifiant_KeyPress);
             // 
             // textBoxDebutSejour
             // 
-            this.textBoxDebutSejour.Location = new System.Drawing.Point(463, 210);
+            this.textBoxDebutSejour.Location = new System.Drawing.Point(464, 191);
             this.textBoxDebutSejour.Name = "textBoxDebutSejour";
             this.textBoxDebutSejour.Size = new System.Drawing.Size(177, 22);
             this.textBoxDebutSejour.TabIndex = 6;
+            this.textBoxDebutSejour.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDebutSejour_KeyPress);
             // 
             // textBoxFinSejour
             // 
-            this.textBoxFinSejour.Location = new System.Drawing.Point(463, 254);
+            this.textBoxFinSejour.Location = new System.Drawing.Point(464, 235);
             this.textBoxFinSejour.Name = "textBoxFinSejour";
             this.textBoxFinSejour.Size = new System.Drawing.Size(177, 22);
             this.textBoxFinSejour.TabIndex = 7;
+            this.textBoxFinSejour.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFinSejour_KeyPress);
             // 
             // comboBoxIdentifiant
             // 
             this.comboBoxIdentifiant.FormattingEnabled = true;
-            this.comboBoxIdentifiant.Location = new System.Drawing.Point(681, 166);
+            this.comboBoxIdentifiant.Location = new System.Drawing.Point(464, 140);
             this.comboBoxIdentifiant.Name = "comboBoxIdentifiant";
-            this.comboBoxIdentifiant.Size = new System.Drawing.Size(198, 24);
+            this.comboBoxIdentifiant.Size = new System.Drawing.Size(269, 24);
             this.comboBoxIdentifiant.TabIndex = 8;
             // 
             // buttonAssigner
             // 
-            this.buttonAssigner.Location = new System.Drawing.Point(340, 314);
+            this.buttonAssigner.Location = new System.Drawing.Point(341, 378);
             this.buttonAssigner.Name = "buttonAssigner";
             this.buttonAssigner.Size = new System.Drawing.Size(170, 49);
             this.buttonAssigner.TabIndex = 9;
@@ -123,16 +142,94 @@
             this.buttonAssigner.UseVisualStyleBackColor = true;
             this.buttonAssigner.Click += new System.EventHandler(this.buttonAssigner_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(338, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 17);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Identifiant :";
+            // 
+            // viewResidentBindingSource1
+            // 
+            this.viewResidentBindingSource1.DataMember = "ViewResident";
+            this.viewResidentBindingSource1.DataSource = this.gestionResidenceDataSet1;
+            // 
+            // gestionResidenceDataSet1
+            // 
+            this.gestionResidenceDataSet1.DataSetName = "GestionResidenceDataSet1";
+            this.gestionResidenceDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gestionResidenceDataSet
+            // 
+            this.gestionResidenceDataSet.DataSetName = "GestionResidenceDataSet";
+            this.gestionResidenceDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // viewResidentBindingSource
+            // 
+            this.viewResidentBindingSource.DataMember = "ViewResident";
+            this.viewResidentBindingSource.DataSource = this.gestionResidenceDataSet;
+            // 
+            // viewResidentTableAdapter
+            // 
+            this.viewResidentTableAdapter.ClearBeforeFill = true;
+            // 
+            // viewResidentTableAdapter1
+            // 
+            this.viewResidentTableAdapter1.ClearBeforeFill = true;
+            // 
+            // checkBoxPetitDejeune
+            // 
+            this.checkBoxPetitDejeune.AutoSize = true;
+            this.checkBoxPetitDejeune.Location = new System.Drawing.Point(464, 281);
+            this.checkBoxPetitDejeune.Name = "checkBoxPetitDejeune";
+            this.checkBoxPetitDejeune.Size = new System.Drawing.Size(18, 17);
+            this.checkBoxPetitDejeune.TabIndex = 11;
+            this.checkBoxPetitDejeune.UseVisualStyleBackColor = true;
+            this.checkBoxPetitDejeune.CheckedChanged += new System.EventHandler(this.checkBoxPetitDejeune_CheckedChanged);
+            // 
+            // comboBoxFormule
+            // 
+            this.comboBoxFormule.FormattingEnabled = true;
+            this.comboBoxFormule.Location = new System.Drawing.Point(464, 321);
+            this.comboBoxFormule.Name = "comboBoxFormule";
+            this.comboBoxFormule.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxFormule.TabIndex = 12;
+            // 
+            // labelSupplement
+            // 
+            this.labelSupplement.AutoSize = true;
+            this.labelSupplement.Location = new System.Drawing.Point(338, 282);
+            this.labelSupplement.Name = "labelSupplement";
+            this.labelSupplement.Size = new System.Drawing.Size(106, 17);
+            this.labelSupplement.TabIndex = 13;
+            this.labelSupplement.Text = "Petit Déjeuner :";
+            // 
+            // labelFormule
+            // 
+            this.labelFormule.AutoSize = true;
+            this.labelFormule.Location = new System.Drawing.Point(338, 324);
+            this.labelFormule.Name = "labelFormule";
+            this.labelFormule.Size = new System.Drawing.Size(67, 17);
+            this.labelFormule.TabIndex = 14;
+            this.labelFormule.Text = "Formule :";
+            // 
             // ModifierChambre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 427);
+            this.ClientSize = new System.Drawing.Size(1070, 476);
+            this.Controls.Add(this.labelFormule);
+            this.Controls.Add(this.labelSupplement);
+            this.Controls.Add(this.comboBoxFormule);
+            this.Controls.Add(this.checkBoxPetitDejeune);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonAssigner);
             this.Controls.Add(this.comboBoxIdentifiant);
             this.Controls.Add(this.textBoxFinSejour);
             this.Controls.Add(this.textBoxDebutSejour);
-            this.Controls.Add(this.textBoxIdentifiant);
+            this.Controls.Add(this.textBoxNom);
             this.Controls.Add(this.textBoxChambre);
             this.Controls.Add(this.labelFinSejour);
             this.Controls.Add(this.labelDebutSejour);
@@ -141,6 +238,10 @@
             this.Name = "ModifierChambre";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.ModifierChambre_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewResidentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,10 +254,21 @@
         private System.Windows.Forms.Label labelDebutSejour;
         private System.Windows.Forms.Label labelFinSejour;
         private System.Windows.Forms.TextBox textBoxChambre;
-        private System.Windows.Forms.TextBox textBoxIdentifiant;
+        private System.Windows.Forms.TextBox textBoxNom;
         private System.Windows.Forms.TextBox textBoxDebutSejour;
         private System.Windows.Forms.TextBox textBoxFinSejour;
         private System.Windows.Forms.ComboBox comboBoxIdentifiant;
         private System.Windows.Forms.Button buttonAssigner;
+        private System.Windows.Forms.Label label1;
+        private GestionResidenceDataSet gestionResidenceDataSet;
+        private System.Windows.Forms.BindingSource viewResidentBindingSource;
+        private GestionResidenceDataSetTableAdapters.ViewResidentTableAdapter viewResidentTableAdapter;
+        private GestionResidenceDataSet1 gestionResidenceDataSet1;
+        private System.Windows.Forms.BindingSource viewResidentBindingSource1;
+        private GestionResidenceDataSet1TableAdapters.ViewResidentTableAdapter viewResidentTableAdapter1;
+        private System.Windows.Forms.CheckBox checkBoxPetitDejeune;
+        private System.Windows.Forms.ComboBox comboBoxFormule;
+        private System.Windows.Forms.Label labelSupplement;
+        private System.Windows.Forms.Label labelFormule;
     }
 }

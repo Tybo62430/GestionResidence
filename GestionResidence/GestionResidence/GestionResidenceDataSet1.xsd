@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GestionResidenceDataSet1" targetNamespace="http://tempuri.org/GestionResidenceDataSet1.xsd" xmlns:mstns="http://tempuri.org/GestionResidenceDataSet1.xsd" xmlns="http://tempuri.org/GestionResidenceDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionResidence.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ViewResidentTableAdapter" GeneratorDataComponentClassName="ViewResidentTableAdapter" Name="ViewResident" UserDataComponentName="ViewResidentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GestionResidence.dbo.ViewResident" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ResidentId, identite FROM dbo.ViewResident</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ResidentId" DataSetColumn="ResidentId" />
+              <Mapping SourceColumn="identite" DataSetColumn="identite" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GestionResidenceDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GestionResidenceDataSet1" msprop:Generator_UserDSName="GestionResidenceDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ViewResident" msprop:Generator_TableClassName="ViewResidentDataTable" msprop:Generator_TableVarName="tableViewResident" msprop:Generator_TablePropName="ViewResident" msprop:Generator_RowDeletingName="ViewResidentRowDeleting" msprop:Generator_RowChangingName="ViewResidentRowChanging" msprop:Generator_RowEvHandlerName="ViewResidentRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewResidentRowDeleted" msprop:Generator_UserTableName="ViewResident" msprop:Generator_RowChangedName="ViewResidentRowChanged" msprop:Generator_RowEvArgName="ViewResidentRowChangeEvent" msprop:Generator_RowClassName="ViewResidentRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ResidentId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnResidentId" msprop:Generator_ColumnPropNameInRow="ResidentId" msprop:Generator_ColumnPropNameInTable="ResidentIdColumn" msprop:Generator_UserColumnName="ResidentId" type="xs:int" />
+              <xs:element name="identite" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnidentite" msprop:Generator_ColumnPropNameInRow="identite" msprop:Generator_ColumnPropNameInTable="identiteColumn" msprop:Generator_UserColumnName="identite" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="133" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
