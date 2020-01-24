@@ -58,6 +58,16 @@
     <Compile Include="CreationResident.Designer.cs">
       <DependentUpon>CreationResident.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionResidenceDataSetDateArrivee.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionResidenceDataSetDateArrivee.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionResidenceDataSetDateDepart.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionResidenceDataSetDateDepart.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GestionResidenceDataSetListeChambres.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,6 +131,28 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="GestionResidenceDataSetDateArrivee.xsc">
+      <DependentUpon>GestionResidenceDataSetDateArrivee.xsd</DependentUpon>
+    </None>
+    <None Include="GestionResidenceDataSetDateArrivee.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionResidenceDataSetDateArrivee.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionResidenceDataSetDateArrivee.xss">
+      <DependentUpon>GestionResidenceDataSetDateArrivee.xsd</DependentUpon>
+    </None>
+    <None Include="GestionResidenceDataSetDateDepart.xsc">
+      <DependentUpon>GestionResidenceDataSetDateDepart.xsd</DependentUpon>
+    </None>
+    <None Include="GestionResidenceDataSetDateDepart.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionResidenceDataSetDateDepart.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionResidenceDataSetDateDepart.xss">
+      <DependentUpon>GestionResidenceDataSetDateDepart.xsd</DependentUpon>
+    </None>
     <None Include="GestionResidenceDataSetListeChambres.xsc">
       <DependentUpon>GestionResidenceDataSetListeChambres.xsd</DependentUpon>
     </None>

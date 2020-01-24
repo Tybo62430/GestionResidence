@@ -109,6 +109,10 @@ namespace GestionResidence
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            // TODO: cette ligne de code charge les données dans la table 'gestionResidenceDataSetDateDepart.VueChambreDepart'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.vueChambreDepartTableAdapter.Fill(this.gestionResidenceDataSetDateDepart.VueChambreDepart);
+            // TODO: cette ligne de code charge les données dans la table 'gestionResidenceDataSetDateArrivee.VueChambreArrivée'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.vueChambreArrivéeTableAdapter.Fill(this.gestionResidenceDataSetDateArrivee.VueChambreArrivée);
             //Connexion NouvelleConnection = new Connexion();
             //NouvelleConnection.ShowDialog();
             CalculpetitDej();
