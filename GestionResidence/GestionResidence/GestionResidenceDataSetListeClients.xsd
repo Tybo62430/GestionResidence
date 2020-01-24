@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="GestionResidenceDataListeResident" targetNamespace="http://tempuri.org/GestionResidenceDataListeResident.xsd" xmlns:mstns="http://tempuri.org/GestionResidenceDataListeResident.xsd" xmlns="http://tempuri.org/GestionResidenceDataListeResident.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="GestionResidenceDataSetListeClients" targetNamespace="http://tempuri.org/GestionResidenceDataSetListeClients.xsd" xmlns:mstns="http://tempuri.org/GestionResidenceDataSetListeClients.xsd" xmlns="http://tempuri.org/GestionResidenceDataSetListeClients.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="GestionResidenceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GestionResidenceConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionResidence.Properties.Settings.GlobalReference.Default.GestionResidenceConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionResidence.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VueClientsTableAdapter" GeneratorDataComponentClassName="VueClientsTableAdapter" Name="VueClients" UserDataComponentName="VueClientsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="GestionResidenceConnectionString (Settings)" DbObjectName="GestionResidence.dbo.VueClients" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GestionResidence.dbo.VueClients" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT ResidentIdentifiant, ResidentNom, ResidentPrenom, ChambreIdentifiant, FormuleDescriptif, PeriodeLocationDateDebut, PeriodeLocationDateFin FROM dbo.VueClients</CommandText>
@@ -34,7 +34,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="GestionResidenceDataListeResident" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GestionResidenceDataListeResident" msprop:Generator_UserDSName="GestionResidenceDataListeResident">
+  <xs:element name="GestionResidenceDataSetListeClients" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GestionResidenceDataSetListeClients" msprop:Generator_UserDSName="GestionResidenceDataSetListeClients">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="VueClients" msprop:Generator_TableClassName="VueClientsDataTable" msprop:Generator_TableVarName="tableVueClients" msprop:Generator_TablePropName="VueClients" msprop:Generator_RowDeletingName="VueClientsRowDeleting" msprop:Generator_RowChangingName="VueClientsRowChanging" msprop:Generator_RowEvHandlerName="VueClientsRowChangeEventHandler" msprop:Generator_RowDeletedName="VueClientsRowDeleted" msprop:Generator_UserTableName="VueClients" msprop:Generator_RowChangedName="VueClientsRowChanged" msprop:Generator_RowEvArgName="VueClientsRowChangeEvent" msprop:Generator_RowClassName="VueClientsRow">

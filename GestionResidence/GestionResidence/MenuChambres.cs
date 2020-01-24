@@ -13,19 +13,15 @@ namespace GestionResidence
 {
     public partial class MenuChambres : Form
     {
-
-        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
-        //public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
-
+        public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
         public MenuChambres()
         {
             InitializeComponent();
         }
 
         private void MenuChambres_Load(object sender, EventArgs e)
-        {           
+        {          
             // Efface les lignes où la date de sortie est inférieur à la date d'aujourd'hui (devrait, sur un projet normal, se faire archiver)
-
             try
             {
                 SqlConnection sqlconn = new SqlConnection(sChaineConnect);
@@ -43,9 +39,8 @@ namespace GestionResidence
             {
                 MessageBox.Show("Erreur: " + ex);
             }
-
-            // TODO: cette ligne de code charge les données dans la table 'gestionResidenceDataSetListeChambre.VueChambres2'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            this.vueChambres2TableAdapter.Fill(this.gestionResidenceDataSetListeChambre.VueChambres2);
+            // TODO: cette ligne de code charge les données dans la table 'gestionResidenceDataSetListeChambres.VueChambres2'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.vueChambres2TableAdapter.Fill(this.gestionResidenceDataSetListeChambres.VueChambres2);
         }
 
         private void buttonModifier_Click(object sender, EventArgs e)

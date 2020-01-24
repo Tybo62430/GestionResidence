@@ -13,8 +13,7 @@ namespace GestionResidence
 {
     public partial class ListeDesResidents : Form
     {
-        //public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
-        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
+        public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
         public int ResidentID = 0;
         public ListeDesResidents()
         {
@@ -23,8 +22,9 @@ namespace GestionResidence
 
         private void ListeDesResidents_Load(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'gestionResidenceDataListeResident.VueClients'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            this.vueClientsTableAdapter.Fill(this.gestionResidenceDataListeResident.VueClients);
+            // TODO: cette ligne de code charge les données dans la table 'gestionResidenceDataSetListeClients.VueClients'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.vueClientsTableAdapter.Fill(this.gestionResidenceDataSetListeClients.VueClients);
+
 
         }
 
@@ -101,14 +101,14 @@ namespace GestionResidence
                 MessageBox.Show("Erreur: " + ex);
                 ResidentID = 0;
             }
+            this.vueClientsTableAdapter.Fill(this.gestionResidenceDataSetListeClients.VueClients);
         }
 
         private void buttonSupprimerResident_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(this, "Supprimer Client ?", "SUPPREMIER !!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                SupprimerClient();
-                this.vueClientsTableAdapter.Fill(this.gestionResidenceDataListeResident.VueClients);
+                SupprimerClient();               
             }
         }
     }

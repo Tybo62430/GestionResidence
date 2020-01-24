@@ -19,15 +19,13 @@ namespace GestionResidence
         public int Formule;
         public int Supplement;
         string DonneeCellule;
+        public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
 
         public ModifierChambre(string recupRow)
         {
             InitializeComponent();
             DonneeCellule = recupRow;
         }
-
-        //public string sChaineConnect = "Data Source= .\\SQLEXPRESS;database=GestionResidence;integrated security=SSPI";
-        public string sChaineConnect = "Data Source= DESKTOP-6RAATB3;database=GestionResidence;integrated security=SSPI";
 
         public static bool ValideDate(string date)
         {

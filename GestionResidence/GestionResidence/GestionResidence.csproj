@@ -58,15 +58,15 @@
     <Compile Include="CreationResident.Designer.cs">
       <DependentUpon>CreationResident.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionResidenceDataListeResident.Designer.cs">
+    <Compile Include="GestionResidenceDataSetListeChambres.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionResidenceDataListeResident.xsd</DependentUpon>
+      <DependentUpon>GestionResidenceDataSetListeChambres.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GestionResidenceDataSetListeChambre.Designer.cs">
+    <Compile Include="GestionResidenceDataSetListeClients.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionResidenceDataSetListeChambre.xsd</DependentUpon>
+      <DependentUpon>GestionResidenceDataSetListeClients.xsd</DependentUpon>
     </Compile>
     <Compile Include="ListeDesResidents.cs">
       <SubType>Form</SubType>
@@ -121,27 +121,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="GestionResidenceDataListeResident.xsc">
-      <DependentUpon>GestionResidenceDataListeResident.xsd</DependentUpon>
+    <None Include="GestionResidenceDataSetListeChambres.xsc">
+      <DependentUpon>GestionResidenceDataSetListeChambres.xsd</DependentUpon>
     </None>
-    <None Include="GestionResidenceDataListeResident.xsd">
+    <None Include="GestionResidenceDataSetListeChambres.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionResidenceDataListeResident.Designer.cs</LastGenOutput>
+      <LastGenOutput>GestionResidenceDataSetListeChambres.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GestionResidenceDataListeResident.xss">
-      <DependentUpon>GestionResidenceDataListeResident.xsd</DependentUpon>
+    <None Include="GestionResidenceDataSetListeChambres.xss">
+      <DependentUpon>GestionResidenceDataSetListeChambres.xsd</DependentUpon>
     </None>
-    <None Include="GestionResidenceDataSetListeChambre.xsc">
-      <DependentUpon>GestionResidenceDataSetListeChambre.xsd</DependentUpon>
+    <None Include="GestionResidenceDataSetListeClients.xsc">
+      <DependentUpon>GestionResidenceDataSetListeClients.xsd</DependentUpon>
     </None>
-    <None Include="GestionResidenceDataSetListeChambre.xsd">
+    <None Include="GestionResidenceDataSetListeClients.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionResidenceDataSetListeChambre.Designer.cs</LastGenOutput>
+      <LastGenOutput>GestionResidenceDataSetListeClients.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GestionResidenceDataSetListeChambre.xss">
-      <DependentUpon>GestionResidenceDataSetListeChambre.xsd</DependentUpon>
+    <None Include="GestionResidenceDataSetListeClients.xss">
+      <DependentUpon>GestionResidenceDataSetListeClients.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
