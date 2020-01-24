@@ -79,18 +79,20 @@ namespace GestionResidence
         public void SupprimerClient()
         {
             string recupRow = dataGridViewClients.CurrentRow.Cells[0].Value.ToString();
+            RechercheResidentIdByResidentIdentifiant();
+            //MessageBox.Show(Convert.ToString(ResidentID));
             try
             {
                 SqlConnection sqlconn = new SqlConnection(sChaineConnect);
                 SqlCommand cmd;
                 string sSQL;
-                sSQL = "DELETE FROM Resident WHERE ResidentIdentifiant = @ResidentIdentifiant";
+                sSQL = "DELETE FROM Resident WHERE ResidentID = @ResidentID ; DELETE FROM Location WHERE Resident_ResidentId = @ResidentID";
                 cmd = new SqlCommand(sSQL, sqlconn);
                 cmd.CommandType = CommandType.Text;
                 // Add Parameters to Command Parameters collection
-                cmd.Parameters.Add("@ResidentIdentifiant", SqlDbType.NVarChar, 100);
+                cmd.Parameters.Add("@ResidentID", SqlDbType.Int, 100);
                 //On affecte les valeurs
-                cmd.Parameters["@ResidentIdentifiant"].Value = recupRow;
+                cmd.Parameters["@ResidentID"].Value = ResidentID;
                 SqlDataReader DataRead;
                 sqlconn.Open();
                 DataRead = cmd.ExecuteReader();

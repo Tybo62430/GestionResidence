@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewChambres = new System.Windows.Forms.DataGridView();
-            this.vueChambres2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.vueChambres2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonModifier = new System.Windows.Forms.Button();
-            this.vueChambresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gestionResidenceDataSetListeChambres = new GestionResidence.GestionResidenceDataSetListeChambres();
-            this.vueChambres2BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.vueChambres2TableAdapter = new GestionResidence.GestionResidenceDataSetListeChambresTableAdapters.VueChambres2TableAdapter();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,12 +38,20 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vueChambres2BindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.gestionResidenceDataSetListeChambres = new GestionResidence.GestionResidenceDataSetListeChambres();
+            this.vueChambres2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.vueChambres2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonModifier = new System.Windows.Forms.Button();
+            this.vueChambresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vueChambres2TableAdapter = new GestionResidence.GestionResidenceDataSetListeChambresTableAdapters.VueChambres2TableAdapter();
+            this.buttonRafraichir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChambres)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSetListeChambres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueChambresBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSetListeChambres)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewChambres
@@ -78,38 +79,6 @@
             this.dataGridViewChambres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewChambres.Size = new System.Drawing.Size(1358, 281);
             this.dataGridViewChambres.TabIndex = 0;
-            // 
-            // vueChambres2BindingSource
-            // 
-            this.vueChambres2BindingSource.DataMember = "VueChambres2";
-            // 
-            // buttonModifier
-            // 
-            this.buttonModifier.Location = new System.Drawing.Point(12, 356);
-            this.buttonModifier.Name = "buttonModifier";
-            this.buttonModifier.Size = new System.Drawing.Size(229, 76);
-            this.buttonModifier.TabIndex = 1;
-            this.buttonModifier.Text = "Modifier";
-            this.buttonModifier.UseVisualStyleBackColor = true;
-            this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
-            // 
-            // vueChambresBindingSource
-            // 
-            this.vueChambresBindingSource.DataMember = "VueChambres";
-            // 
-            // gestionResidenceDataSetListeChambres
-            // 
-            this.gestionResidenceDataSetListeChambres.DataSetName = "GestionResidenceDataSetListeChambres";
-            this.gestionResidenceDataSetListeChambres.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vueChambres2BindingSource2
-            // 
-            this.vueChambres2BindingSource2.DataMember = "VueChambres2";
-            this.vueChambres2BindingSource2.DataSource = this.gestionResidenceDataSetListeChambres;
-            // 
-            // vueChambres2TableAdapter
-            // 
-            this.vueChambres2TableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -167,22 +136,65 @@
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
+            // vueChambres2BindingSource2
+            // 
+            this.vueChambres2BindingSource2.DataMember = "VueChambres2";
+            this.vueChambres2BindingSource2.DataSource = this.gestionResidenceDataSetListeChambres;
+            // 
+            // gestionResidenceDataSetListeChambres
+            // 
+            this.gestionResidenceDataSetListeChambres.DataSetName = "GestionResidenceDataSetListeChambres";
+            this.gestionResidenceDataSetListeChambres.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vueChambres2BindingSource
+            // 
+            this.vueChambres2BindingSource.DataMember = "VueChambres2";
+            // 
+            // buttonModifier
+            // 
+            this.buttonModifier.Location = new System.Drawing.Point(12, 356);
+            this.buttonModifier.Name = "buttonModifier";
+            this.buttonModifier.Size = new System.Drawing.Size(229, 76);
+            this.buttonModifier.TabIndex = 1;
+            this.buttonModifier.Text = "Modifier";
+            this.buttonModifier.UseVisualStyleBackColor = true;
+            this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
+            // 
+            // vueChambresBindingSource
+            // 
+            this.vueChambresBindingSource.DataMember = "VueChambres";
+            // 
+            // vueChambres2TableAdapter
+            // 
+            this.vueChambres2TableAdapter.ClearBeforeFill = true;
+            // 
+            // buttonRafraichir
+            // 
+            this.buttonRafraichir.Location = new System.Drawing.Point(349, 356);
+            this.buttonRafraichir.Name = "buttonRafraichir";
+            this.buttonRafraichir.Size = new System.Drawing.Size(212, 76);
+            this.buttonRafraichir.TabIndex = 2;
+            this.buttonRafraichir.Text = "Rafraichir";
+            this.buttonRafraichir.UseVisualStyleBackColor = true;
+            this.buttonRafraichir.Click += new System.EventHandler(this.buttonRafraichir_Click);
+            // 
             // MenuChambres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1390, 452);
+            this.Controls.Add(this.buttonRafraichir);
             this.Controls.Add(this.buttonModifier);
             this.Controls.Add(this.dataGridViewChambres);
             this.Name = "MenuChambres";
             this.Text = "MenuChambres";
             this.Load += new System.EventHandler(this.MenuChambres_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChambres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSetListeChambres)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueChambresBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionResidenceDataSetListeChambres)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vueChambres2BindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -204,5 +216,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.Button buttonRafraichir;
     }
 }
