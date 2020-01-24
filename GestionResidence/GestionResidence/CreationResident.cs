@@ -725,7 +725,7 @@ namespace GestionResidence
                     comboBoxCivilite.SelectedIndex = Convert.ToInt32(DataRead["Civilite_CiviliteId"])-1;
                     comboBoxNationalite.SelectedIndex = Convert.ToInt32(DataRead["Nationalite_NationaliteId"])-1;
                     textBoxDateDeNaissance.Text = Convert.ToString(DataRead["ResidentDateDeNaissance"]);
-                    textBoxTelephone.Text = Convert.ToString(DataRead["ResidentTelephone"]);
+                    textBoxTelephone.Text = "+33" + Convert.ToString(DataRead["ResidentTelephone"]).Substring(1);
                     textBoxEmail.Text = Convert.ToString(DataRead["ResidentMail"]);
                     textBoxSecu.Text = Convert.ToString(DataRead["ResidentSecu"]);
                     comboBoxCodePostal.Text = Convert.ToString(DataRead["ResidentCodePostal"]);
