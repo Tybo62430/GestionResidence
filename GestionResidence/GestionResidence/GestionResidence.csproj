@@ -58,15 +58,15 @@
     <Compile Include="CreationResident.Designer.cs">
       <DependentUpon>CreationResident.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionResidenceDataSetArrivees.Designer.cs">
+    <Compile Include="GestionResidenceDataSetDateArrivee.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionResidenceDataSetArrivees.xsd</DependentUpon>
+      <DependentUpon>GestionResidenceDataSetDateArrivee.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GestionResidenceDataSetDepart.Designer.cs">
+    <Compile Include="GestionResidenceDataSetDateDepart.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionResidenceDataSetDepart.xsd</DependentUpon>
+      <DependentUpon>GestionResidenceDataSetDateDepart.xsd</DependentUpon>
     </Compile>
     <Compile Include="GestionResidenceDataSetListeChambres.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -131,27 +131,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="GestionResidenceDataSetArrivees.xsc">
-      <DependentUpon>GestionResidenceDataSetArrivees.xsd</DependentUpon>
+    <None Include="GestionResidenceDataSetDateArrivee.xsc">
+      <DependentUpon>GestionResidenceDataSetDateArrivee.xsd</DependentUpon>
     </None>
-    <None Include="GestionResidenceDataSetArrivees.xsd">
+    <None Include="GestionResidenceDataSetDateArrivee.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionResidenceDataSetArrivees.Designer.cs</LastGenOutput>
+      <LastGenOutput>GestionResidenceDataSetDateArrivee.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GestionResidenceDataSetArrivees.xss">
-      <DependentUpon>GestionResidenceDataSetArrivees.xsd</DependentUpon>
+    <None Include="GestionResidenceDataSetDateArrivee.xss">
+      <DependentUpon>GestionResidenceDataSetDateArrivee.xsd</DependentUpon>
     </None>
-    <None Include="GestionResidenceDataSetDepart.xsc">
-      <DependentUpon>GestionResidenceDataSetDepart.xsd</DependentUpon>
+    <None Include="GestionResidenceDataSetDateDepart.xsc">
+      <DependentUpon>GestionResidenceDataSetDateDepart.xsd</DependentUpon>
     </None>
-    <None Include="GestionResidenceDataSetDepart.xsd">
+    <None Include="GestionResidenceDataSetDateDepart.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionResidenceDataSetDepart.Designer.cs</LastGenOutput>
+      <LastGenOutput>GestionResidenceDataSetDateDepart.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GestionResidenceDataSetDepart.xss">
-      <DependentUpon>GestionResidenceDataSetDepart.xsd</DependentUpon>
+    <None Include="GestionResidenceDataSetDateDepart.xss">
+      <DependentUpon>GestionResidenceDataSetDateDepart.xsd</DependentUpon>
     </None>
     <None Include="GestionResidenceDataSetListeChambres.xsc">
       <DependentUpon>GestionResidenceDataSetListeChambres.xsd</DependentUpon>
