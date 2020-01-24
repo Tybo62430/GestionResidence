@@ -62,10 +62,5 @@ namespace GestionResidence
             }
 
         }
-
-        private void buttonRafraichir_Click(object sender, EventArgs e)
-        {
-            this.vueChambres2TableAdapter.Fill(this.gestionResidenceDataSetListeChambres.VueChambres2);
-        }
     }
 }

@@ -641,8 +641,7 @@ namespace GestionResidence
             thisConnection.Open();
             SqlCommand myCommand = new SqlCommand("UpdateResident", thisConnection);
             myCommand.CommandType = CommandType.StoredProcedure;
-            // Add Parameters to Command Parameters collection    
-            myCommand.Parameters.Add("@ResidentId", SqlDbType.VarChar, 30);
+            // Add Parameters to Command Parameters collection            
             myCommand.Parameters.Add("@ResidentIdentifiant", SqlDbType.VarChar, 30);
             myCommand.Parameters.Add("@ResidentNom", SqlDbType.VarChar, 30);
             myCommand.Parameters.Add("@ResidentPrenom", SqlDbType.VarChar, 50);
@@ -659,8 +658,7 @@ namespace GestionResidence
             myCommand.Parameters.Add("@ResidentPhoto", SqlDbType.VarChar, 100);            
             myCommand.Parameters.Add("@Civilite_CiviliteId", SqlDbType.Int);
             myCommand.Parameters.Add("@Nationalite_NationaliteId", SqlDbType.Int);
-            // Affectation des valeurs 
-            myCommand.Parameters["@ResidentId"].Value = ResidentId;
+            // Affectation des valeurs            
             myCommand.Parameters["@ResidentIdentifiant"].Value = IdGenerator(textBoxNom.Text, textBoxPrenom.Text, textBoxTelephone.Text.ToString());
             myCommand.Parameters["@ResidentNom"].Value = textBoxNom.Text;
             myCommand.Parameters["@ResidentPrenom"].Value = textBoxPrenom.Text;
