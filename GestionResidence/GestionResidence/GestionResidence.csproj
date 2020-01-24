@@ -58,16 +58,6 @@
     <Compile Include="CreationResident.Designer.cs">
       <DependentUpon>CreationResident.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionResidenceDataSetArrivees.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionResidenceDataSetArrivees.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="GestionResidenceDataSetDepart.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionResidenceDataSetDepart.xsd</DependentUpon>
-    </Compile>
     <Compile Include="GestionResidenceDataSetListeChambres.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,28 +121,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="GestionResidenceDataSetArrivees.xsc">
-      <DependentUpon>GestionResidenceDataSetArrivees.xsd</DependentUpon>
-    </None>
-    <None Include="GestionResidenceDataSetArrivees.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionResidenceDataSetArrivees.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionResidenceDataSetArrivees.xss">
-      <DependentUpon>GestionResidenceDataSetArrivees.xsd</DependentUpon>
-    </None>
-    <None Include="GestionResidenceDataSetDepart.xsc">
-      <DependentUpon>GestionResidenceDataSetDepart.xsd</DependentUpon>
-    </None>
-    <None Include="GestionResidenceDataSetDepart.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionResidenceDataSetDepart.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionResidenceDataSetDepart.xss">
-      <DependentUpon>GestionResidenceDataSetDepart.xsd</DependentUpon>
-    </None>
     <None Include="GestionResidenceDataSetListeChambres.xsc">
       <DependentUpon>GestionResidenceDataSetListeChambres.xsd</DependentUpon>
     </None>

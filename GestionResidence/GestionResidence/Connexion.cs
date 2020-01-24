@@ -52,9 +52,8 @@ namespace GestionResidence
                 while (DataRead.Read())
                 {
                     
-                    trouve = true;
-                    Menu Menu = new Menu();
-                    Menu.ShowDialog();
+                    trouve = true;                    
+                   
                 }
                 if (trouve)
                 {
@@ -74,5 +73,7 @@ namespace GestionResidence
             }
 
         }
+
+        
     }
 }
