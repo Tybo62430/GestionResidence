@@ -38,43 +38,45 @@
             // labelIdentifiant
             // 
             this.labelIdentifiant.AutoSize = true;
-            this.labelIdentifiant.Location = new System.Drawing.Point(288, 220);
+            this.labelIdentifiant.Location = new System.Drawing.Point(252, 234);
             this.labelIdentifiant.Name = "labelIdentifiant";
-            this.labelIdentifiant.Size = new System.Drawing.Size(77, 17);
+            this.labelIdentifiant.Size = new System.Drawing.Size(78, 19);
             this.labelIdentifiant.TabIndex = 0;
             this.labelIdentifiant.Text = "Identifiant :";
             // 
             // textBoxIdentifiant
             // 
-            this.textBoxIdentifiant.Location = new System.Drawing.Point(404, 217);
+            this.textBoxIdentifiant.BackColor = System.Drawing.Color.White;
+            this.textBoxIdentifiant.Location = new System.Drawing.Point(354, 230);
             this.textBoxIdentifiant.Name = "textBoxIdentifiant";
-            this.textBoxIdentifiant.Size = new System.Drawing.Size(139, 22);
+            this.textBoxIdentifiant.Size = new System.Drawing.Size(122, 25);
             this.textBoxIdentifiant.TabIndex = 1;
             this.textBoxIdentifiant.Leave += new System.EventHandler(this.textBoxIdentifiant_Leave);
             // 
             // textBoxMotdepasse
             // 
-            this.textBoxMotdepasse.Location = new System.Drawing.Point(404, 287);
+            this.textBoxMotdepasse.BackColor = System.Drawing.Color.White;
+            this.textBoxMotdepasse.Location = new System.Drawing.Point(354, 305);
             this.textBoxMotdepasse.Name = "textBoxMotdepasse";
             this.textBoxMotdepasse.PasswordChar = '*';
-            this.textBoxMotdepasse.Size = new System.Drawing.Size(139, 22);
+            this.textBoxMotdepasse.Size = new System.Drawing.Size(122, 25);
             this.textBoxMotdepasse.TabIndex = 2;
             this.textBoxMotdepasse.Leave += new System.EventHandler(this.textBoxMotdepasse_Leave);
             // 
             // labelMotDePasse
             // 
             this.labelMotDePasse.AutoSize = true;
-            this.labelMotDePasse.Location = new System.Drawing.Point(288, 290);
+            this.labelMotDePasse.Location = new System.Drawing.Point(252, 308);
             this.labelMotDePasse.Name = "labelMotDePasse";
-            this.labelMotDePasse.Size = new System.Drawing.Size(101, 17);
+            this.labelMotDePasse.Size = new System.Drawing.Size(99, 19);
             this.labelMotDePasse.TabIndex = 0;
             this.labelMotDePasse.Text = "Mot de passe :";
             // 
             // buttonValider
             // 
-            this.buttonValider.Location = new System.Drawing.Point(364, 348);
+            this.buttonValider.Location = new System.Drawing.Point(318, 370);
             this.buttonValider.Name = "buttonValider";
-            this.buttonValider.Size = new System.Drawing.Size(75, 23);
+            this.buttonValider.Size = new System.Drawing.Size(66, 25);
             this.buttonValider.TabIndex = 0;
             this.buttonValider.Text = "Valider";
             this.buttonValider.UseVisualStyleBackColor = true;
@@ -82,14 +84,16 @@
             // 
             // Connexion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 553);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(684, 587);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.textBoxMotdepasse);
             this.Controls.Add(this.labelMotDePasse);
             this.Controls.Add(this.textBoxIdentifiant);
             this.Controls.Add(this.labelIdentifiant);
+            this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Connexion";
             this.ShowInTaskbar = false;

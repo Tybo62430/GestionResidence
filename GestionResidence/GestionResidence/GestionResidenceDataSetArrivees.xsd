@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GestionResidenceDataSetArrivees" targetNamespace="http://tempuri.org/GestionResidenceDataSetArrivees.xsd" xmlns:mstns="http://tempuri.org/GestionResidenceDataSetArrivees.xsd" xmlns="http://tempuri.org/GestionResidenceDataSetArrivees.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionResidence.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VueChambreArrivéeTableAdapter" GeneratorDataComponentClassName="VueChambreArrivéeTableAdapter" Name="VueChambreArrivée" UserDataComponentName="VueChambreArrivéeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="GestionResidence.dbo.VueChambreArrivée" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ChambreIdentifiant, PeriodeLocationDateDebut, ResidentIdentifiant FROM dbo.VueChambreArrivée</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ChambreIdentifiant" DataSetColumn="ChambreIdentifiant" />
+              <Mapping SourceColumn="PeriodeLocationDateDebut" DataSetColumn="PeriodeLocationDateDebut" />
+              <Mapping SourceColumn="ResidentIdentifiant" DataSetColumn="ResidentIdentifiant" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GestionResidenceDataSetArrivees" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GestionResidenceDataSetArrivees" msprop:Generator_UserDSName="GestionResidenceDataSetArrivees">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VueChambreArrivée" msprop:Generator_TableClassName="VueChambreArrivéeDataTable" msprop:Generator_TableVarName="tableVueChambreArrivée" msprop:Generator_TablePropName="VueChambreArrivée" msprop:Generator_RowDeletingName="VueChambreArrivéeRowDeleting" msprop:Generator_RowChangingName="VueChambreArrivéeRowChanging" msprop:Generator_RowEvHandlerName="VueChambreArrivéeRowChangeEventHandler" msprop:Generator_RowDeletedName="VueChambreArrivéeRowDeleted" msprop:Generator_UserTableName="VueChambreArrivée" msprop:Generator_RowChangedName="VueChambreArrivéeRowChanged" msprop:Generator_RowEvArgName="VueChambreArrivéeRowChangeEvent" msprop:Generator_RowClassName="VueChambreArrivéeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ChambreIdentifiant" msprop:Generator_ColumnVarNameInTable="columnChambreIdentifiant" msprop:Generator_ColumnPropNameInRow="ChambreIdentifiant" msprop:Generator_ColumnPropNameInTable="ChambreIdentifiantColumn" msprop:Generator_UserColumnName="ChambreIdentifiant" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PeriodeLocationDateDebut" msprop:Generator_ColumnVarNameInTable="columnPeriodeLocationDateDebut" msprop:Generator_ColumnPropNameInRow="PeriodeLocationDateDebut" msprop:Generator_ColumnPropNameInTable="PeriodeLocationDateDebutColumn" msprop:Generator_UserColumnName="PeriodeLocationDateDebut" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ResidentIdentifiant" msprop:Generator_ColumnVarNameInTable="columnResidentIdentifiant" msprop:Generator_ColumnPropNameInRow="ResidentIdentifiant" msprop:Generator_ColumnPropNameInTable="ResidentIdentifiantColumn" msprop:Generator_UserColumnName="ResidentIdentifiant" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
